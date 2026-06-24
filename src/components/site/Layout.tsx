@@ -2,10 +2,12 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { ScrollCap } from "./ScrollCap";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans antialiased">
+      <ScrollCap />
       <Header />
       <motion.main
         initial={{ opacity: 0, y: 8 }}
