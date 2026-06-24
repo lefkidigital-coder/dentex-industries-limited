@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHero, Reveal } from "@/components/site/Layout";
-import { ShieldCheck, FlaskConical, Cog, Leaf, Recycle, Sparkles } from "lucide-react";
+import { ShieldCheck, FlaskConical, Cog, Leaf, Sparkles } from "lucide-react";
+import { RecyclingLoop } from "@/components/site/RecyclingLoop";
 
 export const Route = createFileRoute("/quality")({
   head: () => ({
@@ -102,7 +103,6 @@ function Quality() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {[
-              { icon: Recycle, t: "Recyclable Materials", d: "We prioritize polymers that can be recycled and reused, supporting a circular economy across our supply chain." },
               { icon: Leaf, t: "Waste Reduction", d: "Our lean manufacturing processes minimize scrap and energy consumption — protecting both margins and the environment." },
             ].map((s, i) => (
               <Reveal key={s.t} delay={i * 0.1}>
@@ -117,6 +117,9 @@ function Quality() {
                 </div>
               </Reveal>
             ))}
+            <Reveal delay={0.05}>
+              <RecyclingLoop />
+            </Reveal>
           </div>
         </div>
       </section>
