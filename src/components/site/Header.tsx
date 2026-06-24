@@ -43,7 +43,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="hidden sm:inline-flex items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-sm hover:brightness-110 transition-all hover:-translate-y-0.5"
+            className="mould-press hidden sm:inline-flex items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-sm"
           >
             Get a Quote
           </Link>

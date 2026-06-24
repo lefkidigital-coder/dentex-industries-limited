@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHero, Reveal } from "@/components/site/Layout";
 import { Target, Eye, Heart, Award } from "lucide-react";
+import { HeritageScrubber } from "@/components/site/HeritageScrubber";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -73,6 +74,11 @@ function About() {
                 <p className="mt-2 font-bold">35+ years of packaging excellence in East Africa.</p>
               </div>
             </div>
+          </Reveal>
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16">
+          <Reveal>
+            <HeritageScrubber />
           </Reveal>
         </div>
       </section>
