@@ -61,6 +61,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-tech-grey: var(--tech-grey);
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --breakpoint-xs: 26rem;
 }
 
 :root {

@@ -62,7 +62,9 @@ export function Header() {
             className="fixed inset-0 z-50 lg:hidden bg-primary text-primary-foreground flex flex-col"
           >
             <div className="flex items-center justify-between h-16 px-6 border-b border-white/10">
-              <span className="font-extrabold tracking-tight">Dentex<span className="text-accent">.</span></span>
+              <span className="grid place-items-center rounded-md bg-white px-2 py-1">
+                <Logo variant="horizontal" className="h-7 w-auto" />
+              </span>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2">
                 <X className="h-6 w-6" />
               </button>
