@@ -60,7 +60,7 @@ function Quality() {
 
       {/* Innovation & R&D */}
       <section className="bg-primary text-primary-foreground py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(0,166,81,0.6), transparent 50%)" }} />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(137,23,40,0.6), transparent 50%)" }} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <div>

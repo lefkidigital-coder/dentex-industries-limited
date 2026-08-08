@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Factory } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "./Logo";
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
   { to: "/products", label: "Our Products" },
+  { to: "/industries", label: "Industries" },
   { to: "/quality", label: "Quality & Innovation" },
   { to: "/contact", label: "Contact Us" },
 ] as const;
@@ -16,14 +18,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-            <Factory className="h-5 w-5" />
-          </span>
-          <span className="font-extrabold text-primary tracking-tight text-lg leading-none">
-            Dentex<span className="text-accent">.</span>
-            <span className="block text-[10px] font-medium uppercase tracking-widest text-muted-foreground">Industries Ltd</span>
-          </span>
+        <Link to="/" className="flex items-center group shrink-0" aria-label="Dentex Industries Limited — home">
+          <Logo variant="horizontal" className="hidden xs:block h-9 sm:h-10 w-auto" />
+          <Logo variant="icon" className="block xs:hidden h-9 w-auto" alt="Dentex Industries Limited" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -66,7 +63,9 @@ export function Header() {
             className="fixed inset-0 z-50 lg:hidden bg-primary text-primary-foreground flex flex-col"
           >
             <div className="flex items-center justify-between h-16 px-6 border-b border-white/10">
-              <span className="font-extrabold tracking-tight">Dentex<span className="text-accent">.</span></span>
+              <span className="grid place-items-center rounded-md bg-white px-2 py-1">
+                <Logo variant="horizontal" className="h-7 w-auto" />
+              </span>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2">
                 <X className="h-6 w-6" />
               </button>

@@ -25,4 +25,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/industries</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/products/pharmaceutical</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/products/food-beverage</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/products/industrial</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/privacy-policy</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/terms-of-service</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

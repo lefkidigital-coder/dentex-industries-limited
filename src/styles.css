@@ -60,37 +60,40 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-tech-grey: var(--tech-grey);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --breakpoint-xs: 26rem;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.18 0.005 264);
+  /* Cream #FCF7F3 */
+  --background: oklch(0.9789 0.0076 61.45);
+  /* Grey #696B70 body copy */
+  --foreground: oklch(0.5277 0.0082 268.49);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.005 264);
+  --card-foreground: oklch(0.5277 0.0082 268.49);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.005 264);
-  /* Dentex deep corporate blue #0A2540 */
-  --primary: oklch(0.252 0.052 256);
+  --popover-foreground: oklch(0.5277 0.0082 268.49);
+  /* Dentex Grey Azure #3F5C78 */
+  --primary: oklch(0.464 0.0574 248.3);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.965 0.002 240);
-  --secondary-foreground: oklch(0.252 0.052 256);
-  --muted: oklch(0.965 0.002 240);
-  --muted-foreground: oklch(0.45 0.01 256);
-  /* Vibrant green #00A651 */
-  --accent: oklch(0.62 0.18 148);
+  --secondary: oklch(0.9507 0.0118 59.56);
+  --secondary-foreground: oklch(0.464 0.0574 248.3);
+  --muted: oklch(0.9507 0.0118 59.56);
+  --muted-foreground: oklch(0.5277 0.0082 268.49);
+  /* Dentex Red #891728 */
+  --accent: oklch(0.4117 0.1474 19.47);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.92 0.005 256);
-  --input: oklch(0.92 0.005 256);
-  --ring: oklch(0.252 0.052 256);
-  --tech-grey: oklch(0.965 0 0);
-  --shadow-elegant: 0 10px 30px -12px oklch(0.252 0.052 256 / 0.15);
-  --shadow-card: 0 4px 16px -6px oklch(0.252 0.052 256 / 0.1);
-  --gradient-hero: linear-gradient(135deg, oklch(0.252 0.052 256 / 0.92), oklch(0.18 0.04 256 / 0.85));
-  --gradient-accent: linear-gradient(135deg, oklch(0.62 0.18 148), oklch(0.55 0.16 152));
+  --border: oklch(0.9033 0.0154 61.33);
+  --input: oklch(0.9033 0.0154 61.33);
+  --ring: oklch(0.4117 0.1474 19.47);
+  --tech-grey: oklch(0.9507 0.0118 59.56);
+  --shadow-elegant: 0 10px 30px -12px oklch(0.464 0.0574 248.3 / 0.18);
+  --shadow-card: 0 4px 16px -6px oklch(0.464 0.0574 248.3 / 0.12);
+  --gradient-hero: linear-gradient(135deg, oklch(0.464 0.0574 248.3 / 0.94), oklch(0.34 0.05 248.3 / 0.88));
+  --gradient-accent: linear-gradient(135deg, oklch(0.4117 0.1474 19.47), oklch(0.3533 0.1245 18.87));
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -179,38 +182,38 @@
   /* Industry tint backgrounds (used by IndustrySelector) */
   .tint-pharma {
     background:
-      radial-gradient(80% 60% at 30% 20%, oklch(0.96 0.04 220 / 0.7), transparent 70%),
-      radial-gradient(60% 70% at 80% 90%, oklch(0.92 0.05 195 / 0.55), transparent 70%),
+      radial-gradient(80% 60% at 30% 20%, oklch(0.9 0.035 248.3 / 0.65), transparent 70%),
+      radial-gradient(60% 70% at 80% 90%, oklch(0.86 0.045 248.3 / 0.45), transparent 70%),
       var(--tech-grey);
   }
   .tint-restaurant {
     background:
-      radial-gradient(80% 60% at 30% 20%, oklch(0.94 0.09 60 / 0.7), transparent 70%),
-      radial-gradient(60% 70% at 80% 90%, oklch(0.9 0.1 40 / 0.55), transparent 70%),
+      radial-gradient(80% 60% at 30% 20%, oklch(0.92 0.045 40 / 0.7), transparent 70%),
+      radial-gradient(60% 70% at 80% 90%, oklch(0.86 0.06 25 / 0.45), transparent 70%),
       var(--tech-grey);
   }
   .tint-icecream {
     background:
-      radial-gradient(80% 60% at 30% 20%, oklch(0.95 0.05 340 / 0.7), transparent 70%),
-      radial-gradient(60% 70% at 80% 90%, oklch(0.92 0.06 250 / 0.5), transparent 70%),
+      radial-gradient(80% 60% at 30% 20%, oklch(0.94 0.03 19.47 / 0.7), transparent 70%),
+      radial-gradient(60% 70% at 80% 90%, oklch(0.9 0.03 248.3 / 0.5), transparent 70%),
       var(--tech-grey);
   }
   .tint-tomato {
     background:
-      radial-gradient(80% 60% at 30% 20%, oklch(0.85 0.18 25 / 0.55), transparent 70%),
-      radial-gradient(60% 70% at 80% 90%, oklch(0.78 0.16 30 / 0.45), transparent 70%),
+      radial-gradient(80% 60% at 30% 20%, oklch(0.84 0.09 19.47 / 0.5), transparent 70%),
+      radial-gradient(60% 70% at 80% 90%, oklch(0.78 0.1 19.47 / 0.35), transparent 70%),
       var(--tech-grey);
   }
   .tint-water {
     background:
-      radial-gradient(80% 60% at 30% 20%, oklch(0.93 0.07 220 / 0.7), transparent 70%),
-      radial-gradient(60% 70% at 80% 90%, oklch(0.9 0.08 200 / 0.55), transparent 70%),
+      radial-gradient(80% 60% at 30% 20%, oklch(0.92 0.05 248.3 / 0.7), transparent 70%),
+      radial-gradient(60% 70% at 80% 90%, oklch(0.88 0.055 240 / 0.5), transparent 70%),
       var(--tech-grey);
   }
   .tint-multinational {
     background:
-      radial-gradient(80% 60% at 30% 20%, oklch(0.92 0.05 256 / 0.6), transparent 70%),
-      radial-gradient(60% 70% at 80% 90%, oklch(0.88 0.07 256 / 0.5), transparent 70%),
+      radial-gradient(80% 60% at 30% 20%, oklch(0.93 0.02 248.3 / 0.6), transparent 70%),
+      radial-gradient(60% 70% at 80% 90%, oklch(0.9 0.025 61.45 / 0.5), transparent 70%),
       var(--tech-grey);
   }
   .tint-shift {

@@ -31,7 +31,7 @@ export function ValueLocks() {
 
   return (
     <section className="bg-primary text-primary-foreground py-24 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, rgba(0,166,81,0.5), transparent 50%)" }} />
+      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, rgba(137,23,40,0.5), transparent 50%)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Values</p>
@@ -60,7 +60,7 @@ export function ValueLocks() {
                         : { y: 0, scale: 1, borderColor: "rgba(255,255,255,0.15)" }
                   }
                   transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                  style={{ background: isLocked ? "rgba(0,166,81,0.12)" : "rgba(255,255,255,0.04)" }}
+                  style={{ background: isLocked ? "rgba(137,23,40,0.14)" : "rgba(255,255,255,0.04)" }}
                   whileHover={{ y: 2 }}
                 >
                   <div className="flex items-center gap-3">
