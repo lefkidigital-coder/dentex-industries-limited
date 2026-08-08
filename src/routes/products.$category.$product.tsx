@@ -65,7 +65,7 @@ function ProductDetail() {
                 <p className="mt-5 text-muted-foreground leading-relaxed">{product.desc}</p>
 
                 <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  {product.highlights.map((h) => (
+                  {product.highlights.map((h: string) => (
                     <li key={h} className="flex gap-2">
                       <span className="text-accent">▸</span>
                       {h}
