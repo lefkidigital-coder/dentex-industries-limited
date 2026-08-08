@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Factory } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "./Logo";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,14 +17,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-            <Factory className="h-5 w-5" />
-          </span>
-          <span className="font-extrabold text-primary tracking-tight text-lg leading-none">
-            Dentex<span className="text-accent">.</span>
-            <span className="block text-[10px] font-medium uppercase tracking-widest text-muted-foreground">Industries Ltd</span>
-          </span>
+        <Link to="/" className="flex items-center group shrink-0" aria-label="Dentex Industries Limited — home">
+          <Logo variant="horizontal" className="hidden xs:block h-9 sm:h-10 w-auto" />
+          <Logo variant="icon" className="block xs:hidden h-9 w-auto" alt="Dentex Industries Limited" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
