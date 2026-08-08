@@ -45,7 +45,7 @@ export function MouldHero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(120deg, rgba(10,37,64,0.95) 0%, rgba(10,37,64,0.78) 60%, rgba(10,37,64,0.55) 100%)",
+            "linear-gradient(120deg, rgba(63,92,120,0.96) 0%, rgba(63,92,120,0.84) 60%, rgba(63,92,120,0.62) 100%)",
         }}
       />
 
@@ -67,7 +67,7 @@ export function MouldHero() {
           className="absolute inset-0 rounded-full"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, rgba(0,166,81,0.32) 0%, rgba(0,166,81,0.10) 35%, transparent 65%)",
+              "radial-gradient(circle at 50% 50%, rgba(137,23,40,0.35) 0%, rgba(137,23,40,0.12) 35%, transparent 65%)",
             filter: "blur(8px)",
           }}
         />
@@ -102,7 +102,7 @@ export function MouldHero() {
                 cx={100 + Math.cos(r) * 48}
                 cy={100 + Math.sin(r) * 48}
                 r="1.2"
-                fill="rgba(0,166,81,0.9)"
+                fill="rgba(137,23,40,0.95)"
               />
             );
           })}
@@ -125,7 +125,7 @@ export function MouldHero() {
             <span className="text-accent">East Africa's</span> Leading Brands
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-primary-foreground/85 max-w-2xl leading-relaxed">
-            For over 35 years, Dentex has been the trusted partner for rigid plastic packaging
+            For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
             solutions — delivering quality, innovation, and integrity.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
