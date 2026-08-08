@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ScrollCap } from "./ScrollCap";
+import { WhatsAppFab } from "./WhatsApp";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -18,6 +19,7 @@ export function Layout({ children }: { children: ReactNode }) {
         {children}
       </motion.main>
       <Footer />
+      <WhatsAppFab />
     </div>
   );
 }
@@ -29,7 +31,7 @@ export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 30%, rgba(0,166,81,0.4), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15), transparent 50%)",
+            "radial-gradient(circle at 20% 30%, rgba(137,23,40,0.45), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15), transparent 50%)",
         }}
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
