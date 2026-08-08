@@ -21,13 +21,6 @@ const mvv = [
   { icon: Heart, title: "Our Values", text: "Integrity, Innovation, Customer Focus, and Quality guide every decision we make." },
 ];
 
-const team = [
-  { name: "Managing Director", role: "Executive Leadership" },
-  { name: "Head of Operations", role: "Manufacturing" },
-  { name: "Quality Director", role: "QA & Compliance" },
-  { name: "Sales Director", role: "Business Development" },
-];
-
 function About() {
   return (
     <Layout>
@@ -114,23 +107,16 @@ function About() {
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">The team behind Dentex.</h2>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.08}>
-                <div className="group">
-                  <div className="aspect-square overflow-hidden rounded-2xl bg-secondary">
-                    <img
-                      src={`https://picsum.photos/seed/team-${i}/500/500`}
-                      alt={t.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <h3 className="mt-4 font-bold text-primary">{t.name}</h3>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.08}>
+            <div className="mt-10 rounded-2xl border border-border/60 bg-card p-8 sm:p-12 shadow-sm">
+              <p className="text-lg font-semibold text-primary">Leadership profiles coming soon.</p>
+              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                Dentex Industries Limited is led by a management team overseeing manufacturing, quality and customer
+                relationships, supported by a workforce of {COMPANY.employeesLabel} employees. Individual profiles will
+                be published here shortly.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
