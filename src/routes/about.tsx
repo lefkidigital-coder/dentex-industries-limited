@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHero, Reveal } from "@/components/site/Layout";
 import { Target, Eye, Heart, Award } from "lucide-react";
 import { HeritageScrubber } from "@/components/site/HeritageScrubber";
+import { COMPANY } from "@/data/company";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
