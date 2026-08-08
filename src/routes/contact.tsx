@@ -79,8 +79,9 @@ function Contact() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10">
           {/* Form */}
+          <div className="lg:col-span-3">
           <Reveal>
-            <div className="lg:col-span-3 bg-card border border-border/60 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div className="bg-card border border-border/60 rounded-2xl p-6 sm:p-8 shadow-sm">
               <h2 className="text-2xl font-extrabold text-primary">Send us a message</h2>
               <p className="mt-1 text-sm text-muted-foreground">We typically respond within one business day.</p>
 
@@ -166,10 +167,12 @@ function Contact() {
               </AnimatePresence>
             </div>
           </Reveal>
+          </div>
 
           {/* Contact info */}
+          <div className="lg:col-span-2">
           <Reveal delay={0.15}>
-            <div className="lg:col-span-2 space-y-4">
+            <div className="space-y-4">
               {[
                 { icon: MapPin, t: "Address", v: COMPANY.address },
                 { icon: Phone, t: "Phone", v: `${COMPANY.phonePrimary} · ${COMPANY.phoneSecondary}` },
@@ -188,6 +191,7 @@ function Contact() {
               ))}
             </div>
           </Reveal>
+          </div>
         </div>
       </section>
 
