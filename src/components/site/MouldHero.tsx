@@ -23,7 +23,7 @@ export function MouldHero() {
         />
         {/* Material → form annotation */}
         <FlowLabel style={{ left: "2%", top: "20%" }} text="From material" align="left" />
-        <FlowLabel style={{ right: "4%", top: "38%" }} text="To form" align="right" />
+        <FlowLabel style={{ right: "9%", top: "30%" }} text="To form" align="right" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
