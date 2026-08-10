@@ -28,8 +28,8 @@ export function MouldHero() {
           }}
         />
         {/* Material → form annotation */}
-        <FlowLabel className="left-[8%] top-[18%]" text="From material" align="left" />
-        <FlowLabel className="right-[6%] top-[46%]" text="To form" align="right" />
+        <FlowLabel style={{ left: "4%", top: "26%" }} text="From material" align="left" />
+        <FlowLabel style={{ right: "8%", top: "44%" }} text="To form" align="right" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
@@ -69,8 +69,8 @@ export function MouldHero() {
                   "linear-gradient(to bottom, var(--hero-deep) 0%, transparent 18%, transparent 82%, var(--hero-deep) 100%)",
               }}
             />
-            <FlowLabel className="left-5 bottom-4" text="From material" align="left" small />
-            <FlowLabel className="right-5 top-4" text="To form" align="right" small />
+            <FlowLabel style={{ left: "1rem", top: "1rem" }} text="From material" align="left" small />
+            <FlowLabel style={{ right: "1rem", bottom: "1rem" }} text="To form" align="right" small />
           </div>
 
           <div className="mt-6 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
@@ -100,12 +100,12 @@ export function MouldHero() {
  */
 function FlowLabel({
   text,
-  className,
+  style,
   align,
   small,
 }: {
   text: string;
-  className?: string;
+  style?: React.CSSProperties;
   align: "left" | "right";
   small?: boolean;
 }) {
@@ -113,8 +113,9 @@ function FlowLabel({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.5 }}
-      className={`pointer-events-none absolute flex items-center gap-2 rounded-full bg-hero-deep/45 px-2.5 py-1 backdrop-blur-[2px] ${align === "right" ? "flex-row-reverse" : ""} ${className ?? ""}`}
+      transition={{ duration: 0.6, delay: 0.35 }}
+      style={style}
+      className={`pointer-events-none absolute flex items-center gap-2 rounded-full bg-hero-deep/45 px-2.5 py-1 backdrop-blur-[2px] ${align === "right" ? "flex-row-reverse" : ""}`}
     >
       <span
         className={`whitespace-nowrap font-semibold uppercase text-primary-foreground/90 tracking-[0.22em] ${small ? "text-[9px]" : "text-[10px]"}`}
