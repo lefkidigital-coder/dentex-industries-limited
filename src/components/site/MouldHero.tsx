@@ -81,14 +81,18 @@ export function MouldHero() {
               className="absolute left-1/2 bottom-0 h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <img
-              src={heroMobileArt}
-              alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
-              width={1080}
-              height={1350}
-              className="relative w-full max-w-[420px] h-[min(62svh,460px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] object-contain object-center drop-shadow-[0_28px_44px_rgba(0,0,0,0.5)] sm:drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
-            />
+            <picture className="relative w-full max-w-[420px] h-[min(62svh,460px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+              <source srcSet={heroMobileArt} media="(max-width: 639px)" />
+              <img
+                src={heroArt}
+                alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
+                width={1350}
+                height={650}
+                className="w-full h-full object-contain object-center drop-shadow-[0_28px_44px_rgba(0,0,0,0.5)] sm:drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
+              />
+            </picture>
           </div>
+
 
 
           <div className="mt-3 sm:mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
