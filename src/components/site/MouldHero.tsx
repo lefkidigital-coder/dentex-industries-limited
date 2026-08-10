@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
@@ -10,9 +11,9 @@ import heroArt from "@/assets/hero-material-to-form.jpg.asset.json";
  */
 export function MouldHero() {
   return (
-    <section className="relative overflow-hidden bg-hero-deep text-primary-foreground">
+    <section className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
       {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[66%]">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[60%]">
         <img
           src={heroArt.url}
           alt="Plastic pellets flowing into finished Dentex packaging — a PET bottle, pharmaceutical bottle, jar, tub and red closure on a marble pedestal"
@@ -27,10 +28,13 @@ export function MouldHero() {
               "linear-gradient(to right, var(--hero-deep) 0%, color-mix(in oklab, var(--hero-deep) 70%, transparent) 22%, transparent 48%)",
           }}
         />
+        {/* Material → form annotation */}
+        <FlowLabel style={{ left: "4%", top: "26%" }} text="From material" align="left" />
+        <FlowLabel style={{ right: "8%", top: "44%" }} text="To form" align="right" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 lg:min-h-[640px]">
-        <div className="lg:max-w-[46%]">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
+        <div className="lg:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,24 +44,24 @@ export function MouldHero() {
               <span className="h-2 w-2 rounded-full bg-accent" />
               Established 1986 · Nairobi, Kenya
             </p>
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.04]">
+            <h1 className="mt-4 text-[clamp(1.65rem,5.2vw,3.6rem)] font-extrabold tracking-tight leading-[1.08]">
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-6 text-lg text-primary-foreground/95 max-w-xl leading-relaxed">
+            <p className="mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-relaxed">
               For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
               solutions — delivering quality, innovation, and integrity.
             </p>
           </motion.div>
 
           {/* Mobile / tablet artwork — same composition, scaled */}
-          <div className="lg:hidden -mx-4 sm:-mx-6 mt-8 relative">
+          <div className="lg:hidden -mx-4 sm:-mx-6 mt-4 relative">
             <img
               src={heroArt.url}
               alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
               width={1600}
               height={1200}
-              className="w-full h-[240px] xs:h-[280px] sm:h-[380px] object-cover object-center"
+              className="w-full h-[min(24svh,190px)] sm:h-[min(32svh,300px)] object-cover object-center"
             />
             <div
               className="absolute inset-0"
@@ -66,19 +70,21 @@ export function MouldHero() {
                   "linear-gradient(to bottom, var(--hero-deep) 0%, transparent 18%, transparent 82%, var(--hero-deep) 100%)",
               }}
             />
+            <FlowLabel style={{ left: "1rem", top: "1rem" }} text="From material" align="left" small />
+            <FlowLabel style={{ right: "1rem", bottom: "1rem" }} text="To form" align="right" small />
           </div>
 
-          <div className="mt-8 lg:mt-10 flex flex-wrap gap-4">
+          <div className="mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
             <Link
               to="/products"
-              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-base font-semibold text-accent-foreground shadow-lg"
+              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
             >
               Explore Our Capabilities
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-6 py-3 text-base font-semibold text-primary-foreground"
+              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
             >
               Contact Sales
             </Link>
@@ -86,5 +92,42 @@ export function MouldHero() {
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Subtle dotted annotation used to label the material-to-form flow inside the
+ * hero artwork. Pure HTML/CSS so the labels stay selectable and translatable.
+ */
+function FlowLabel({
+  text,
+  style,
+  align,
+  small,
+}: {
+  text: string;
+  style?: CSSProperties;
+  align: "left" | "right";
+  small?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.35 }}
+      style={style}
+      className={`pointer-events-none absolute flex items-center gap-2 rounded-full bg-hero-deep/45 px-2.5 py-1 backdrop-blur-[2px] ${align === "right" ? "flex-row-reverse" : ""}`}
+    >
+      <span
+        className={`whitespace-nowrap font-semibold uppercase text-primary-foreground/90 tracking-[0.22em] ${small ? "text-[9px]" : "text-[10px]"}`}
+      >
+        {text}
+      </span>
+      <span
+        aria-hidden
+        className={`block border-t border-dashed border-primary-foreground/40 ${small ? "w-8" : "w-14"}`}
+      />
+      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+    </motion.div>
   );
 }
