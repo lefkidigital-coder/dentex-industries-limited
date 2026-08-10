@@ -64,11 +64,11 @@ export function MouldHero() {
               <span className="h-2 w-2 rounded-full bg-accent" />
               Established 1986 · Nairobi, Kenya
             </p>
-            <h1 className="mt-1 sm:mt-4 text-[clamp(1.75rem,5.8vw,3.6rem)] font-extrabold tracking-tight leading-[1.06]">
+            <h1 className="mt-1 sm:mt-4 text-[clamp(1.55rem,5.2vw,3.6rem)] font-extrabold tracking-tight leading-[1.05]">
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-1 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-snug sm:leading-relaxed">
+            <p className="mt-1 sm:mt-3 text-[13px] sm:text-lg text-primary-foreground/95 max-w-xl leading-snug sm:leading-relaxed">
               For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
               solutions — delivering quality, innovation, and integrity.
             </p>
@@ -81,7 +81,7 @@ export function MouldHero() {
               className="absolute left-1/2 bottom-0 h-16 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-[480px] h-[min(50svh,380px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+            <picture className="relative w-full max-w-[480px] h-[min(46svh,360px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
               <source srcSet={heroMobileArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
@@ -97,14 +97,14 @@ export function MouldHero() {
 
             <Link
               to="/products"
-              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
+              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-3 py-1.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
             >
               Explore Our Capabilities
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
+              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-3 py-1.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
             >
               Contact Sales
             </Link>
