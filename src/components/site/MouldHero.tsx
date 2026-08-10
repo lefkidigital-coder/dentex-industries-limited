@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import heroAsset from "@/assets/hero-cluster.png.asset.json";
+import heroMobileAsset from "@/assets/hero-mobile.png.asset.json";
 
 const heroArt = heroAsset.url;
+const heroMobileArt = heroMobileAsset.url;
+
 
 /**
  * Hero — approved "material to form" art direction. The packaging cluster,
