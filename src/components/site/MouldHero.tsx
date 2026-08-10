@@ -68,7 +68,7 @@ export function MouldHero() {
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-0.5 sm:mt-3 text-[11px] sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.3] sm:leading-relaxed">
+            <p className="mt-0.5 sm:mt-3 text-[12px] sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.35] sm:leading-relaxed">
               For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
               solutions — delivering quality, innovation, and integrity.
             </p>
@@ -81,7 +81,7 @@ export function MouldHero() {
               className="absolute left-1/2 bottom-0 h-16 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-[480px] h-[min(56svh,420px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+            <picture className="relative w-full max-w-[480px] h-[min(54svh,400px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
               <source srcSet={heroMobileArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
