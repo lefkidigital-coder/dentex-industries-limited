@@ -41,7 +41,7 @@ export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          {eyebrow && <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-4">{eyebrow}</p>}
+          {eyebrow && <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground accent-underline mb-4">{eyebrow}</p>}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">{title}</h1>
           {subtitle && <p className="mt-6 text-lg text-primary-foreground/80 max-w-2xl leading-relaxed">{subtitle}</p>}
         </motion.div>
