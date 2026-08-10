@@ -244,8 +244,8 @@
 }
 
 :root {
-  /* Deep studio navy matching the hero artwork backdrop */
-  --hero-deep: oklch(0.2812 0.0393 254.2);
+  /* Deep studio navy sampled from the hero artwork backdrop (#293B53) */
+  --hero-deep: oklch(0.3482 0.0483 255.85);
 }
 
 @utility marquee-track {
