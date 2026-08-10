@@ -97,14 +97,14 @@ export function MouldHero() {
 
             <Link
               to="/products"
-              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-3 py-1.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
+              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-2.5 py-1 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
             >
               Explore Our Capabilities
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-3 py-1.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
+              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-2.5 py-1 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
             >
               Contact Sales
             </Link>
