@@ -2,10 +2,13 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import heroAsset from "@/assets/hero-cluster.png.asset.json";
+import heroMobileAsset from "@/assets/hero-mobile.png.asset.json";
 
 const heroArt = heroAsset.url;
+const heroMobileArt = heroMobileAsset.url;
 
 /**
+
  * Hero — approved "material to form" art direction. The packaging cluster,
  * pedestal and pellet flow live in the artwork; all copy and CTAs stay as
  * real HTML so they remain selectable, translatable and accessible.
@@ -50,7 +53,7 @@ export function MouldHero() {
         />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-12 lg:py-16">
         <div className="lg:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -71,23 +74,27 @@ export function MouldHero() {
             </p>
           </motion.div>
 
-          {/* Mobile artwork — larger and more dominant while still fully visible */}
-          <div className="lg:hidden mt-8 sm:mt-8 relative">
+          {/* Mobile artwork — large, dominant focal point using the portrait mobile asset */}
+          <div className="lg:hidden mt-3 sm:mt-8 relative flex justify-center">
             <div
               aria-hidden
-              className="absolute left-1/2 bottom-2 h-24 sm:h-24 w-[92%] sm:w-[88%] -translate-x-1/2 rounded-[50%] blur-2xl"
+              className="absolute left-1/2 bottom-0 h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <img
-              src={heroArt}
-              alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
-              width={1350}
-              height={650}
-              className="relative w-full h-[min(52svh,360px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] object-contain object-center drop-shadow-[0_26px_40px_rgba(0,0,0,0.5)] sm:drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
-            />
+            <picture className="relative w-full max-w-[420px] h-[min(62svh,460px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+              <source srcSet={heroMobileArt} media="(max-width: 639px)" />
+              <img
+                src={heroArt}
+                alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
+                width={1350}
+                height={650}
+                className="w-full h-full object-contain object-center drop-shadow-[0_28px_44px_rgba(0,0,0,0.5)] sm:drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
+              />
+            </picture>
           </div>
 
-          <div className="mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
+          <div className="mt-3 sm:mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
+
             <Link
               to="/products"
               className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
