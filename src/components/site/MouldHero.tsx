@@ -7,8 +7,8 @@ import heroMobileAsset from "@/assets/hero-mobile.png.asset.json";
 const heroArt = heroAsset.url;
 const heroMobileArt = heroMobileAsset.url;
 
-
 /**
+
  * Hero — approved "material to form" art direction. The packaging cluster,
  * pedestal and pellet flow live in the artwork; all copy and CTAs stay as
  * real HTML so they remain selectable, translatable and accessible.
