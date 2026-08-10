@@ -12,13 +12,13 @@ export function MouldHero() {
   return (
     <section className="relative overflow-hidden bg-hero-deep text-primary-foreground">
       {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[62%]">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[66%]">
         <img
           src={heroArt.url}
           alt="Plastic pellets flowing into finished Dentex packaging — a PET bottle, pharmaceutical bottle, jar, tub and red closure on a marble pedestal"
           width={1600}
           height={1200}
-          className="h-full w-full object-cover object-right"
+          className="h-full w-full object-contain object-right"
         />
         <div
           className="absolute inset-0"
@@ -29,7 +29,7 @@ export function MouldHero() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 lg:min-h-[640px]">
         <div className="lg:max-w-[46%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
