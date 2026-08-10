@@ -93,13 +93,13 @@ export function MouldHero() {
           </motion.div>
 
           {/* Mobile artwork — large, dominant focal point using the portrait mobile asset */}
-          <div className="lg:hidden mt-4 sm:mt-8 relative flex justify-center">
+          <div className="lg:hidden mt-3 sm:mt-8 relative flex justify-center">
             <div
               aria-hidden
               className="absolute left-1/2 bottom-0 h-20 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-[520px] h-[min(48svh,380px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+            <picture className="relative w-full max-w-[520px] h-[min(42svh,330px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
               <source srcSet={heroMobileArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
