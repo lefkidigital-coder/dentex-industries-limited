@@ -33,7 +33,7 @@ export function MouldHero() {
         <FlowLabel style={{ right: "8%", top: "44%" }} text="To form" align="right" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
         <div className="lg:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -44,24 +44,24 @@ export function MouldHero() {
               <span className="h-2 w-2 rounded-full bg-accent" />
               Established 1986 · Nairobi, Kenya
             </p>
-            <h1 className="mt-5 text-[clamp(1.9rem,5.2vw,3.6rem)] font-extrabold tracking-tight leading-[1.06]">
+            <h1 className="mt-4 text-[clamp(1.65rem,5.2vw,3.6rem)] font-extrabold tracking-tight leading-[1.08]">
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-primary-foreground/95 max-w-xl leading-relaxed">
+            <p className="mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-relaxed">
               For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
               solutions — delivering quality, innovation, and integrity.
             </p>
           </motion.div>
 
           {/* Mobile / tablet artwork — same composition, scaled */}
-          <div className="lg:hidden -mx-4 sm:-mx-6 mt-5 relative">
+          <div className="lg:hidden -mx-4 sm:-mx-6 mt-4 relative">
             <img
               src={heroArt.url}
               alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
               width={1600}
               height={1200}
-              className="w-full h-[min(34svh,260px)] sm:h-[min(38svh,340px)] object-cover object-center"
+              className="w-full h-[min(24svh,190px)] sm:h-[min(32svh,300px)] object-cover object-center"
             />
             <div
               className="absolute inset-0"
@@ -74,7 +74,7 @@ export function MouldHero() {
             <FlowLabel style={{ right: "1rem", bottom: "1rem" }} text="To form" align="right" small />
           </div>
 
-          <div className="mt-6 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
+          <div className="mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
             <Link
               to="/products"
               className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
