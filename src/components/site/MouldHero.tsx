@@ -1,8 +1,9 @@
-import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroArt from "@/assets/hero-material-to-form-v2.jpg";
+import heroAsset from "@/assets/hero-cluster.png.asset.json";
+
+const heroArt = heroAsset.url;
 
 /**
  * Hero — approved "material to form" art direction. The packaging cluster,
@@ -12,18 +13,41 @@ import heroArt from "@/assets/hero-material-to-form-v2.jpg";
 export function MouldHero() {
   return (
     <section className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
+      {/* Studio backdrop: soft key light + floor gradient so the cut-out artwork
+          reads as photographed in-place rather than pasted on. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(120% 90% at 72% 28%, oklch(0.46 0.055 252 / 0.85), transparent 62%), radial-gradient(90% 70% at 8% 8%, oklch(0.30 0.05 258 / 0.9), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-1/2"
+          style={{
+            background:
+              "linear-gradient(to top, oklch(0.26 0.04 258 / 0.95), transparent 100%)",
+          }}
+        />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-primary-foreground/10" />
+      </div>
+
       {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[62%]">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[58%]">
+        {/* grounding pool of light beneath the cluster */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-[68%] h-40 w-[70%] -translate-x-1/2 rounded-[50%] blur-2xl"
+          style={{ background: "oklch(0.62 0.03 250 / 0.28)" }}
+        />
         <img
           src={heroArt}
           alt="Plastic pellets flowing into finished Dentex packaging — a PET bottle, pharmaceutical bottle, jar, tub and red closure on a marble pedestal"
-          width={1200}
-          height={896}
-          className="h-full w-full object-contain object-right"
+          width={1350}
+          height={650}
+          className="relative h-auto max-h-[78%] w-full object-contain object-right drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
         />
-        {/* Material → form annotation */}
-        <FlowLabel style={{ left: "2%", top: "20%" }} text="From material" align="left" />
-        <FlowLabel style={{ right: "9%", top: "30%" }} text="To form" align="right" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
@@ -49,15 +73,18 @@ export function MouldHero() {
 
           {/* Mobile / tablet artwork — same composition, fully visible */}
           <div className="lg:hidden mt-4 relative">
+            <div
+              aria-hidden
+              className="absolute left-1/2 bottom-2 h-16 w-[78%] -translate-x-1/2 rounded-[50%] blur-2xl"
+              style={{ background: "oklch(0.62 0.03 250 / 0.3)" }}
+            />
             <img
               src={heroArt}
               alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
-              width={1200}
-              height={896}
-              className="w-full h-[min(30svh,260px)] object-contain object-center"
+              width={1350}
+              height={650}
+              className="relative w-full h-[min(28svh,220px)] object-contain object-center drop-shadow-[0_18px_26px_rgba(0,0,0,0.4)]"
             />
-            <FlowLabel style={{ left: "0", top: "4%" }} text="From material" align="left" small />
-            <FlowLabel style={{ right: "0", top: "34%" }} text="To form" align="right" small />
           </div>
 
           <div className="mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
@@ -78,42 +105,5 @@ export function MouldHero() {
         </div>
       </div>
     </section>
-  );
-}
-
-/**
- * Subtle dotted annotation used to label the material-to-form flow inside the
- * hero artwork. Pure HTML/CSS so the labels stay selectable and translatable.
- */
-function FlowLabel({
-  text,
-  style,
-  align,
-  small,
-}: {
-  text: string;
-  style?: CSSProperties;
-  align: "left" | "right";
-  small?: boolean;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.35 }}
-      style={style}
-      className={`pointer-events-none absolute flex items-center gap-2 rounded-full bg-hero-deep/45 px-2.5 py-1 backdrop-blur-[2px] ${align === "right" ? "flex-row-reverse" : ""}`}
-    >
-      <span
-        className={`whitespace-nowrap font-semibold uppercase text-primary-foreground/90 tracking-[0.22em] ${small ? "text-[9px]" : "text-[10px]"}`}
-      >
-        {text}
-      </span>
-      <span
-        aria-hidden
-        className={`block border-t border-dashed border-primary-foreground/40 ${small ? "w-8" : "w-14"}`}
-      />
-      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-    </motion.div>
   );
 }
