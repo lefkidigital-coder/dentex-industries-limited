@@ -16,9 +16,8 @@ const heroMobileArt = heroMobileAsset.url;
 export function MouldHero() {
   return (
     <section className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
-      {/* Studio backdrop: soft key light + floor gradient so the cut-out artwork
-          reads as photographed in-place rather than pasted on. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Desktop studio backdrop — kept exactly as-is for tablet and desktop */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
         <div
           className="absolute inset-0"
           style={{
@@ -31,6 +30,25 @@ export function MouldHero() {
           style={{
             background:
               "linear-gradient(to top, oklch(0.26 0.04 258 / 0.95), transparent 100%)",
+          }}
+        />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-primary-foreground/10" />
+      </div>
+
+      {/* Mobile backdrop — clean, centred wash so the portrait artwork feels native */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 lg:hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(140% 100% at 50% 55%, oklch(0.44 0.05 252 / 0.75), oklch(0.32 0.045 258 / 0.92) 70%)",
+          }}
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-[35%]"
+          style={{
+            background:
+              "linear-gradient(to top, oklch(0.26 0.04 258 / 0.85), transparent 100%)",
           }}
         />
         <div className="absolute bottom-0 inset-x-0 h-px bg-primary-foreground/10" />
