@@ -34,11 +34,11 @@ export function ValueLocks() {
       <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, rgba(137,23,40,0.5), transparent 50%)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Values</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground">Our Values</p>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
             Four values. One closed mould.
           </h2>
-          <p className="mt-4 text-primary-foreground/75">
+          <p className="mt-4 text-primary-foreground/90">
             Press each value to lock it in — when all four close, the seal completes.
           </p>
         </div>
@@ -64,18 +64,18 @@ export function ValueLocks() {
                   whileHover={{ y: 2 }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`grid h-10 w-10 place-items-center rounded-lg ${isLocked ? "bg-accent text-accent-foreground" : "bg-white/10 text-accent"}`}>
+                    <div className={`grid h-10 w-10 place-items-center rounded-lg ${isLocked ? "bg-accent text-accent-foreground" : "bg-white/10 text-primary-foreground"}`}>
                       <v.icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-lg font-bold">{v.title}</h3>
-                    <span className={`ml-auto text-[10px] uppercase tracking-widest font-bold ${isLocked ? "text-accent" : "text-primary-foreground/40"}`}>
+                    <span className={`ml-auto text-[10px] uppercase tracking-widest font-bold ${isLocked ? "text-primary-foreground" : "text-primary-foreground/70"}`}>
                       {isLocked ? "Locked" : "Press"}
                     </span>
                   </div>
                   <motion.p
                     initial={false}
                     animate={{ height: isLocked ? "auto" : 0, opacity: isLocked ? 1 : 0 }}
-                    className="text-sm text-primary-foreground/80 leading-relaxed overflow-hidden"
+                    className="text-sm text-primary-foreground/95 leading-relaxed overflow-hidden"
                   >
                     <span className="block pt-3">{v.body}</span>
                   </motion.p>

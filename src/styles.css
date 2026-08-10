@@ -234,3 +234,45 @@
     transition: none !important;
   }
 }
+
+/* ============================================================
+ * Homepage flow additions: hero backdrop, marquee, accent rules
+ * ============================================================ */
+
+@theme inline {
+  --color-hero-deep: var(--hero-deep);
+}
+
+:root {
+  /* Deep studio navy matching the hero artwork backdrop */
+  --hero-deep: oklch(0.2812 0.0393 254.2);
+}
+
+@utility marquee-track {
+  animation: dtx-marquee 46s linear infinite;
+}
+
+@keyframes dtx-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-viewport:hover .marquee-track,
+.marquee-viewport:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Emphasis on dark backgrounds: cream text with a red underline */
+@utility accent-underline {
+  box-shadow: inset 0 -0.14em 0 0 var(--accent);
+}

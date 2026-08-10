@@ -64,17 +64,17 @@ function Quality() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Innovation & R&D</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground">Innovation & R&D</p>
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Investing in tomorrow's packaging today.</h2>
-              <p className="mt-5 text-primary-foreground/80 leading-relaxed">
+              <p className="mt-5 text-primary-foreground/95 leading-relaxed">
                 We continuously invest in research and development to introduce innovative products and maintain market leadership across East Africa.
               </p>
               <div className="mt-8 p-6 bg-white/5 backdrop-blur border border-white/10 rounded-2xl">
                 <div className="flex items-start gap-4">
-                  <Sparkles className="h-8 w-8 text-accent shrink-0" />
+                  <Sparkles className="h-8 w-8 text-primary-foreground shrink-0" />
                   <div>
                     <h3 className="font-bold text-lg">Injection Moulding Technology</h3>
-                    <p className="mt-2 text-sm text-primary-foreground/75 leading-relaxed">
+                    <p className="mt-2 text-sm text-primary-foreground/95 leading-relaxed">
                       Our precision injection-moulding capabilities produce parts with tight tolerances, consistent wall thickness, and superior surface finish — at production volumes that match your demand.
                     </p>
                   </div>
