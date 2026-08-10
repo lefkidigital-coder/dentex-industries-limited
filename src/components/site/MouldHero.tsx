@@ -53,7 +53,7 @@ export function MouldHero() {
         />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-2 sm:py-12 lg:py-16">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-1 sm:py-12 lg:py-16">
         <div className="lg:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -64,11 +64,11 @@ export function MouldHero() {
               <span className="h-2 w-2 rounded-full bg-accent" />
               Established 1986 · Nairobi, Kenya
             </p>
-            <h1 className="mt-1 sm:mt-4 text-[clamp(1.45rem,4.8vw,3.6rem)] font-extrabold tracking-tight leading-[1.03]">
+            <h1 className="mt-0.5 sm:mt-4 text-[clamp(1.35rem,4.4vw,3.6rem)] font-extrabold tracking-tight leading-[1.02]">
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-1 sm:mt-3 text-[12px] sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.35] sm:leading-relaxed">
+            <p className="mt-0.5 sm:mt-3 text-[11px] sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.3] sm:leading-relaxed">
               For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
               solutions — delivering quality, innovation, and integrity.
             </p>
@@ -81,7 +81,7 @@ export function MouldHero() {
               className="absolute left-1/2 bottom-0 h-16 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-[480px] h-[min(42svh,330px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+            <picture className="relative w-full max-w-[480px] h-[min(40svh,315px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
               <source srcSet={heroMobileArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
