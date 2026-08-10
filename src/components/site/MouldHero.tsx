@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
@@ -105,7 +106,7 @@ function FlowLabel({
   small,
 }: {
   text: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   align: "left" | "right";
   small?: boolean;
 }) {
