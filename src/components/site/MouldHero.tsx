@@ -53,7 +53,7 @@ export function MouldHero() {
         />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-12 lg:py-16">
         <div className="lg:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
