@@ -53,7 +53,7 @@ export function MouldHero() {
         />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-3 sm:py-12 lg:py-16">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-2 sm:py-12 lg:py-16">
         <div className="lg:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -64,24 +64,24 @@ export function MouldHero() {
               <span className="h-2 w-2 rounded-full bg-accent" />
               Established 1986 · Nairobi, Kenya
             </p>
-            <h1 className="mt-2 sm:mt-4 text-[clamp(1.7rem,5.5vw,3.6rem)] font-extrabold tracking-tight leading-[1.08]">
+            <h1 className="mt-1 sm:mt-4 text-[clamp(1.75rem,5.8vw,3.6rem)] font-extrabold tracking-tight leading-[1.06]">
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-2 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-snug sm:leading-relaxed">
+            <p className="mt-1 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-snug sm:leading-relaxed">
               For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
               solutions — delivering quality, innovation, and integrity.
             </p>
           </motion.div>
 
           {/* Mobile artwork — large, dominant focal point using the portrait mobile asset */}
-          <div className="lg:hidden mt-1 sm:mt-8 relative flex justify-center">
+          <div className="lg:hidden mt-0.5 sm:mt-8 relative flex justify-center">
             <div
               aria-hidden
-              className="absolute left-1/2 bottom-0 h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
+              className="absolute left-1/2 bottom-0 h-16 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-[460px] h-[min(56svh,420px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+            <picture className="relative w-full max-w-[480px] h-[min(50svh,380px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
               <source srcSet={heroMobileArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
@@ -93,18 +93,18 @@ export function MouldHero() {
             </picture>
           </div>
 
-          <div className="mt-1 sm:mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
+          <div className="mt-0.5 sm:mt-5 lg:mt-8 flex flex-wrap gap-2 sm:gap-4">
 
             <Link
               to="/products"
-              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
+              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
             >
               Explore Our Capabilities
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
+              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
             >
               Contact Sales
             </Link>
