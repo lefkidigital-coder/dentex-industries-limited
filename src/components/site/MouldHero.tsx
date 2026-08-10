@@ -28,8 +28,8 @@ export function MouldHero() {
           }}
         />
         {/* Material → form annotation */}
-        <FlowLabel className="left-[14%] bottom-[24%]" text="From material" align="left" />
-        <FlowLabel className="right-[10%] top-[22%]" text="To form" align="right" />
+        <FlowLabel className="left-[8%] top-[18%]" text="From material" align="left" />
+        <FlowLabel className="right-[6%] top-[46%]" text="To form" align="right" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16">
@@ -114,10 +114,10 @@ function FlowLabel({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.5 }}
-      className={`pointer-events-none absolute flex items-center gap-2 ${align === "right" ? "flex-row-reverse" : ""} ${className ?? ""}`}
+      className={`pointer-events-none absolute flex items-center gap-2 rounded-full bg-hero-deep/45 px-2.5 py-1 backdrop-blur-[2px] ${align === "right" ? "flex-row-reverse" : ""} ${className ?? ""}`}
     >
       <span
-        className={`font-semibold uppercase text-primary-foreground/80 tracking-[0.22em] ${small ? "text-[9px]" : "text-[10px]"}`}
+        className={`whitespace-nowrap font-semibold uppercase text-primary-foreground/90 tracking-[0.22em] ${small ? "text-[9px]" : "text-[10px]"}`}
       >
         {text}
       </span>
