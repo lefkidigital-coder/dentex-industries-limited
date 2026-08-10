@@ -72,18 +72,18 @@ export function MouldHero() {
           </motion.div>
 
           {/* Mobile / tablet artwork — same composition, fully visible */}
-          <div className="lg:hidden mt-4 relative">
+          <div className="lg:hidden mt-6 sm:mt-8 relative">
             <div
               aria-hidden
-              className="absolute left-1/2 bottom-2 h-16 w-[78%] -translate-x-1/2 rounded-[50%] blur-2xl"
-              style={{ background: "oklch(0.62 0.03 250 / 0.3)" }}
+              className="absolute left-1/2 bottom-2 h-20 sm:h-24 w-[84%] sm:w-[88%] -translate-x-1/2 rounded-[50%] blur-2xl"
+              style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
             <img
               src={heroArt}
               alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
               width={1350}
               height={650}
-              className="relative w-full h-[min(28svh,220px)] object-contain object-center drop-shadow-[0_18px_26px_rgba(0,0,0,0.4)]"
+              className="relative w-full h-[min(38svh,260px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] object-contain object-center drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
             />
           </div>
 
