@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroArt from "@/assets/hero-material-to-form.jpg.asset.json";
+import heroArt from "@/assets/hero-material-to-form-v2.jpg";
 
 /**
  * Hero — approved "material to form" art direction. The packaging cluster,
@@ -13,24 +13,17 @@ export function MouldHero() {
   return (
     <section className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
       {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[60%]">
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[62%]">
         <img
-          src={heroArt.url}
+          src={heroArt}
           alt="Plastic pellets flowing into finished Dentex packaging — a PET bottle, pharmaceutical bottle, jar, tub and red closure on a marble pedestal"
-          width={1600}
-          height={1200}
+          width={1200}
+          height={896}
           className="h-full w-full object-contain object-right"
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, var(--hero-deep) 0%, color-mix(in oklab, var(--hero-deep) 70%, transparent) 22%, transparent 48%)",
-          }}
-        />
         {/* Material → form annotation */}
-        <FlowLabel style={{ left: "4%", top: "26%" }} text="From material" align="left" />
-        <FlowLabel style={{ right: "8%", top: "44%" }} text="To form" align="right" />
+        <FlowLabel style={{ left: "2%", top: "20%" }} text="From material" align="left" />
+        <FlowLabel style={{ right: "4%", top: "38%" }} text="To form" align="right" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
@@ -54,24 +47,17 @@ export function MouldHero() {
             </p>
           </motion.div>
 
-          {/* Mobile / tablet artwork — same composition, scaled */}
-          <div className="lg:hidden -mx-4 sm:-mx-6 mt-4 relative">
+          {/* Mobile / tablet artwork — same composition, fully visible */}
+          <div className="lg:hidden mt-4 relative">
             <img
-              src={heroArt.url}
+              src={heroArt}
               alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
-              width={1600}
-              height={1200}
-              className="w-full h-[min(24svh,190px)] sm:h-[min(32svh,300px)] object-cover object-center"
+              width={1200}
+              height={896}
+              className="w-full h-[min(30svh,260px)] object-contain object-center"
             />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to bottom, var(--hero-deep) 0%, transparent 18%, transparent 82%, var(--hero-deep) 100%)",
-              }}
-            />
-            <FlowLabel style={{ left: "1rem", top: "1rem" }} text="From material" align="left" small />
-            <FlowLabel style={{ right: "1rem", bottom: "1rem" }} text="To form" align="right" small />
+            <FlowLabel style={{ left: "0", top: "4%" }} text="From material" align="left" small />
+            <FlowLabel style={{ right: "0", top: "34%" }} text="To form" align="right" small />
           </div>
 
           <div className="mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
