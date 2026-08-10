@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
@@ -49,9 +48,6 @@ export function MouldHero() {
           height={650}
           className="relative h-auto max-h-[78%] w-full object-contain object-right drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
         />
-        {/* Material → form annotation */}
-        <FlowLabel style={{ left: "1%", top: "26%" }} text="From material" align="left" />
-        <FlowLabel style={{ right: "4%", top: "18%" }} text="To form" align="right" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-7 sm:py-12 lg:py-16">
@@ -89,8 +85,6 @@ export function MouldHero() {
               height={650}
               className="relative w-full h-[min(28svh,220px)] object-contain object-center drop-shadow-[0_18px_26px_rgba(0,0,0,0.4)]"
             />
-            <FlowLabel style={{ left: "0", top: "10%" }} text="From material" align="left" small />
-            <FlowLabel style={{ right: "0", top: "0%" }} text="To form" align="right" small />
           </div>
 
           <div className="mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
@@ -111,42 +105,5 @@ export function MouldHero() {
         </div>
       </div>
     </section>
-  );
-}
-
-/**
- * Subtle dotted annotation used to label the material-to-form flow inside the
- * hero artwork. Pure HTML/CSS so the labels stay selectable and translatable.
- */
-function FlowLabel({
-  text,
-  style,
-  align,
-  small,
-}: {
-  text: string;
-  style?: CSSProperties;
-  align: "left" | "right";
-  small?: boolean;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 0.35 }}
-      style={style}
-      className={`pointer-events-none absolute flex items-center gap-2 rounded-full bg-hero-deep/45 px-2.5 py-1 backdrop-blur-[2px] ${align === "right" ? "flex-row-reverse" : ""}`}
-    >
-      <span
-        className={`whitespace-nowrap font-semibold uppercase text-primary-foreground/90 tracking-[0.22em] ${small ? "text-[9px]" : "text-[10px]"}`}
-      >
-        {text}
-      </span>
-      <span
-        aria-hidden
-        className={`block border-t border-dashed border-primary-foreground/40 ${small ? "w-8" : "w-14"}`}
-      />
-      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-    </motion.div>
   );
 }
