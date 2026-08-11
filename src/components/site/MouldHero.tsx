@@ -3,9 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import heroAsset from "@/assets/hero-cluster.png.asset.json";
 import heroMobileAsset from "@/assets/hero-mobile.png.asset.json";
+import heroMobileTrimAsset from "@/assets/hero-mobile-trim.png.asset.json";
 
 const heroArt = heroAsset.url;
 const heroMobileArt = heroMobileAsset.url;
+const heroMobileTrimArt = heroMobileTrimAsset.url;
 
 /**
 
@@ -99,8 +101,8 @@ export function MouldHero() {
               className="absolute left-1/2 bottom-0 h-24 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-none sm:max-w-[520px] h-[min(52svh,430px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
-              <source srcSet={heroMobileArt} media="(max-width: 639px)" />
+            <picture className="relative w-full max-w-none sm:max-w-[520px] h-[min(38svh,270px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+              <source srcSet={heroMobileTrimArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
                 alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
