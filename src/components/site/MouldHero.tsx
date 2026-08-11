@@ -3,9 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import heroAsset from "@/assets/hero-cluster.png.asset.json";
 import heroMobileAsset from "@/assets/hero-mobile.png.asset.json";
+import heroMobileTrimAsset from "@/assets/hero-mobile-trim.png.asset.json";
 
 const heroArt = heroAsset.url;
 const heroMobileArt = heroMobileAsset.url;
+const heroMobileTrimArt = heroMobileTrimAsset.url;
 
 /**
 
@@ -93,14 +95,14 @@ export function MouldHero() {
           </motion.div>
 
           {/* Mobile artwork — large, dominant focal point using the portrait mobile asset */}
-          <div className="lg:hidden mt-3 sm:mt-8 relative flex justify-center">
+          <div className="lg:hidden -mx-4 sm:mx-0 mt-2 sm:mt-8 relative flex justify-center">
             <div
               aria-hidden
-              className="absolute left-1/2 bottom-0 h-20 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
+              className="absolute left-1/2 bottom-0 h-24 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
-            <picture className="relative w-full max-w-[520px] h-[min(42svh,330px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
-              <source srcSet={heroMobileArt} media="(max-width: 639px)" />
+            <picture className="relative w-full max-w-none sm:max-w-[520px] h-[min(38svh,270px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
+              <source srcSet={heroMobileTrimArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
                 alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
@@ -111,18 +113,18 @@ export function MouldHero() {
             </picture>
           </div>
 
-          <div className="mt-3 sm:mt-5 lg:mt-8 flex flex-wrap gap-3 sm:gap-4">
+          <div className="mt-2 sm:mt-5 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
 
             <Link
               to="/products"
-              className="mould-press group inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
+              className="mould-press group inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-md bg-accent px-4 py-3 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-accent-foreground shadow-lg"
             >
               Explore Our Capabilities
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/contact"
-              className="mould-press inline-flex items-center gap-2 rounded-md border-2 border-primary-foreground/40 px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
+              className="mould-press inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 rounded-md border-2 border-primary-foreground/40 px-4 py-3 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-primary-foreground"
             >
               Contact Sales
             </Link>
