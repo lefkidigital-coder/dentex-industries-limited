@@ -1,155 +1,301 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 
 /**
- * "Build Your Product" — click through the five stages of injection moulding
- * (raw material → heated → injected → cooled → finished). The user controls
- * the sequence (no autoplay), mirroring precision control on the shop floor.
+ * "Build Your Product" — the user picks a manufacturing process (injection or
+ * blow moulding) and then steps manually through the five Dentex stages.
+ * Nothing is scroll-triggered: the sequence is entirely user-controlled.
  */
-const stages = [
-  { key: "raw", label: "Raw Pellets", note: "Virgin polypropylene resin loaded into the hopper." },
-  { key: "heated", label: "Heated", note: "Resin melted at ~220°C into a homogeneous flow." },
-  { key: "injected", label: "Injected", note: "Molten polymer injected under pressure into the mould cavity." },
-  { key: "cooled", label: "Cooled", note: "Cavity cools and the part solidifies to spec tolerance." },
-  { key: "finished", label: "Finished", note: "Ejected, inspected, and ready for the customer." },
-] as const;
+type ProcessKey = "injection" | "blow";
 
-type Silhouette = "bottle" | "tub" | "cap";
+const STAGE_CODES = ["01", "02", "03", "04", "05"] as const;
+const STAGE_LABELS = ["Prepare", "Melt", "Form", "Cool", "Quality"] as const;
 
-function Pellets({ active }: { active: boolean }) {
+const PROCESSES: Record<
+  ProcessKey,
+  { label: string; stages: { title: string; copy: string }[] }
+> = {
+  injection: {
+    label: "Injection Moulding",
+    stages: [
+      {
+        title: "Material Preparation",
+        copy: "Raw material resin and masterbatch/colourant are prepared and mixed according to the required customer specification.",
+      },
+      {
+        title: "Feed & Melt",
+        copy: "The prepared material is fed through the hopper into the injection moulding machine and melted inside the machine barrel.",
+      },
+      {
+        title: "Injection Moulding",
+        copy: "The molten resin is injected into the mould shaped according to the required product.",
+      },
+      {
+        title: "Cool & Set",
+        copy: "The moulded product is cooled and allowed to take its finished shape.",
+      },
+      {
+        title: "Quality Control",
+        copy: "The finished product undergoes rigorous quality control to ensure it meets customer requirements.",
+      },
+    ],
+  },
+  blow: {
+    label: "Blow Moulding",
+    stages: [
+      {
+        title: "Material Preparation",
+        copy: "Raw material resin and masterbatch/colourant are prepared and mixed according to the required customer specification.",
+      },
+      {
+        title: "Feed & Melt",
+        copy: "The prepared material is fed through the hopper into the blow moulding machine and melted inside the machine barrel.",
+      },
+      {
+        title: "Blow Moulding",
+        copy: "The molten resin is extruded into the product-shaped mould.",
+      },
+      {
+        title: "Cool & Set",
+        copy: "The product is cooled inside the mould until it takes its finished form.",
+      },
+      {
+        title: "Quality Control",
+        copy: "The finished product undergoes rigorous quality control before being approved against customer requirements.",
+      },
+    ],
+  },
+};
+
+const STEEL = "oklch(0.42 0.02 256)";
+const STEEL_DARK = "oklch(0.30 0.02 256)";
+const CAVITY = "oklch(0.22 0.01 260)";
+const RESIN = "oklch(0.86 0.03 90)";
+const MELT = "oklch(0.72 0.11 55)";
+const SET = "oklch(0.90 0.015 250)";
+
+/** Simple product profile used across the forming stages. */
+function Product({ fill, opacity = 1 }: { fill: string; opacity?: number }) {
+  return (
+    <path
+      d="M112 62 L128 62 L128 76 Q138 84 138 100 L138 152 Q138 162 128 162 L112 162 Q102 162 102 152 L102 100 Q102 84 112 76 Z"
+      fill={fill}
+      opacity={opacity}
+    />
+  );
+}
+
+function Mould({ children }: { children?: React.ReactNode }) {
   return (
     <g>
-      {Array.from({ length: 18 }).map((_, i) => {
-        const x = 40 + (i % 6) * 22;
-        const y = 60 + Math.floor(i / 6) * 18;
+      <rect x="74" y="46" width="92" height="128" rx="4" fill={STEEL_DARK} />
+      <rect x="78" y="50" width="84" height="120" rx="3" fill={CAVITY} />
+      <line x1="120" y1="46" x2="120" y2="174" stroke="oklch(0.55 0.01 256)" strokeWidth="0.75" />
+      {children}
+    </g>
+  );
+}
+
+function Prepare({ animate }: { animate: boolean }) {
+  return (
+    <g>
+      {/* hopper */}
+      <path d="M62 40 L178 40 L142 118 L98 118 Z" fill="none" stroke={STEEL} strokeWidth="2.5" />
+      {Array.from({ length: 16 }).map((_, i) => {
+        const x = 78 + (i % 6) * 17 + (Math.floor(i / 6) % 2) * 8;
+        const y = 58 + Math.floor(i / 6) * 16;
         return (
           <motion.ellipse
             key={i}
             cx={x}
             cy={y}
-            rx="7"
-            ry="5"
-            fill="oklch(0.85 0.05 90)"
-            animate={active ? { y: [y - 4, y, y - 4] } : { y }}
-            transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.05 }}
+            rx="5.5"
+            ry="4"
+            fill={i % 4 === 0 ? MELT : RESIN}
+            initial={false}
+            animate={animate ? { y: [0, 6, 0] } : { y: 0 }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.08 }}
           />
         );
       })}
+      <rect x="112" y="118" width="16" height="42" fill={STEEL} />
     </g>
   );
 }
 
-function HeatBars({ active }: { active: boolean }) {
+function Melt({ animate }: { animate: boolean }) {
   return (
     <g>
-      <rect x="40" y="100" width="160" height="28" rx="6" fill="oklch(0.92 0.02 60)" />
+      {/* barrel */}
+      <rect x="40" y="88" width="160" height="30" rx="6" fill={STEEL} />
+      <rect x="46" y="94" width="148" height="18" rx="4" fill={CAVITY} />
+      <motion.rect
+        x="46"
+        y="94"
+        height="18"
+        rx="4"
+        fill={MELT}
+        initial={false}
+        animate={animate ? { width: [40, 148, 40] } : { width: 100 }}
+        transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* heater bands */}
       {[0, 1, 2, 3].map((i) => (
         <motion.rect
           key={i}
-          x={50 + i * 36}
-          y="106"
-          width="28"
-          height="16"
+          x={56 + i * 36}
+          y="80"
+          width="24"
+          height="46"
           rx="3"
-          fill="oklch(0.7 0.18 40)"
-          animate={active ? { opacity: [0.4, 1, 0.4] } : { opacity: 0.4 }}
-          transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
+          fill="none"
+          stroke={MELT}
+          strokeWidth="2"
+          initial={false}
+          animate={animate ? { opacity: [0.35, 0.9, 0.35] } : { opacity: 0.6 }}
+          transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.25 }}
         />
       ))}
+      <path d="M112 46 L128 46 L128 88 L112 88 Z" fill={STEEL} />
     </g>
   );
 }
 
-function Injection({ active, silhouette }: { active: boolean; silhouette: Silhouette }) {
+function Form({ animate, process }: { animate: boolean; process: ProcessKey }) {
   return (
     <g>
-      <rect x="40" y="40" width="60" height="120" rx="4" fill="oklch(0.4 0.02 256)" />
-      <motion.rect
-        x={100}
-        width="40"
-        height="14"
-        y="93"
-        fill="oklch(0.62 0.18 148)"
-        animate={active ? { width: [10, 70, 10] } : { width: 30 }}
-        transition={{ duration: 1.6, repeat: Infinity }}
-      />
-      <CavityWithShape silhouette={silhouette} fill="oklch(0.62 0.18 148 / 0.6)" />
+      <Mould>
+        <motion.g
+          initial={false}
+          animate={animate ? { opacity: [0.25, 1, 0.25] } : { opacity: 0.8 }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Product fill={MELT} />
+        </motion.g>
+      </Mould>
+      {process === "injection" ? (
+        <g>
+          <rect x="14" y="96" width="52" height="18" rx="3" fill={STEEL} />
+          <motion.rect
+            x="52"
+            y="101"
+            height="8"
+            fill={MELT}
+            initial={false}
+            animate={animate ? { width: [4, 24, 4] } : { width: 16 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </g>
+      ) : (
+        <g>
+          <rect x="104" y="18" width="32" height="14" rx="2" fill={STEEL} />
+          <motion.rect
+            x="116"
+            y="32"
+            width="8"
+            fill={MELT}
+            initial={false}
+            animate={animate ? { height: [4, 22, 4] } : { height: 14 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </g>
+      )}
     </g>
   );
 }
 
-function Cooling({ silhouette }: { silhouette: Silhouette }) {
+function Cool({ animate }: { animate: boolean }) {
   return (
     <g>
-      <CavityWithShape silhouette={silhouette} fill="oklch(0.7 0.1 200 / 0.7)" />
+      <Mould>
+        <Product fill={SET} />
+      </Mould>
+      {/* cooling channels */}
       {[0, 1, 2].map((i) => (
-        <motion.circle
+        <motion.line
           key={i}
-          cx={180 + i * 14}
-          cy="60"
-          r="4"
-          fill="oklch(0.85 0.07 220)"
-          animate={{ y: [0, -20, -40], opacity: [0.8, 0.4, 0] }}
-          transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+          x1="30"
+          y1={72 + i * 34}
+          x2="74"
+          y2={72 + i * 34}
+          stroke="oklch(0.72 0.07 230)"
+          strokeWidth="2"
+          strokeDasharray="6 5"
+          initial={false}
+          animate={animate ? { strokeDashoffset: [0, -22] } : { strokeDashoffset: 0 }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: i * 0.2 }}
+        />
+      ))}
+      {[0, 1, 2].map((i) => (
+        <motion.line
+          key={`r${i}`}
+          x1="166"
+          y1={72 + i * 34}
+          x2="210"
+          y2={72 + i * 34}
+          stroke="oklch(0.72 0.07 230)"
+          strokeWidth="2"
+          strokeDasharray="6 5"
+          initial={false}
+          animate={animate ? { strokeDashoffset: [0, -22] } : { strokeDashoffset: 0 }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: i * 0.2 }}
         />
       ))}
     </g>
   );
 }
 
-function Finished({ silhouette }: { silhouette: Silhouette }) {
-  return (
-    <motion.g
-      initial={{ scale: 0.7, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 200, damping: 18 }}
-    >
-      <Silhouette s={silhouette} fill="oklch(0.62 0.18 148)" />
-    </motion.g>
-  );
-}
-
-function Silhouette({ s, fill }: { s: Silhouette; fill: string }) {
-  if (s === "bottle") {
-    return (
-      <path
-        d="M110 50 L130 50 L130 64 Q140 70 140 86 L140 156 Q140 168 128 168 L112 168 Q100 168 100 156 L100 86 Q100 70 110 64 Z"
-        fill={fill}
-      />
-    );
-  }
-  if (s === "tub") {
-    return (
-      <path
-        d="M88 70 L152 70 L148 162 Q148 168 142 168 L98 168 Q92 168 92 162 Z"
-        fill={fill}
-      />
-    );
-  }
+function Quality({ animate }: { animate: boolean }) {
   return (
     <g>
-      <ellipse cx="120" cy="110" rx="40" ry="14" fill={fill} />
-      <rect x="80" y="106" width="80" height="22" fill={fill} />
-      <ellipse cx="120" cy="128" rx="40" ry="10" fill="oklch(0.5 0.16 148)" />
-    </g>
-  );
-}
-
-function CavityWithShape({ silhouette, fill }: { silhouette: Silhouette; fill: string }) {
-  return (
-    <g>
-      <rect x="76" y="40" width="100" height="140" rx="6" fill="oklch(0.3 0.02 256)" />
-      <rect x="80" y="44" width="92" height="132" rx="4" fill="oklch(0.18 0.005 264)" />
-      <Silhouette s={silhouette} fill={fill} />
+      <rect x="60" y="168" width="120" height="6" rx="3" fill={STEEL_DARK} />
+      <motion.g
+        initial={animate ? { opacity: 0, y: 8 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <Product fill={SET} />
+      </motion.g>
+      {/* inspection sweep */}
+      <motion.line
+        x1="88"
+        y1="60"
+        x2="152"
+        y2="60"
+        stroke="oklch(0.55 0.14 20)"
+        strokeWidth="1.5"
+        initial={false}
+        animate={animate ? { y1: [60, 160, 60], y2: [60, 160, 60], opacity: [0.15, 0.55, 0.15] } : { opacity: 0.3 }}
+        transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.g
+        initial={animate ? { scale: 0.6, opacity: 0 } : false}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.35, type: "spring", stiffness: 220, damping: 20 }}
+      >
+        <circle cx="172" cy="58" r="14" fill="oklch(0.42 0.11 150)" />
+        <path
+          d="M165 58 L170 63 L179 53"
+          fill="none"
+          stroke="white"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </motion.g>
     </g>
   );
 }
 
 export function BuildYourProduct() {
+  const [process, setProcess] = useState<ProcessKey>("injection");
   const [step, setStep] = useState(0);
-  const [silhouette, setSilhouette] = useState<Silhouette>("bottle");
   const reduced = useReducedMotion();
+  const animate = !reduced;
+
+  const stages = PROCESSES[process].stages;
+  const current = stages[step];
 
   const next = () => setStep((s) => Math.min(s + 1, stages.length - 1));
   const prev = () => setStep((s) => Math.max(s - 1, 0));
@@ -163,56 +309,70 @@ export function BuildYourProduct() {
             Build a product, stage by stage.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Step through the five stages of injection moulding — at your own pace — and watch a finished
-            Dentex product take shape.
+            Choose a manufacturing process, then step through each stage at your own pace and see how a
+            Dentex product takes shape.
           </p>
         </div>
 
-        <div className="mt-12 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
+        {/* Process selection */}
+        <div className="mt-8 flex flex-wrap gap-3" role="tablist" aria-label="Manufacturing process">
+          {(Object.keys(PROCESSES) as ProcessKey[]).map((key) => (
+            <button
+              key={key}
+              role="tab"
+              aria-selected={process === key}
+              onClick={() => {
+                setProcess(key);
+                setStep(0);
+              }}
+              className={`mould-press rounded-full border-2 px-5 py-2.5 text-sm font-semibold transition-colors ${
+                process === key
+                  ? "border-accent bg-accent text-accent-foreground"
+                  : "border-border bg-card text-primary hover:border-accent"
+              }`}
+            >
+              {PROCESSES[key].label}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-10 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
           {/* Stage viewer */}
           <div className="bg-card rounded-2xl border border-border/60 p-6 shadow-sm">
             <div className="aspect-[5/4] rounded-xl bg-primary/5 overflow-hidden relative">
               <svg viewBox="0 0 240 200" className="w-full h-full">
                 <AnimatePresence mode="wait">
                   <motion.g
-                    key={stages[step].key}
+                    key={`${process}-${step}`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: reduced ? 0 : 0.3 }}
                   >
-                    {step === 0 && <Pellets active={!reduced} />}
-                    {step === 1 && <HeatBars active={!reduced} />}
-                    {step === 2 && <Injection active={!reduced} silhouette={silhouette} />}
-                    {step === 3 && <Cooling silhouette={silhouette} />}
-                    {step === 4 && <Finished silhouette={silhouette} />}
+                    {step === 0 && <Prepare animate={animate} />}
+                    {step === 1 && <Melt animate={animate} />}
+                    {step === 2 && <Form animate={animate} process={process} />}
+                    {step === 3 && <Cool animate={animate} />}
+                    {step === 4 && <Quality animate={animate} />}
                   </motion.g>
                 </AnimatePresence>
               </svg>
               <span className="absolute top-3 left-3 text-[10px] uppercase tracking-widest font-bold text-primary/70">
-                Stage {step + 1} / {stages.length}
+                {STAGE_CODES[step]} · {STAGE_LABELS[step]} — {PROCESSES[process].label}
               </span>
             </div>
 
-            <div className="mt-5 flex items-center justify-between gap-4">
+            <div className="mt-5 flex items-center justify-between gap-3">
               <button
                 onClick={prev}
                 disabled={step === 0}
                 className="mould-press inline-flex items-center gap-1 px-4 py-2 rounded-md bg-secondary text-primary font-semibold text-sm disabled:opacity-40"
               >
-                <ChevronLeft className="h-4 w-4" /> Prev
+                <ChevronLeft className="h-4 w-4" /> Previous
               </button>
-              <div className="flex-1 mx-2">
-                <input
-                  type="range"
-                  min={0}
-                  max={stages.length - 1}
-                  value={step}
-                  onChange={(e) => setStep(parseInt(e.target.value))}
-                  className="w-full accent-accent"
-                  aria-label="Moulding stage"
-                />
-              </div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Stage {step + 1} / {stages.length}
+              </span>
               <button
                 onClick={next}
                 disabled={step === stages.length - 1}
@@ -223,44 +383,51 @@ export function BuildYourProduct() {
             </div>
           </div>
 
-          {/* Stage info + silhouette picker */}
+          {/* Stage detail + stage picker */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-              {stages[step].label}
-            </p>
-            <h3 className="mt-2 text-2xl font-bold text-primary">{stages[step].note}</h3>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${process}-${step}-copy`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: reduced ? 0 : 0.25 }}
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+                  {STAGE_CODES[step]} — {STAGE_LABELS[step]}
+                </p>
+                <h3 className="mt-2 text-2xl font-bold text-primary">{current.title}</h3>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{current.copy}</p>
+              </motion.div>
+            </AnimatePresence>
 
-            <div className="mt-8">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Target product</p>
-              <div className="mt-3 grid grid-cols-3 gap-3">
-                {(["bottle", "tub", "cap"] as Silhouette[]).map((s) => (
+            <ol className="mt-8 space-y-2" aria-label="Manufacturing stages">
+              {stages.map((s, i) => (
+                <li key={s.title + i}>
                   <button
-                    key={s}
-                    onClick={() => setSilhouette(s)}
-                    className={`mould-press rounded-xl border-2 p-3 text-sm font-semibold capitalize ${
-                      silhouette === s
-                        ? "border-accent bg-accent/10 text-primary"
-                        : "border-border bg-card text-foreground/70 hover:border-accent/50"
+                    onClick={() => setStep(i)}
+                    aria-current={i === step}
+                    className={`mould-press flex w-full items-center gap-3 rounded-xl border-2 px-4 py-3 text-left transition-colors ${
+                      i === step
+                        ? "border-accent bg-accent/10"
+                        : "border-border bg-card hover:border-accent/50"
                     }`}
                   >
-                    <svg viewBox="0 0 240 200" className="w-full h-16">
-                      <Silhouette s={s} fill="currentColor" />
-                    </svg>
-                    {s}
+                    <span
+                      className={`text-xs font-bold tabular-nums ${
+                        i === step ? "text-accent" : "text-muted-foreground"
+                      }`}
+                    >
+                      {STAGE_CODES[i]}
+                    </span>
+                    <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+                      {STAGE_LABELS[i]}
+                    </span>
+                    <span className="ml-auto text-xs text-muted-foreground hidden sm:inline">
+                      {s.title}
+                    </span>
+                    {i < step && <Check className="h-4 w-4 text-accent shrink-0" />}
                   </button>
-                ))}
-              </div>
-            </div>
-
-            <ol className="mt-8 grid grid-cols-5 gap-1 text-[10px] font-semibold uppercase tracking-wider">
-              {stages.map((s, i) => (
-                <li
-                  key={s.key}
-                  className={`text-center py-2 rounded ${
-                    i <= step ? "bg-accent text-accent-foreground" : "bg-secondary text-muted-foreground"
-                  }`}
-                >
-                  {s.label}
                 </li>
               ))}
             </ol>
