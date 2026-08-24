@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroAsset from "@/assets/hero-cluster.png.asset.json";
-import heroMobileAsset from "@/assets/hero-mobile.png.asset.json";
-import heroMobileTrimAsset from "@/assets/hero-mobile-trim.png.asset.json";
+import heroAsset from "@/assets/hero-desktop-v2.png.asset.json";
+import heroMobileAsset from "@/assets/hero-mobile-v2.png.asset.json";
 
 const heroArt = heroAsset.url;
 const heroMobileArt = heroMobileAsset.url;
-const heroMobileTrimArt = heroMobileTrimAsset.url;
 
 /**
 
@@ -67,8 +65,8 @@ export function MouldHero() {
         <img
           src={heroArt}
           alt="Plastic pellets flowing into finished Dentex packaging — a PET bottle, pharmaceutical bottle, jar, tub and red closure on a marble pedestal"
-          width={1350}
-          height={650}
+          width={862}
+          height={821}
           className="relative h-auto max-h-[78%] w-full object-contain object-right drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
         />
       </div>
@@ -103,12 +101,12 @@ export function MouldHero() {
               style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
             />
             <picture className="relative w-full max-w-none sm:max-w-[520px] h-[min(38svh,270px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
-              <source srcSet={heroMobileTrimArt} media="(max-width: 639px)" />
+              <source srcSet={heroMobileArt} media="(max-width: 639px)" />
               <img
                 src={heroArt}
                 alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
-                width={1350}
-                height={650}
+                width={881}
+                height={648}
                 className="w-full h-full object-contain object-center drop-shadow-[0_28px_44px_rgba(0,0,0,0.5)] sm:drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
               />
             </picture>
