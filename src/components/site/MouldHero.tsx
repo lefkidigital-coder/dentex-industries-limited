@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroAsset from "@/assets/hero-desktop-v2.png.asset.json";
-import heroMobileAsset from "@/assets/hero-mobile-v2.png.asset.json";
+import heroAsset from "@/assets/hero-products-v3.png.asset.json";
 
 const heroArt = heroAsset.url;
-const heroMobileArt = heroMobileAsset.url;
 
 /**
 
@@ -55,19 +53,13 @@ export function MouldHero() {
       </div>
 
       {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[58%]">
-        {/* grounding pool of light beneath the cluster */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 top-[68%] h-40 w-[70%] -translate-x-1/2 rounded-[50%] blur-2xl"
-          style={{ background: "oklch(0.62 0.03 250 / 0.28)" }}
-        />
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[56%]">
         <img
           src={heroArt}
-          alt="Plastic pellets flowing into finished Dentex packaging — a PET bottle, pharmaceutical bottle, jar, tub and red closure on a marble pedestal"
-          width={862}
-          height={821}
-          className="relative h-auto max-h-[78%] w-full object-contain object-right drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
+          alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
+          width={1500}
+          height={1000}
+          className="relative h-full max-h-[92%] w-full object-contain object-right drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
         />
       </div>
 
@@ -93,23 +85,15 @@ export function MouldHero() {
             </p>
           </motion.div>
 
-          {/* Mobile artwork — large, dominant focal point using the portrait mobile asset */}
-          <div className="lg:hidden -mx-4 sm:mx-0 mt-2 sm:mt-8 relative flex justify-center">
-            <div
-              aria-hidden
-              className="absolute left-1/2 bottom-0 h-24 sm:h-28 w-[95%] -translate-x-1/2 rounded-[50%] blur-2xl"
-              style={{ background: "oklch(0.62 0.03 250 / 0.32)" }}
+          {/* Mobile artwork — as large as the screen width allows */}
+          <div className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
+            <img
+              src={heroArt}
+              alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
+              width={1500}
+              height={1000}
+              className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center drop-shadow-[0_24px_36px_rgba(0,0,0,0.45)]"
             />
-            <picture className="relative w-full max-w-none sm:max-w-[520px] h-[min(38svh,270px)] sm:h-[min(46svh,340px)] md:h-[min(50svh,400px)] flex justify-center">
-              <source srcSet={heroMobileArt} media="(max-width: 639px)" />
-              <img
-                src={heroArt}
-                alt="Plastic pellets flowing into finished Dentex packaging on a marble pedestal"
-                width={881}
-                height={648}
-                className="w-full h-full object-contain object-center drop-shadow-[0_28px_44px_rgba(0,0,0,0.5)] sm:drop-shadow-[0_22px_34px_rgba(0,0,0,0.45)]"
-              />
-            </picture>
           </div>
 
           <div className="mt-2 sm:mt-5 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
