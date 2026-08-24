@@ -89,8 +89,9 @@ export function MouldHero() {
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
             <p className="mt-3 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.45] sm:leading-relaxed">
-              For over 39 years, Dentex has been the trusted partner for rigid plastic packaging
-              solutions — delivering quality, innovation, and integrity.
+              For 40 years, Dentex Industries has delivered reliable rigid plastic packaging
+              solutions for businesses across East Africa — combining experience, consistency, and
+              customer-focused manufacturing.
             </p>
           </motion.div>
 

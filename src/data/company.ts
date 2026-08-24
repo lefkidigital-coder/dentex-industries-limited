@@ -3,9 +3,10 @@ export const COMPANY = {
   name: "Dentex Industries Limited",
   shortName: "Dentex Industries Ltd",
   established: 1986,
-  yearsLabel: "39+",
+  yearsLabel: "40",
   employeesLabel: "70+",
-  certification: "ISO 9001:2015 Quality Management System",
+  qualityStatement:
+    "Controlled production processes, material preparation and product inspection on every order.",
   address: "P.O Box 47770 - 00100, Addis Ababa Road, Off Enterprise Road, Nairobi",
   phonePrimary: "+254 717 614 454",
   phoneSecondary: "+254 753 614 454",
