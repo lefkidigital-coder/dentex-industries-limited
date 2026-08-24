@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Dentex Industries Ltd — Precision Plastic Packaging" },
-      { name: "description", content: "For over 35 years, Dentex has been East Africa's trusted partner for rigid plastic packaging — pharmaceutical, food & beverage, industrial." },
+      { name: "description", content: "For 40 years, Dentex Industries has delivered reliable rigid plastic packaging for businesses across East Africa — pharma, food & beverage, industrial." },
       { property: "og:title", content: "Dentex Industries Ltd — Precision Plastic Packaging" },
       { property: "og:description", content: "Quality, innovation, integrity. Rigid plastic packaging solutions made in Kenya since 1986." },
     ],
