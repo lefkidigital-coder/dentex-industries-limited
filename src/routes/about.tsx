@@ -65,7 +65,7 @@ function About() {
               />
               <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-xl shadow-xl max-w-xs hidden sm:block">
                 <Award className="h-8 w-8" />
-                <p className="mt-2 font-bold">35+ years of packaging excellence in East Africa.</p>
+                <p className="mt-2 font-bold">40 years of packaging excellence in East Africa.</p>
               </div>
             </div>
           </Reveal>
