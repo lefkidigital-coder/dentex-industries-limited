@@ -25,10 +25,10 @@ const MODULES = [
   },
   {
     icon: ShieldCheck,
-    value: "ISO",
-    unit: "9001:2015",
-    title: "Certified quality system",
-    note: COMPANY.certification,
+    value: "QC",
+    unit: "Every batch",
+    title: "Rigorous quality control",
+    note: COMPANY.qualityStatement,
   },
 ];
 
@@ -97,7 +97,7 @@ export function ImpactStats() {
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Impact</p>
           <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">
-            Measured, certified, and built over decades.
+            Measured, controlled, and built over decades.
           </h2>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">

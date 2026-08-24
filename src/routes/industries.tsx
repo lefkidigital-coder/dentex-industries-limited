@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Pill, UtensilsCrossed, Droplet, Sparkles, Building2, ArrowRight } from "lucide-react";
+import { Pill, UtensilsCrossed, Sparkles, Car, Sprout, Factory, ArrowRight } from "lucide-react";
 import { Layout, PageHero, Reveal } from "@/components/site/Layout";
 import { ProductGrid } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
@@ -9,20 +9,21 @@ export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
       { title: "Industries We Serve — Dentex Industries Ltd" },
-      { name: "description", content: "Rigid plastic packaging for pharmaceutical, food & beverage, water, cosmetics and industrial customers across East Africa." },
+      { name: "description", content: "Rigid plastic packaging for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial customers across East Africa." },
       { property: "og:title", content: "Industries Served — Dentex Industries Ltd" },
-      { property: "og:description", content: "Packaging built for pharmaceutical, food & beverage, water, cosmetics and industrial applications." },
+      { property: "og:description", content: "Packaging built for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial applications." },
     ],
   }),
   component: Industries,
 });
 
 const INDUSTRIES: { icon: typeof Pill; label: string; blurb: string; category: CategorySlug }[] = [
-  { icon: Pill, label: "Pharmaceutical", blurb: "Precision injection-moulded packaging engineered for product safety and integrity.", category: "pharmaceutical" },
-  { icon: UtensilsCrossed, label: "Food & Beverage", blurb: "Durable, visually appealing packaging for restaurants, dairy and beverage brands.", category: "food-beverage" },
-  { icon: Droplet, label: "Water & Beverage", blurb: "Clear, lightweight bottles for water, juices and carbonated beverages.", category: "food-beverage" },
-  { icon: Sparkles, label: "Cosmetics", blurb: "Rigid containers and closures from our existing range, adapted to cosmetic products.", category: "industrial" },
-  { icon: Building2, label: "Industrial / Chemicals", blurb: "Heavy-duty containers and bespoke mouldings for industrial applications.", category: "industrial" },
+  { icon: Pill, label: "Pharma", blurb: "Rigid containers and closures for pharmaceutical manufacturers and packers.", category: "pharmaceutical" },
+  { icon: UtensilsCrossed, label: "Food & Beverage", blurb: "Packaging for food processors, beverage bottlers and food service customers.", category: "food-beverage" },
+  { icon: Sparkles, label: "Cosmetics", blurb: "Containers and closures for personal care and cosmetic products.", category: "industrial" },
+  { icon: Car, label: "Automotive", blurb: "Packaging for lubricants, additives and automotive care products.", category: "industrial" },
+  { icon: Sprout, label: "Agrochemical", blurb: "Containers and closures for agrochemical and crop-protection products.", category: "industrial" },
+  { icon: Factory, label: "Industrial & Allied", blurb: "Heavy-duty containers and bespoke mouldings for industrial and allied sectors.", category: "industrial" },
 ];
 
 function Industries() {
@@ -39,7 +40,7 @@ function Industries() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Who We Supply</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Five sectors, one manufacturing standard.</h2>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Six sectors, one manufacturing standard.</h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
                 Dentex Industries Limited has manufactured rigid plastic packaging in Nairobi since 1986. Select an
                 industry to view the relevant product range.
@@ -92,8 +93,9 @@ function Industries() {
             <div className="rounded-2xl border border-border/60 bg-card p-8 sm:p-12 shadow-sm">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Our manufacturing capability</h2>
               <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
-                Injection-moulded rigid plastic packaging produced in Nairobi by a team of 70+, operating under an
-                ISO 9001:2015 Quality Management System. Talk to us about tooling, materials and production volumes.
+                Injection- and blow-moulded rigid plastic packaging produced in Nairobi by a team of 70+, under
+                controlled production processes with material preparation and product inspection on every run.
+                Talk to us about tooling, materials and production volumes.
               </p>
               <Link
                 to="/quality"
