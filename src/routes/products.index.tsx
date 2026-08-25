@@ -86,7 +86,7 @@ function Products() {
               <img
                 src={heroComposition.url}
                 alt="Dentex rigid plastic packaging range — jerrycans, bottles and jars"
-                className="mx-auto w-full max-w-[560px] h-[min(46svh,340px)] sm:h-[400px] lg:h-[440px] object-contain drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)]"
+                className="mx-auto w-full max-w-[560px] h-[min(52svh,380px)] sm:h-[400px] lg:h-[440px] object-contain drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)]"
               />
             </motion.div>
           </div>

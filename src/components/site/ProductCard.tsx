@@ -22,7 +22,7 @@ export function ProductCard({ product }: { product: Product }) {
         params={{ category: product.category, product: product.slug }}
         className="block w-full text-left"
       >
-        <div className="aspect-square overflow-hidden bg-secondary p-6 sm:p-8">
+        <div className="aspect-square overflow-hidden bg-white p-6 sm:p-8">
           <img
             src={product.images.main}
             alt={product.title}
