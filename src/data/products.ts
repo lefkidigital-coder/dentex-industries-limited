@@ -1,9 +1,27 @@
 /**
  * Product content, separated from presentation so it maps cleanly onto a
  * future WooCommerce catalogue (category slug + product slug + attributes).
+ *
+ * To add a product later: drop a new entry into PRODUCTS with an existing
+ * category slug — the products page, filters, category pages and detail
+ * pages all read from this file, so no layout work is needed.
  */
 
-export type CategorySlug = "pharmaceutical" | "food-beverage" | "industrial";
+import jerrycan3l from "@/assets/product-3l-jerrycan.png.asset.json";
+import jerrycan5l from "@/assets/product-5l-jerrycan.png.asset.json";
+import jerrycan1l from "@/assets/product-1l-jerrycan.png.asset.json";
+import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
+import bottle120ml from "@/assets/product-120ml-long-neck-bottle.png.asset.json";
+import bottle500ml from "@/assets/product-500ml-plastic-bottle.png.asset.json";
+import takeawayContainer from "@/assets/product-white-round-takeaway-container.png.asset.json";
+import petWaterBottle from "@/assets/product-pet-water-bottle.png.asset.json";
+
+export type CategorySlug =
+  | "bottles"
+  | "jerrycans"
+  | "jars-containers"
+  | "food-service"
+  | "pet-preforms";
 
 export type ProductCategory = {
   slug: CategorySlug;
@@ -36,173 +54,134 @@ export const ON_REQUEST = "Available on request";
 
 export const CATEGORIES: ProductCategory[] = [
   {
-    slug: "pharmaceutical",
-    name: "Pharmaceutical",
-    title: "Pharmaceutical Packaging",
+    slug: "bottles",
+    name: "Bottles",
+    title: "Bottles",
     intro:
-      "Precision injection-moulded packaging for the pharmaceutical industry, ensuring product safety and integrity.",
+      "Rigid plastic bottles for pharmaceutical, food, beverage, personal care, household and specialty products.",
     metaDescription:
-      "Pharmaceutical-grade rigid plastic packaging from Dentex Industries Ltd — bottles and containers manufactured in Nairobi, Kenya.",
+      "Rigid plastic bottles from Dentex Industries Ltd — HDPE and PET bottles manufactured in Nairobi, Kenya.",
   },
   {
-    slug: "food-beverage",
-    name: "Food & Beverage",
-    title: "Food & Beverage Packaging",
+    slug: "jerrycans",
+    name: "Jerrycans",
+    title: "Jerrycans",
     intro:
-      "Durable and visually appealing rigid plastic packaging for restaurants, ice cream manufacturers, and beverage companies.",
+      "HDPE jerrycans for food, pharmaceutical, chemical, household and industrial liquid products.",
     metaDescription:
-      "Food and beverage rigid plastic packaging from Dentex Industries Ltd — tubs, bottles and takeaway packs made in Kenya.",
+      "HDPE jerrycans from Dentex Industries Ltd — 1L, 3L and 5L containers manufactured in Nairobi, Kenya.",
   },
   {
-    slug: "industrial",
-    name: "Industrial",
-    title: "Industrial & Custom Packaging",
-    intro:
-      "Tailored, high-quality plastic solutions for a diverse range of industrial applications.",
+    slug: "jars-containers",
+    name: "Jars & Containers",
+    title: "Jars & Containers",
+    intro: "Jars and rigid containers for dry goods, powders, creams and packed products.",
     metaDescription:
-      "Industrial and custom rigid plastic packaging from Dentex Industries Ltd — containers, closures and bespoke mouldings.",
+      "Plastic jars and rigid containers from Dentex Industries Ltd, manufactured in Nairobi, Kenya.",
+  },
+  {
+    slug: "food-service",
+    name: "Food Service",
+    title: "Food Service",
+    intro: "Food-grade containers for restaurants, caterers and food processors.",
+    metaDescription:
+      "Food service packaging from Dentex Industries Ltd — food-grade containers made in Nairobi, Kenya.",
+  },
+  {
+    slug: "pet-preforms",
+    name: "PET Preforms",
+    title: "PET Preforms",
+    intro: "PET preforms for blow-moulded bottles across beverage and packaged water applications.",
+    metaDescription:
+      "PET preforms from Dentex Industries Ltd, manufactured in Nairobi, Kenya.",
   },
 ];
 
-function gallery(seed: string) {
-  return {
-    main: `https://picsum.photos/seed/${seed}/1200/900`,
-    alternates: [
-      `https://picsum.photos/seed/${seed}-alt1/1200/900`,
-      `https://picsum.photos/seed/${seed}-alt2/1200/900`,
-    ],
-    details: [`https://picsum.photos/seed/${seed}-detail/1200/900`],
-  };
+function single(url: string) {
+  return { main: url, alternates: [] as string[], details: [] as string[] };
 }
+
+const baseSpecs: ProductSpecs = {
+  material: ON_REQUEST,
+  capacityRange: ON_REQUEST,
+  neckClosure: ON_REQUEST,
+  weight: ON_REQUEST,
+  moq: ON_REQUEST,
+  industryFit: ON_REQUEST,
+};
 
 export const PRODUCTS: Product[] = [
   {
-    slug: "pharmaceutical-grade-bottles",
-    title: "Pharmaceutical Grade Bottles",
-    category: "pharmaceutical",
-    desc: "Tamper-evident HDPE bottles engineered for liquid and solid pharmaceutical formulations.",
-    highlights: ["Capacities: 30ml – 1L", "Tamper-evident closures", "Food-grade certified", "Custom labeling"],
-    specs: {
-      material: "HDPE / PP, food and pharma grade",
-      capacityRange: "30ml – 1L",
-      neckClosure: "Tamper-evident closures",
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Pharmaceutical",
-    },
-    images: gallery("prod-pharma1"),
+    slug: "3l-heavy-duty-hdpe-jerrycan",
+    title: "3L Heavy-Duty HDPE Jerrycan",
+    category: "jerrycans",
+    desc: "Heavy-duty HDPE jerrycan for industrial chemicals, automotive fluids, lubricants and cleaning agents.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "HDPE", capacityRange: "3L" },
+    images: single(jerrycan3l.url),
   },
   {
-    slug: "tablet-capsule-containers",
-    title: "Tablet & Capsule Containers",
-    category: "pharmaceutical",
-    desc: "Wide-mouth jars with child-resistant caps for tablets, capsules, and powders.",
-    highlights: ["Wide-mouth design", "Child-resistant lids", "Moisture barrier"],
-    specs: {
-      material: "PET / HDPE",
-      capacityRange: ON_REQUEST,
-      neckClosure: "Wide-mouth, child-resistant lids",
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Pharmaceutical",
-    },
-    images: gallery("prod-pharma2"),
+    slug: "5l-hdpe-jerrycan",
+    title: "5L HDPE Jerrycan",
+    category: "jerrycans",
+    desc: "Durable 5L HDPE jerrycan for food, pharmaceutical, chemical, household and industrial liquid products.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "HDPE", capacityRange: "5L" },
+    images: single(jerrycan5l.url),
   },
   {
-    slug: "ice-cream-tubs",
-    title: "Ice Cream Tubs",
-    category: "food-beverage",
-    desc: "Durable, freezer-safe tubs in a range of capacities for premium dairy brands.",
-    highlights: ["100ml – 5L sizes", "Freezer & microwave safe", "IML decoration available"],
-    specs: {
-      material: "Polypropylene (PP)",
-      capacityRange: "100ml – 5L",
-      neckClosure: ON_REQUEST,
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Food & Beverage",
-    },
-    images: gallery("prod-icecream"),
+    slug: "1l-hdpe-jerrycan",
+    title: "1L HDPE Jerrycan",
+    category: "jerrycans",
+    desc: "Compact 1L HDPE jerrycan for food, pharmaceutical, household, chemical and industrial liquids.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "HDPE", capacityRange: "1L" },
+    images: single(jerrycan1l.url),
   },
   {
-    slug: "beverage-bottles",
-    title: "Beverage Bottles",
-    category: "food-beverage",
-    desc: "Clear, lightweight PET bottles for water, juices, and carbonated beverages.",
-    highlights: ["250ml – 2L", "Crystal-clear PET", "Custom neck finishes"],
-    specs: {
-      material: "PET, recyclable",
-      capacityRange: "250ml – 2L",
-      neckClosure: "Custom neck finishes",
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Food & Beverage",
-    },
-    images: gallery("prod-bottle"),
+    slug: "100ml-hdpe-bottle",
+    title: "100ml HDPE Bottle",
+    category: "bottles",
+    desc: "Compact HDPE bottle for pharmaceutical, personal care, chemical and household products.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "HDPE", capacityRange: "100ml" },
+    images: single(bottle100ml.url),
   },
   {
-    slug: "restaurant-takeaway-packs",
-    title: "Restaurant Takeaway Packs",
-    category: "food-beverage",
-    desc: "Microwave-safe containers tailored for restaurants and quick-service brands.",
-    highlights: ["Stackable", "Microwave & freezer safe", "Branded inserts available"],
-    specs: {
-      material: "PP",
-      capacityRange: ON_REQUEST,
-      neckClosure: ON_REQUEST,
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Food & Beverage",
-    },
-    images: gallery("prod-takeaway"),
+    slug: "120ml-long-neck-bottle",
+    title: "120ml Long-Neck Bottle",
+    category: "bottles",
+    desc: "Distinctive 120ml long-neck bottle for pharmaceutical, food, beverage, personal care and specialty products.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "120ml" },
+    images: single(bottle120ml.url),
   },
   {
-    slug: "industrial-chemical-containers",
-    title: "Industrial Chemical Containers",
-    category: "industrial",
-    desc: "Heavy-duty containers for industrial chemicals and lubricants.",
-    highlights: ["1L – 25L", "Chemical resistant", "Stackable for transport"],
-    specs: {
-      material: "HDPE industrial grade",
-      capacityRange: "1L – 25L",
-      neckClosure: ON_REQUEST,
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Industrial / Chemicals",
-    },
-    images: gallery("prod-industrial1"),
+    slug: "500ml-plastic-bottle",
+    title: "500ml Plastic Bottle",
+    category: "bottles",
+    desc: "Versatile 500ml bottle for pharmaceutical, food, personal care, household and specialty products.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "500ml" },
+    images: single(bottle500ml.url),
   },
   {
-    slug: "custom-moulded-solutions",
-    title: "Custom Moulded Solutions",
-    category: "industrial",
-    desc: "Bespoke injection-moulded packaging tailored to your product specifications.",
-    highlights: ["Custom tooling", "Low to high volume", "Material consultation"],
-    specs: {
-      material: "Various polymers",
-      capacityRange: ON_REQUEST,
-      neckClosure: ON_REQUEST,
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Industrial / Custom",
-    },
-    images: gallery("prod-custom"),
+    slug: "white-round-takeaway-container",
+    title: "White Round Takeaway Container",
+    category: "food-service",
+    desc: "Food-grade polypropylene container with a secure snap-on lid for hot and cold foods.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "Polypropylene (PP)", neckClosure: "Snap-on lid" },
+    images: single(takeawayContainer.url),
   },
   {
-    slug: "closures-caps",
-    title: "Closures & Caps",
-    category: "industrial",
-    desc: "Precision-engineered closures for a wide range of bottle and container types.",
-    highlights: ["Multiple thread sizes", "Tamper-evident options", "Custom colors"],
-    specs: {
-      material: "PP / HDPE",
-      capacityRange: ON_REQUEST,
-      neckClosure: "Multiple thread sizes, tamper-evident options",
-      weight: ON_REQUEST,
-      moq: ON_REQUEST,
-      industryFit: "Industrial / Custom",
-    },
-    images: gallery("prod-caps"),
+    slug: "pet-water-bottle",
+    title: "PET Water Bottle",
+    category: "bottles",
+    desc: "Lightweight PET bottle designed for packaged drinking water, efficient filling, handling and distribution.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "PET" },
+    images: single(petWaterBottle.url),
   },
 ];
 
