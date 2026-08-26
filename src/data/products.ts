@@ -48,6 +48,9 @@ export type Product = {
   highlights: string[];
   specs: ProductSpecs;
   images: { main: string; alternates: string[]; details: string[] };
+  /** Confirmed colour options only — never inferred or invented. */
+  colours?: { name: string; hex: string }[];
+  colourNote?: string;
 };
 
 export const ON_REQUEST = "Available on request";
@@ -119,6 +122,12 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, material: "HDPE", capacityRange: "3L" },
     images: single(jerrycan3l.url),
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Clear", hex: "#E8EEF2" },
+      { name: "Black", hex: "#151515" },
+    ],
+    colourNote: "Custom colours available on request.",
   },
   {
     slug: "5l-hdpe-jerrycan",
@@ -128,6 +137,7 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, material: "HDPE", capacityRange: "5L" },
     images: single(jerrycan5l.url),
+    colourNote: "Multiple colours available to customer specification.",
   },
   {
     slug: "1l-hdpe-jerrycan",
@@ -137,6 +147,7 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, material: "HDPE", capacityRange: "1L" },
     images: single(jerrycan1l.url),
+    colourNote: "Multiple colours available to customer specification.",
   },
   {
     slug: "100ml-hdpe-bottle",
@@ -146,6 +157,7 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, material: "HDPE", capacityRange: "100ml" },
     images: single(bottle100ml.url),
+    colourNote: "Multiple colours available. Additional colours available on request.",
   },
   {
     slug: "120ml-long-neck-bottle",
@@ -155,6 +167,7 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, capacityRange: "120ml" },
     images: single(bottle120ml.url),
+    colourNote: "Multiple bottle colours and cap colours available on request.",
   },
   {
     slug: "500ml-plastic-bottle",
@@ -164,6 +177,7 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, capacityRange: "500ml" },
     images: single(bottle500ml.url),
+    colourNote: "Multiple bottle colours and cap colours available on request.",
   },
   {
     slug: "white-round-takeaway-container",
