@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Pill, UtensilsCrossed, Boxes } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { IconPharma, IconFoodBeverage, IconCustomSolutions } from "@/components/site/DentexIcons";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { MouldHero } from "@/components/site/MouldHero";
 import { BuildYourProduct } from "@/components/site/BuildYourProduct";
@@ -22,9 +23,9 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Pill, title: "Pharmaceutical Packaging", desc: "Precision injection-moulded packaging for the pharmaceutical industry, ensuring product safety and integrity." },
-  { icon: UtensilsCrossed, title: "Food & Beverage Packaging", desc: "Durable and visually appealing rigid plastic packaging for restaurants, ice cream manufacturers, and beverage companies." },
-  { icon: Boxes, title: "Industrial & Custom Packaging", desc: "Tailored, high-quality plastic solutions for a diverse range of industrial applications." },
+  { icon: IconPharma, title: "Pharmaceutical Packaging", desc: "Precision injection-moulded packaging for the pharmaceutical industry, ensuring product safety and integrity." },
+  { icon: IconFoodBeverage, title: "Food & Beverage Packaging", desc: "Durable and visually appealing rigid plastic packaging for restaurants, ice cream manufacturers, and beverage companies." },
+  { icon: IconCustomSolutions, title: "Industrial & Custom Packaging", desc: "Tailored, high-quality plastic solutions for a diverse range of industrial applications." },
 ];
 
 function Home() {
