@@ -1,42 +1,47 @@
-import { Pill, UtensilsCrossed, IceCream, Sandwich, Droplet, Factory } from "lucide-react";
+import dawa from "@/assets/logo-dawa-life-sciences.png.asset.json";
+import brava from "@/assets/logo-brava.png.asset.json";
+import kepro from "@/assets/logo-kepro.png.asset.json";
+import ellys from "@/assets/logo-ellys.png.asset.json";
 
 /**
- * Placeholder trust strip. Uses neutral industry identifiers — swap the
- * `ITEMS` array for approved client logos when they are available.
+ * Trusted Across Industries — client logos are used exactly as supplied.
+ * Containers balance the logos by visual size; artwork is never cropped.
  */
-const ITEMS = [
-  { label: "Pharmaceutical", icon: Pill },
-  { label: "Restaurants", icon: UtensilsCrossed },
-  { label: "Ice Cream", icon: IceCream },
-  { label: "Food & Beverage", icon: Sandwich },
-  { label: "Mineral Water", icon: Droplet },
-  { label: "Industrial / Multinational", icon: Factory },
+const LOGOS = [
+  { name: "Dawa Life Sciences", src: dawa.url, className: "h-16 sm:h-20" },
+  { name: "BRAVA Food Industries Ltd", src: brava.url, className: "h-11 sm:h-14" },
+  { name: "KEPRO — Kenya Extended Producer Responsibility Organization", src: kepro.url, className: "h-10 sm:h-12" },
+  { name: "ELLYS", src: ellys.url, className: "h-14 sm:h-16" },
 ];
 
 export function TrustStrip() {
-  const loop = [...ITEMS, ...ITEMS, ...ITEMS, ...ITEMS];
-
   return (
-    <section className="border-y border-border/60 bg-background py-12">
-      <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-        Trusted Across Industries
-      </p>
-      <div className="marquee-viewport relative mt-8 overflow-hidden">
-        <div className="marquee-track flex w-max items-center gap-16 pr-16">
-          {loop.map((item, i) => (
-            <div
-              key={`${item.label}-${i}`}
-              className="flex shrink-0 items-center gap-3 text-muted-foreground/80"
-            >
-              <item.icon className="h-5 w-5" strokeWidth={1.5} />
-              <span className="whitespace-nowrap text-xs font-semibold uppercase tracking-[0.16em]">
-                {item.label}
-              </span>
-            </div>
-          ))}
+    <section className="border-y border-border/60 bg-secondary py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+            Trusted Across Industries
+          </p>
+          <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight text-primary">
+            Partnering with leading brands
+          </h2>
+          <span className="mx-auto mt-5 block h-px w-16 bg-accent/60" />
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" />
+
+        <ul className="mt-10 sm:mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+          {LOGOS.map((logo) => (
+            <li key={logo.name}>
+              <div className="flex h-28 sm:h-36 items-center justify-center rounded-2xl border border-border/60 bg-card px-5 py-6 sm:px-8 transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.025] hover:border-accent/40">
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  loading="lazy"
+                  className={`w-auto max-w-full object-contain ${logo.className}`}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
