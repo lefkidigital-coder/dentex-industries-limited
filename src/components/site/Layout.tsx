@@ -26,7 +26,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
 export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title: string; subtitle?: string }) {
   return (
-    <section className="relative overflow-hidden bg-primary text-primary-foreground">
+    <section className="relative overflow-hidden bg-hero-deep text-primary-foreground">
       <div
         className="absolute inset-0 opacity-20"
         style={{

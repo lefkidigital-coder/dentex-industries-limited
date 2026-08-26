@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Pill, UtensilsCrossed, Sparkles, Car, Sprout, Factory } from "lucide-react";
+import {
+  IconPharma,
+  IconFoodBeverage,
+  IconCosmetics,
+  IconAutomotive,
+  IconAgrochemical,
+  IconIndustrial,
+} from "./DentexIcons";
 
 const INDUSTRIES = [
   {
     key: "pharma",
     label: "Pharma",
     tint: "tint-pharma",
-    icon: Pill,
+    icon: IconPharma,
     example: "Medicine bottles, tablet containers and closures",
     application: "Rigid containers and closures supplied to pharmaceutical manufacturers and packers.",
     mood: "Clean, clinical, precise.",
@@ -17,7 +24,7 @@ const INDUSTRIES = [
     key: "food",
     label: "Food & Beverage",
     tint: "tint-food",
-    icon: UtensilsCrossed,
+    icon: IconFoodBeverage,
     example: "Tubs, jars, bottles and closures",
     application: "Packaging for food processors, beverage bottlers and food service customers.",
     mood: "Warm, practical, energetic.",
@@ -27,7 +34,7 @@ const INDUSTRIES = [
     key: "cosmetics",
     label: "Cosmetics",
     tint: "tint-cosmetics",
-    icon: Sparkles,
+    icon: IconCosmetics,
     example: "Personal care containers and caps",
     application: "Containers and closures used for cosmetic and personal care products.",
     mood: "Refined, clean, considered.",
@@ -37,7 +44,7 @@ const INDUSTRIES = [
     key: "automotive",
     label: "Automotive",
     tint: "tint-automotive",
-    icon: Car,
+    icon: IconAutomotive,
     example: "Lubricant bottles and containers",
     application: "Packaging for lubricants, additives and automotive care products.",
     mood: "Robust, technical, hard-wearing.",
@@ -47,7 +54,7 @@ const INDUSTRIES = [
     key: "agrochemical",
     label: "Agrochemical",
     tint: "tint-agrochemical",
-    icon: Sprout,
+    icon: IconAgrochemical,
     example: "Agrochemical containers and closures",
     application: "Containers and closures for agrochemical and crop-protection products.",
     mood: "Durable, secure, field-ready.",
@@ -57,7 +64,7 @@ const INDUSTRIES = [
     key: "industrial",
     label: "Industrial & Allied",
     tint: "tint-industrial",
-    icon: Factory,
+    icon: IconIndustrial,
     example: "Heavy-duty containers and bespoke mouldings",
     application: "Industrial packaging and custom mouldings produced to customer specification.",
     mood: "Controlled, industrial, dependable.",
