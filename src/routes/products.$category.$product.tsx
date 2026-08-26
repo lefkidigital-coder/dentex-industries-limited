@@ -73,6 +73,35 @@ function ProductDetail() {
                   ))}
                 </ul>
 
+                {(product.colours || product.colourNote) && (
+                  <div className="mt-8 border-t border-border/60 pt-6">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                      Available Colours
+                    </p>
+                    {product.colours && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {product.colours.map((c) => (
+                          <span
+                            key={c.name}
+                            className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card px-3 py-1.5 text-sm font-medium text-primary"
+                          >
+                            <span
+                              className="h-4 w-4 rounded-full border border-border"
+                              style={{ backgroundColor: c.hex }}
+                              aria-hidden
+                            />
+                            {c.name}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {product.colourNote && (
+                      <p className="mt-3 text-sm text-muted-foreground">{product.colourNote}</p>
+                    )}
+                  </div>
+                )}
+
+
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     to="/contact"

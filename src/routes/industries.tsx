@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Pill, UtensilsCrossed, Sparkles, Car, Sprout, Factory, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import {
+  IconPharma,
+  IconFoodBeverage,
+  IconCosmetics,
+  IconAutomotive,
+  IconAgrochemical,
+  IconIndustrial,
+} from "@/components/site/DentexIcons";
 import { Layout, PageHero, Reveal } from "@/components/site/Layout";
 import { ProductGrid } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
@@ -17,13 +25,13 @@ export const Route = createFileRoute("/industries")({
   component: Industries,
 });
 
-const INDUSTRIES: { icon: typeof Pill; label: string; blurb: string; category: CategorySlug }[] = [
-  { icon: Pill, label: "Pharma", blurb: "Rigid containers and closures for pharmaceutical manufacturers and packers.", category: "bottles" },
-  { icon: UtensilsCrossed, label: "Food & Beverage", blurb: "Packaging for food processors, beverage bottlers and food service customers.", category: "food-service" },
-  { icon: Sparkles, label: "Cosmetics", blurb: "Containers and closures for personal care and cosmetic products.", category: "jars-containers" },
-  { icon: Car, label: "Automotive", blurb: "Packaging for lubricants, additives and automotive care products.", category: "jerrycans" },
-  { icon: Sprout, label: "Agrochemical", blurb: "Containers and closures for agrochemical and crop-protection products.", category: "jerrycans" },
-  { icon: Factory, label: "Industrial & Allied", blurb: "Heavy-duty containers and bespoke mouldings for industrial and allied sectors.", category: "jerrycans" },
+const INDUSTRIES: { icon: typeof IconPharma; label: string; blurb: string; category: CategorySlug }[] = [
+  { icon: IconPharma, label: "Pharma", blurb: "Rigid containers and closures for pharmaceutical manufacturers and packers.", category: "bottles" },
+  { icon: IconFoodBeverage, label: "Food & Beverage", blurb: "Packaging for food processors, beverage bottlers and food service customers.", category: "food-service" },
+  { icon: IconCosmetics, label: "Cosmetics", blurb: "Containers and closures for personal care and cosmetic products.", category: "jars-containers" },
+  { icon: IconAutomotive, label: "Automotive", blurb: "Packaging for lubricants, additives and automotive care products.", category: "jerrycans" },
+  { icon: IconAgrochemical, label: "Agrochemical", blurb: "Containers and closures for agrochemical and crop-protection products.", category: "jerrycans" },
+  { icon: IconIndustrial, label: "Industrial & Allied", blurb: "Heavy-duty containers and bespoke mouldings for industrial and allied sectors.", category: "jerrycans" },
 
 ];
 

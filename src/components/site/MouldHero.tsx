@@ -59,7 +59,7 @@ export function MouldHero() {
           alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
           width={1500}
           height={1000}
-          className="relative h-full max-h-[92%] w-full object-contain object-right drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
+          className="relative h-full max-h-[92%] w-full object-contain object-right"
         />
       </div>
 
@@ -92,7 +92,7 @@ export function MouldHero() {
               alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
               width={1500}
               height={1000}
-              className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center drop-shadow-[0_24px_36px_rgba(0,0,0,0.45)]"
+              className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center"
             />
           </div>
 
