@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "./Logo";
+import { gsap, prefersReducedMotion } from "@/lib/motion";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -15,6 +15,32 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const panel = panelRef.current;
+    let ctx: gsap.Context | undefined;
+    if (panel && !prefersReducedMotion()) {
+      ctx = gsap.context(() => {
+        gsap.fromTo(panel, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" });
+        gsap.fromTo(
+          panel.querySelectorAll("[data-menu-item]"),
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "power3.out", delay: 0.08 },
+        );
+      }, panel);
+    }
+
+    return () => {
+      document.body.style.overflow = prev;
+      ctx?.revert();
+    };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -46,53 +72,51 @@ export function Header() {
           </Link>
           <button
             className="lg:hidden p-2 rounded-md hover:bg-secondary"
-            onClick={() => setOpen(true)}
-            aria-label="Open menu"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
-            <Menu className="h-6 w-6 text-primary" />
+            {open ? <X className="h-6 w-6 text-primary" /> : <Menu className="h-6 w-6 text-primary" />}
           </button>
         </div>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 lg:hidden bg-primary text-primary-foreground flex flex-col"
-          >
-            <div className="flex items-center justify-between h-16 px-6 border-b border-white/10">
-              <span className="grid place-items-center rounded-md bg-white px-2 py-1">
-                <Logo variant="horizontal" className="h-7 w-auto" />
-              </span>
-              <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2">
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-            <nav className="flex-1 flex flex-col items-center justify-center gap-6 text-2xl font-semibold">
-              {nav.map((n, i) => (
-                <motion.div
-                  key={n.to}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0, transition: { delay: i * 0.05 } }}
-                >
-                  <Link to={n.to} onClick={() => setOpen(false)} className="hover:text-accent transition-colors">
-                    {n.label}
-                  </Link>
-                </motion.div>
-              ))}
+      {open && (
+        <div
+          ref={panelRef}
+          className="fixed inset-0 z-[100] lg:hidden bg-background text-foreground flex flex-col"
+        >
+          <div className="flex items-center justify-between h-16 px-4 sm:px-6 border-b border-border/60">
+            <Logo variant="horizontal" className="h-8 w-auto" />
+            <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 rounded-md hover:bg-secondary">
+              <X className="h-6 w-6 text-primary" />
+            </button>
+          </div>
+          <nav className="flex-1 overflow-y-auto px-6 py-10 flex flex-col gap-7">
+            {nav.map((n) => (
               <Link
-                to="/contact"
+                key={n.to}
+                to={n.to}
+                data-menu-item
                 onClick={() => setOpen(false)}
-                className="mt-6 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-base font-semibold text-accent-foreground"
+                className="text-2xl font-semibold text-primary hover:text-accent transition-colors"
+                activeProps={{ className: "text-2xl font-semibold text-accent" }}
+                activeOptions={{ exact: n.to === "/" }}
               >
-                Get a Quote
+                {n.label}
               </Link>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <Link
+              to="/contact"
+              data-menu-item
+              onClick={() => setOpen(false)}
+              className="mt-4 inline-flex items-center justify-center rounded-md bg-accent px-6 py-4 text-base font-semibold text-accent-foreground"
+            >
+              Get a Quote
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
