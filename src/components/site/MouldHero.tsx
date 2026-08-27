@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { useEntrance } from "@/hooks/use-gsap";
 import heroAsset from "@/assets/hero-products-v3.png.asset.json";
 
 const heroArt = heroAsset.url;
@@ -12,8 +12,15 @@ const heroArt = heroAsset.url;
  * real HTML so they remain selectable, translatable and accessible.
  */
 export function MouldHero() {
+  const ref = useEntrance<HTMLElement>([
+    "[data-anim='eyebrow']",
+    "[data-anim='title']",
+    "[data-anim='sub']",
+    "[data-anim='cta']",
+    "[data-anim='image']",
+  ]);
   return (
-    <section className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
+    <section ref={ref} className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
       {/* Desktop studio backdrop — kept exactly as-is for tablet and desktop */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
         <div
@@ -53,7 +60,7 @@ export function MouldHero() {
       </div>
 
       {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[56%]">
+      <div data-anim="image" className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[56%]">
         <img
           src={heroArt}
           alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
@@ -65,28 +72,24 @@ export function MouldHero() {
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-12 lg:py-16">
         <div className="lg:max-w-[44%]">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <p className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]">
+          <div>
+            <p data-anim="eyebrow" className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em]">
               <span className="h-2 w-2 rounded-full bg-accent" />
               Established 1986 · Nairobi, Kenya
             </p>
-            <h1 className="mt-3 sm:mt-4 text-[clamp(1.7rem,6.2vw,3.6rem)] font-extrabold tracking-tight leading-[1.04]">
+            <h1 data-anim="title" className="mt-3 sm:mt-4 text-[clamp(1.7rem,6.2vw,3.6rem)] font-extrabold tracking-tight leading-[1.04]">
               Precision Plastic Packaging for{" "}
               <span className="accent-underline">East Africa&apos;s</span> Leading Brands
             </h1>
-            <p className="mt-3 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.45] sm:leading-relaxed">
+            <p data-anim="sub" className="mt-3 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.45] sm:leading-relaxed">
               For 40 years, Dentex Industries has delivered reliable rigid plastic packaging
               solutions for businesses across East Africa — combining experience, consistency, and
               customer-focused manufacturing.
             </p>
-          </motion.div>
+          </div>
 
           {/* Mobile artwork — as large as the screen width allows */}
-          <div className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
+          <div data-anim="image" className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
             <img
               src={heroArt}
               alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
@@ -96,7 +99,7 @@ export function MouldHero() {
             />
           </div>
 
-          <div className="mt-2 sm:mt-5 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
+          <div data-anim="cta" className="mt-2 sm:mt-5 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">
 
             <Link
               to="/products"
