@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
@@ -81,7 +82,7 @@ export function Header() {
         </div>
       </div>
 
-      {open && (
+      {open && typeof document !== "undefined" && createPortal(
         <div
           ref={panelRef}
           className="fixed inset-0 z-[100] lg:hidden bg-background text-foreground flex flex-col"
@@ -115,7 +116,8 @@ export function Header() {
               Get a Quote
             </Link>
           </nav>
-        </div>
+        </div>,
+        document.body,
       )}
     </header>
   );
