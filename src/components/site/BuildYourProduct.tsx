@@ -124,7 +124,7 @@ function Prepare({ animate }: { animate: boolean }) {
   );
 }
 
-function Melt({ animate }: { animate: boolean }) {
+function Melt({ animate, process }: { animate: boolean; process: ProcessKey }) {
   return (
     <g>
       {/* barrel */}
@@ -158,54 +158,178 @@ function Melt({ animate }: { animate: boolean }) {
         />
       ))}
       <path d="M112 46 L128 46 L128 88 L112 88 Z" fill={STEEL} />
-    </g>
-  );
-}
 
-function Form({ animate, process }: { animate: boolean; process: ProcessKey }) {
-  return (
-    <g>
-      <Mould>
+      {process === "injection" ? (
+        /* reciprocating screw: the ram strokes back, then forward for the shot */
         <motion.g
           initial={false}
-          animate={animate ? { opacity: [0.25, 1, 0.25] } : { opacity: 0.8 }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          animate={animate ? { x: [0, -16, 0] } : { x: -8 }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Product fill={MELT} />
+          <rect x="30" y="98" width="26" height="10" rx="2" fill={STEEL_DARK} />
+          <rect x="22" y="94" width="10" height="18" rx="2" fill={STEEL} />
         </motion.g>
-      </Mould>
-      {process === "injection" ? (
-        <g>
-          <rect x="14" y="96" width="52" height="18" rx="3" fill={STEEL} />
-          <motion.rect
-            x="52"
-            y="101"
-            height="8"
-            fill={MELT}
-            initial={false}
-            animate={animate ? { width: [4, 24, 4] } : { width: 16 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </g>
       ) : (
+        /* continuous extruder screw: material advances steadily to the die */
         <g>
-          <rect x="104" y="18" width="32" height="14" rx="2" fill={STEEL} />
-          <motion.rect
-            x="116"
-            y="32"
-            width="8"
-            fill={MELT}
-            initial={false}
-            animate={animate ? { height: [4, 22, 4] } : { height: 14 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <rect x="24" y="96" width="26" height="14" rx="2" fill={STEEL_DARK} />
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.line
+              key={i}
+              x1={62 + i * 26}
+              y1="97"
+              x2={62 + i * 26}
+              y2="109"
+              stroke={STEEL_DARK}
+              strokeWidth="2"
+              initial={false}
+              animate={animate ? { x: [0, 26] } : { x: 0 }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "linear", delay: i * 0.1 }}
+            />
+          ))}
         </g>
       )}
     </g>
   );
 }
 
-function Cool({ animate }: { animate: boolean }) {
+/** Injection: the shot is forced through the nozzle and fills the closed cavity. */
+function FormInjection({ animate }: { animate: boolean }) {
+  const fillId = "dx-inject-fill";
+  return (
+    <g>
+      <defs>
+        <clipPath id={fillId}>
+          <motion.rect
+            x="96"
+            width="52"
+            initial={false}
+            animate={animate ? { y: [166, 56, 56, 166], height: [0, 110, 110, 0] } : { y: 56, height: 110 }}
+            transition={{ duration: 3.6, times: [0, 0.55, 0.85, 1], repeat: Infinity, ease: "easeInOut" }}
+          />
+        </clipPath>
+      </defs>
+
+      <Mould>
+        {/* empty cavity outline of the part */}
+        <g opacity="0.35">
+          <Product fill="none" />
+          <path
+            d="M112 62 L128 62 L128 76 Q138 84 138 100 L138 152 Q138 162 128 162 L112 162 Q102 162 102 152 L102 100 Q102 84 112 76 Z"
+            fill="none"
+            stroke={SET}
+            strokeWidth="1.2"
+            strokeDasharray="4 4"
+          />
+        </g>
+        {/* molten resin filling from the gate upward */}
+        <g clipPath={`url(#${fillId})`}>
+          <Product fill={MELT} />
+        </g>
+      </Mould>
+
+      {/* nozzle, sprue and runner */}
+      <rect x="14" y="96" width="46" height="18" rx="3" fill={STEEL} />
+      <path d="M60 101 L78 101 L78 109 L60 109 Z" fill={STEEL_DARK} />
+      <motion.rect
+        x="60"
+        y="102"
+        height="6"
+        fill={MELT}
+        initial={false}
+        animate={animate ? { width: [0, 18, 18, 0], opacity: [0.4, 1, 1, 0.4] } : { width: 18 }}
+        transition={{ duration: 3.6, times: [0, 0.35, 0.85, 1], repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* clamp pressure marks */}
+      <motion.g
+        initial={false}
+        animate={animate ? { opacity: [0.25, 0.7, 0.25] } : { opacity: 0.4 }}
+        transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <path d="M170 104 L186 104" stroke={STEEL} strokeWidth="2.5" />
+        <path d="M186 96 L186 112" stroke={STEEL} strokeWidth="2.5" />
+      </motion.g>
+    </g>
+  );
+}
+
+/** Blow: a parison is extruded downward, the product-shaped mould closes and the parison forms out to the walls. */
+function FormBlow({ animate }: { animate: boolean }) {
+  const loop = { duration: 4.2, repeat: Infinity, ease: "easeInOut" as const };
+  return (
+    <g>
+      {/* extrusion die head */}
+      <rect x="100" y="14" width="40" height="16" rx="2" fill={STEEL} />
+      <rect x="112" y="30" width="16" height="8" rx="1" fill={STEEL_DARK} />
+
+      {/* parison extruded downward from the die */}
+      <motion.rect
+        x="114"
+        y="38"
+        width="12"
+        rx="2"
+        fill={MELT}
+        initial={false}
+        animate={animate ? { height: [0, 120, 120, 0], opacity: [0.6, 1, 0.15, 0] } : { height: 120 }}
+        transition={{ ...loop, times: [0, 0.35, 0.62, 1] }}
+      />
+
+      {/* product-shaped mould halves closing around the parison */}
+      <motion.g
+        initial={false}
+        animate={animate ? { x: [-22, -22, 0, 0, -22] } : { x: 0 }}
+        transition={{ ...loop, times: [0, 0.3, 0.45, 0.85, 1] }}
+      >
+        <path d="M74 46 L120 46 L120 174 L74 174 Z" fill={STEEL_DARK} />
+        <path
+          d="M120 62 L112 62 L112 76 Q102 84 102 100 L102 152 Q102 162 112 162 L120 162 Z"
+          fill={CAVITY}
+        />
+      </motion.g>
+      <motion.g
+        initial={false}
+        animate={animate ? { x: [22, 22, 0, 0, 22] } : { x: 0 }}
+        transition={{ ...loop, times: [0, 0.3, 0.45, 0.85, 1] }}
+      >
+        <path d="M120 46 L166 46 L166 174 L120 174 Z" fill={STEEL_DARK} />
+        <path
+          d="M120 62 L128 62 L128 76 Q138 84 138 100 L138 152 Q138 162 128 162 L120 162 Z"
+          fill={CAVITY}
+        />
+      </motion.g>
+
+      {/* the parison forms out to the cavity walls */}
+      <motion.g
+        style={{ originX: "120px", originY: "112px" }}
+        initial={false}
+        animate={animate ? { scaleX: [0.28, 0.28, 0.28, 1, 1, 0.28], opacity: [0, 0, 0.6, 1, 1, 0] } : { scaleX: 1, opacity: 1 }}
+        transition={{ ...loop, times: [0, 0.35, 0.5, 0.68, 0.9, 1] }}
+      >
+        <Product fill={MELT} />
+      </motion.g>
+
+      {/* forming air line into the neck */}
+      <motion.line
+        x1="120"
+        y1="38"
+        x2="120"
+        y2="70"
+        stroke="oklch(0.72 0.07 230)"
+        strokeWidth="2"
+        strokeDasharray="5 4"
+        initial={false}
+        animate={animate ? { strokeDashoffset: [0, -18], opacity: [0, 0, 0.8, 0.8, 0] } : { opacity: 0.5 }}
+        transition={{ ...loop, times: [0, 0.5, 0.62, 0.88, 1], ease: "linear" }}
+      />
+    </g>
+  );
+}
+
+function Form({ animate, process }: { animate: boolean; process: ProcessKey }) {
+  return process === "injection" ? <FormInjection animate={animate} /> : <FormBlow animate={animate} />;
+}
+
+function Cool({ animate, process }: { animate: boolean; process: ProcessKey }) {
   return (
     <g>
       <Mould>
@@ -242,6 +366,28 @@ function Cool({ animate }: { animate: boolean }) {
           transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: i * 0.2 }}
         />
       ))}
+
+      {process === "injection" ? (
+        /* ejector pins advance once the part has set */
+        <motion.g
+          initial={false}
+          animate={animate ? { y: [0, -8, 0] } : { y: 0 }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <rect x="108" y="176" width="4" height="16" rx="2" fill={STEEL} />
+          <rect x="128" y="176" width="4" height="16" rx="2" fill={STEEL} />
+        </motion.g>
+      ) : (
+        /* the part holds its form against the cavity wall while it sets */
+        <motion.g
+          initial={false}
+          animate={animate ? { opacity: [0.2, 0.6, 0.2] } : { opacity: 0.4 }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <line x1="120" y1="46" x2="120" y2="174" stroke={SET} strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="112" y1="40" x2="128" y2="40" stroke="oklch(0.72 0.07 230)" strokeWidth="2" />
+        </motion.g>
+      )}
     </g>
   );
 }
@@ -350,9 +496,9 @@ export function BuildYourProduct() {
                     transition={{ duration: reduced ? 0 : 0.3 }}
                   >
                     {step === 0 && <Prepare animate={animate} />}
-                    {step === 1 && <Melt animate={animate} />}
+                    {step === 1 && <Melt animate={animate} process={process} />}
                     {step === 2 && <Form animate={animate} process={process} />}
-                    {step === 3 && <Cool animate={animate} />}
+                    {step === 3 && <Cool animate={animate} process={process} />}
                     {step === 4 && <Quality animate={animate} />}
                   </motion.g>
                 </AnimatePresence>
