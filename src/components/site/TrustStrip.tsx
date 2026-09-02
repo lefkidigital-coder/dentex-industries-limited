@@ -4,13 +4,13 @@ import kepro from "@/assets/logo-kepro.png.asset.json";
 import ellys from "@/assets/logo-ellys.png.asset.json";
 
 /**
- * Trusted Across Industries — client logos are used exactly as supplied.
+ * Trusted Across Industries, client logos are used exactly as supplied.
  * Containers balance the logos by visual size; artwork is never cropped.
  */
 const LOGOS = [
   { name: "Dawa Life Sciences", src: dawa.url, className: "h-16 sm:h-20" },
   { name: "BRAVA Food Industries Ltd", src: brava.url, className: "h-11 sm:h-14" },
-  { name: "KEPRO — Kenya Extended Producer Responsibility Organization", src: kepro.url, className: "h-10 sm:h-12" },
+  { name: "KEPRO, Kenya Extended Producer Responsibility Organization", src: kepro.url, className: "h-10 sm:h-12" },
   { name: "ELLYS", src: ellys.url, className: "h-14 sm:h-16" },
 ];
 

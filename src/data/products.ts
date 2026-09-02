@@ -3,7 +3,7 @@
  * future WooCommerce catalogue (category slug + product slug + attributes).
  *
  * To add a product later: drop a new entry into PRODUCTS with an existing
- * category slug — the products page, filters, category pages and detail
+ * category slug, the products page, filters, category pages and detail
  * pages all read from this file, so no layout work is needed.
  */
 
@@ -48,7 +48,7 @@ export type Product = {
   highlights: string[];
   specs: ProductSpecs;
   images: { main: string; alternates: string[]; details: string[] };
-  /** Confirmed colour options only — never inferred or invented. */
+  /** Confirmed colour options only, never inferred or invented. */
   colours?: { name: string; hex: string }[];
   colourNote?: string;
 };
@@ -63,7 +63,7 @@ export const CATEGORIES: ProductCategory[] = [
     intro:
       "Rigid plastic bottles for pharmaceutical, food, beverage, personal care, household and specialty products.",
     metaDescription:
-      "Rigid plastic bottles from Dentex Industries Ltd — HDPE and PET bottles manufactured in Nairobi, Kenya.",
+      "Rigid plastic bottles from Dentex Industries Ltd, HDPE and PET bottles manufactured in Nairobi, Kenya.",
   },
   {
     slug: "jerrycans",
@@ -72,7 +72,7 @@ export const CATEGORIES: ProductCategory[] = [
     intro:
       "HDPE jerrycans for food, pharmaceutical, chemical, household and industrial liquid products.",
     metaDescription:
-      "HDPE jerrycans from Dentex Industries Ltd — 1L, 3L and 5L containers manufactured in Nairobi, Kenya.",
+      "HDPE jerrycans from Dentex Industries Ltd, 1L, 3L and 5L containers manufactured in Nairobi, Kenya.",
   },
   {
     slug: "jars-containers",
@@ -88,7 +88,7 @@ export const CATEGORIES: ProductCategory[] = [
     title: "Food Service",
     intro: "Food-grade containers for restaurants, caterers and food processors.",
     metaDescription:
-      "Food service packaging from Dentex Industries Ltd — food-grade containers made in Nairobi, Kenya.",
+      "Food service packaging from Dentex Industries Ltd, food-grade containers made in Nairobi, Kenya.",
   },
   {
     slug: "pet-preforms",

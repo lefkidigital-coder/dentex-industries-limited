@@ -20,7 +20,7 @@ export function ProductGallery({ product }: { product: Product }) {
           <motion.img
             key={images[index]}
             src={images[index]}
-            alt={`${product.title} — ${labels[index]}`}
+            alt={`${product.title}, ${labels[index]}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

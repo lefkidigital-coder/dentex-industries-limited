@@ -5,7 +5,7 @@ import { COMPANY } from "@/data/company";
 
 /**
  * Credibility modules. Only verified Dentex figures are shown. Unverified
- * metrics (client count, production volume) are intentionally omitted —
+ * metrics (client count, production volume) are intentionally omitted -
  * add a new entry here once a figure is confirmed.
  */
 const MODULES = [

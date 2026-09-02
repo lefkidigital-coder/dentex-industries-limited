@@ -2,7 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 /**
  * Persistent visual motif: a tiny rotating bottle-cap that travels along the
- * top edge of the viewport as the user scrolls — reinforces the
+ * top edge of the viewport as the user scrolls, reinforces the
  * "physical product" branding without a third-party progress bar.
  */
 export function ScrollCap() {

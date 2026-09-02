@@ -13,9 +13,9 @@ import { RibbedDivider } from "@/components/site/RibbedDivider";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dentex Industries Ltd — Precision Plastic Packaging" },
-      { name: "description", content: "For 40 years, Dentex Industries has delivered reliable rigid plastic packaging for businesses across East Africa — pharma, food & beverage, industrial." },
-      { property: "og:title", content: "Dentex Industries Ltd — Precision Plastic Packaging" },
+      { title: "Dentex Industries Ltd, Precision Plastic Packaging" },
+      { name: "description", content: "For 40 years, Dentex Industries has delivered reliable rigid plastic packaging for businesses across East Africa, pharma, food & beverage, industrial." },
+      { property: "og:title", content: "Dentex Industries Ltd, Precision Plastic Packaging" },
       { property: "og:description", content: "Quality, innovation, integrity. Rigid plastic packaging solutions made in Kenya since 1986." },
     ],
   }),
@@ -31,10 +31,10 @@ const services = [
 function Home() {
   return (
     <Layout>
-      {/* Hero — material to form */}
+      {/* Hero, material to form */}
       <MouldHero />
 
-      {/* Industries served — tint shifts with selection */}
+      {/* Industries served, tint shifts with selection */}
       <IndustrySelector />
 
       {/* Scrolling trust / industry strip */}
@@ -71,7 +71,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Build Your Product — injection moulding stage walker */}
+      {/* Build Your Product, injection moulding stage walker */}
       <RibbedDivider from="var(--background)" to="var(--tech-grey)" />
       <BuildYourProduct />
 

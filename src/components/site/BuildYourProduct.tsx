@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 
 /**
- * "Build Your Product" — the user picks a manufacturing process (injection or
+ * "Build Your Product", the user picks a manufacturing process (injection or
  * blow moulding) and then steps manually through the five Dentex stages.
  * Nothing is scroll-triggered: the sequence is entirely user-controlled.
  */
@@ -358,7 +358,7 @@ export function BuildYourProduct() {
                 </AnimatePresence>
               </svg>
               <span className="absolute top-3 left-3 text-[10px] uppercase tracking-widest font-bold text-primary/70">
-                {STAGE_CODES[step]} · {STAGE_LABELS[step]} — {PROCESSES[process].label}
+                {STAGE_CODES[step]} · {STAGE_LABELS[step]} · {PROCESSES[process].label}
               </span>
             </div>
 
@@ -394,7 +394,7 @@ export function BuildYourProduct() {
                 transition={{ duration: reduced ? 0 : 0.25 }}
               >
                 <p className="text-xs font-semibold uppercase tracking-widest text-accent">
-                  {STAGE_CODES[step]} — {STAGE_LABELS[step]}
+                  {STAGE_CODES[step]} · {STAGE_LABELS[step]}
                 </p>
                 <h3 className="mt-2 text-2xl font-bold text-primary">{current.title}</h3>
                 <p className="mt-3 text-muted-foreground leading-relaxed">{current.copy}</p>

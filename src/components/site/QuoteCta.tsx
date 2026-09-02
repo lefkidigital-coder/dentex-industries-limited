@@ -5,7 +5,7 @@ import { Reveal } from "./Layout";
 
 export function QuoteCta({
   title = "Ready to discuss your packaging?",
-  subtitle = "Request a quote or talk to our team directly — we typically respond within one business day.",
+  subtitle = "Request a quote or talk to our team directly, we typically respond within one business day.",
   productName,
 }: {
   title?: string;
@@ -30,7 +30,7 @@ export function QuoteCta({
               <WhatsAppButton
                 message={
                   productName
-                    ? `Hi, I'd like to enquire about Dentex packaging products — specifically ${productName}.`
+                    ? `Hi, I'd like to enquire about Dentex packaging products, specifically ${productName}.`
                     : undefined
                 }
               />

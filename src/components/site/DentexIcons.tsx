@@ -1,5 +1,5 @@
 /**
- * Dentex line-icon family — one consistent SVG system used by Industries
+ * Dentex line-icon family, one consistent SVG system used by Industries
  * Served and Core Services. 24px grid, 1.6 stroke, rounded joins, currentColor.
  */
 import type { SVGProps } from "react";

@@ -45,7 +45,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center group shrink-0" aria-label="Dentex Industries Limited — home">
+        <Link to="/" className="flex items-center group shrink-0" aria-label="Dentex Industries Limited, home">
           <Logo variant="horizontal" className="hidden xs:block h-9 sm:h-10 w-auto" />
           <Logo variant="icon" className="block xs:hidden h-9 w-auto" alt="Dentex Industries Limited" />
         </Link>

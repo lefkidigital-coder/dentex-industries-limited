@@ -6,9 +6,9 @@ import { RecyclingLoop } from "@/components/site/RecyclingLoop";
 export const Route = createFileRoute("/quality")({
   head: () => ({
     meta: [
-      { title: "Quality & Innovation — Dentex Industries Ltd" },
+      { title: "Quality & Innovation | Dentex Industries Ltd" },
       { name: "description", content: "How Dentex ensures every product meets the highest standards through QA, R&D, and sustainability." },
-      { property: "og:title", content: "Quality & Innovation — Dentex Industries Ltd" },
+      { property: "og:title", content: "Quality & Innovation | Dentex Industries Ltd" },
       { property: "og:description", content: "Driven by innovation, defined by quality. Inside our QA, R&D, and sustainability programs." },
     ],
   }),
@@ -75,7 +75,7 @@ function Quality() {
                   <div>
                     <h3 className="font-bold text-lg">Injection Moulding Technology</h3>
                     <p className="mt-2 text-sm text-primary-foreground/95 leading-relaxed">
-                      Our precision injection-moulding capabilities produce parts with tight tolerances, consistent wall thickness, and superior surface finish — at production volumes that match your demand.
+                      Our precision injection-moulding capabilities produce parts with tight tolerances, consistent wall thickness, and superior surface finish, at production volumes that match your demand.
                     </p>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ function Quality() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {[
-              { icon: Leaf, t: "Waste Reduction", d: "Our lean manufacturing processes minimize scrap and energy consumption — protecting both margins and the environment." },
+              { icon: Leaf, t: "Waste Reduction", d: "Our lean manufacturing processes minimize scrap and energy consumption, protecting both margins and the environment." },
             ].map((s, i) => (
               <Reveal key={s.t} delay={i * 0.1}>
                 <div className="flex gap-6 p-8 bg-tech-grey rounded-2xl border border-border/60 hover:shadow-lg transition-all">

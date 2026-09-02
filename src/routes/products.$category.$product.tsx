@@ -18,9 +18,9 @@ export const Route = createFileRoute("/products/$category/$product")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Product not found — Dentex Industries Ltd" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Product not found | Dentex Industries Ltd" }, { name: "robots", content: "noindex" }] };
     }
-    const t = `${loaderData.product.title} — Dentex Industries Ltd`;
+    const t = `${loaderData.product.title} | Dentex Industries Ltd`;
     return {
       meta: [
         { title: t },
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/products/$category/$product")({
 function ProductDetail() {
   const { category, product } = Route.useLoaderData();
   const related = relatedProducts(product);
-  const waMessage = `Hi, I'd like to enquire about Dentex packaging products — specifically ${product.title}.`;
+  const waMessage = `Hi, I'd like to enquire about Dentex packaging products, specifically ${product.title}.`;
 
   return (
     <Layout>
@@ -154,7 +154,7 @@ function ProductDetail() {
 
       <QuoteCta
         title={`Request a quote for ${product.title}`}
-        subtitle="Share your volumes and specification — our team will respond with pricing and lead times."
+        subtitle="Share your volumes and specification, our team will respond with pricing and lead times."
         productName={product.title}
       />
     </Layout>

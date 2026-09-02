@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
-/** Shared 404 content — used by the /404 route and the router's not-found boundary. */
+/** Shared 404 content, used by the /404 route and the router's not-found boundary. */
 export function NotFoundContent() {
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-24 text-center">

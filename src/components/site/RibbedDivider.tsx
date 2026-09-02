@@ -1,5 +1,5 @@
 /**
- * Ribbed/extruded-plastic divider — replaces a plain straight line
+ * Ribbed/extruded-plastic divider, replaces a plain straight line
  * between sections. Reads its `from` and `to` colors from CSS vars.
  */
 export function RibbedDivider({
