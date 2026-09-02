@@ -22,12 +22,13 @@ export function ProductCard({ product }: { product: Product }) {
         params={{ category: product.category, product: product.slug }}
         className="block w-full text-left"
       >
-        <div className="aspect-square overflow-hidden bg-card p-6 sm:p-8">
+        <div className="product-stage aspect-square overflow-hidden p-7 sm:p-9">
+          <span className="product-stage-shadow" aria-hidden />
           <img
             src={product.images.main}
             alt={product.title}
             loading="lazy"
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            className="relative w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
       </Link>
@@ -70,8 +71,9 @@ export function ProductCard({ product }: { product: Product }) {
             <DialogDescription className="sr-only">Quick view of {product.title}</DialogDescription>
           </DialogHeader>
           <div className="grid gap-6 sm:grid-cols-2 items-center">
-            <div className="rounded-xl bg-secondary p-6">
-              <img src={product.images.main} alt={product.title} className="w-full h-56 object-contain" />
+            <div className="product-stage overflow-hidden rounded-xl p-7">
+              <span className="product-stage-shadow" aria-hidden />
+              <img src={product.images.main} alt={product.title} className="relative w-full h-56 object-contain object-center" />
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-accent">
