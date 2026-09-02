@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 /**
  * Draggable "Since 1986" timeline. As the user scrubs, a counter advances
- * and a simple factory/product silhouette set expands in real time —
+ * and a simple factory/product silhouette set expands in real time -
  * reaching present day at the right edge.
  */
 const MILESTONES = [

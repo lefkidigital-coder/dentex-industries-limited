@@ -1,27 +1,81 @@
 /**
- * Dentex line-icon family — one consistent SVG system used by Industries
- * Served and Core Services. 24px grid, 1.6 stroke, rounded joins, currentColor.
+ * Dentex icon family, one consistent SVG system used by Industries
+ * Served and Core Services. 24px grid, dimensional treatment: a soft
+ * drop shadow, a tonal gradient body and a light bevel highlight, all
+ * derived from the inherited brand colour so each icon stays on palette.
  */
-import type { SVGProps } from "react";
+import { useId, type SVGProps } from "react";
 
 type IconProps = SVGProps<SVGSVGElement>;
 
 function Svg({ children, ...props }: IconProps) {
+  const raw = useId();
+  const id = `dx${raw.replace(/[^a-zA-Z0-9]/g, "")}`;
+
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      strokeLinecap="round"
-      strokeLinejoin="round"
       aria-hidden="true"
       {...props}
     >
-      {children}
+      <defs>
+        <linearGradient id={`${id}-stroke`} x1="0" y1="0" x2="0.35" y2="1">
+          <stop offset="0%" stopColor="currentColor" stopOpacity="1" />
+          <stop offset="55%" stopColor="currentColor" stopOpacity="0.88" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.62" />
+        </linearGradient>
+        <linearGradient id={`${id}-fill`} x1="0.1" y1="0" x2="0.9" y2="1">
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+          <stop offset="52%" stopColor="currentColor" stopOpacity="0.07" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.16" />
+        </linearGradient>
+        <filter id={`${id}-soft`} x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur stdDeviation="0.55" />
+        </filter>
+      </defs>
+
+      {/* contact shadow */}
+      <g
+        transform="translate(0 0.85)"
+        fill="none"
+        stroke="currentColor"
+        strokeOpacity="0.22"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        filter={`url(#${id}-soft)`}
+      >
+        {children}
+      </g>
+
+      {/* body */}
+      <g
+        fill={`url(#${id}-fill)`}
+        stroke={`url(#${id}-stroke)`}
+        strokeWidth={1.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {children}
+      </g>
+
+      {/* bevel highlight */}
+      <g
+        transform="translate(-0.25 -0.45)"
+        fill="none"
+        stroke="#fff"
+        strokeOpacity="0.34"
+        strokeWidth={0.7}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {children}
+      </g>
     </svg>
   );
 }
+
 
 /* ---------------- Industries ---------------- */
 

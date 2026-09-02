@@ -84,7 +84,7 @@ export function IndustrySelector() {
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Industries Served</p>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
-            Select an industry — feel the room change.
+            Select an industry, feel the room change.
           </h2>
           <p className="mt-4 text-muted-foreground">
             Each industry we serve carries its own pace, light, and constraints. The surrounding tone

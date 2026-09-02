@@ -5,9 +5,9 @@ import { COMPANY } from "@/data/company";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Dentex Industries Ltd" },
+      { title: "Privacy Policy | Dentex Industries Ltd" },
       { name: "description", content: "How Dentex Industries Limited handles information submitted through this website. Draft content pending review." },
-      { property: "og:title", content: "Privacy Policy — Dentex Industries Ltd" },
+      { property: "og:title", content: "Privacy Policy | Dentex Industries Ltd" },
       { property: "og:description", content: "How Dentex Industries Limited handles information submitted through this website." },
     ],
   }),

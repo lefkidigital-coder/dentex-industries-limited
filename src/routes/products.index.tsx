@@ -11,13 +11,13 @@ import heroComposition from "@/assets/products-hero-composition.png.asset.json";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: "Our Products — Dentex Industries Ltd" },
+      { title: "Our Products | Dentex Industries Ltd" },
       {
         name: "description",
         content:
           "Explore Dentex bottles, jerrycans, jars, closures and other packaging solutions manufactured for a wide range of applications.",
       },
-      { property: "og:title", content: "Rigid Plastic Packaging Built for Your Business — Dentex" },
+      { property: "og:title", content: "Rigid Plastic Packaging Built for Your Business | Dentex" },
       {
         property: "og:description",
         content:
@@ -85,7 +85,7 @@ function Products() {
             >
               <img
                 src={heroComposition.url}
-                alt="Dentex rigid plastic packaging range — jerrycans, bottles and jars"
+                alt="Dentex rigid plastic packaging range, jerrycans, bottles and jars"
                 className="mx-auto w-full max-w-[560px] h-[min(52svh,380px)] sm:h-[400px] lg:h-[440px] object-contain"
               />
             </motion.div>
@@ -132,7 +132,7 @@ function Products() {
 
           {list.length === 0 && (
             <p className="mt-10 text-center text-muted-foreground">
-              More products in this category are coming soon — contact us for current availability.
+              More products in this category are coming soon, contact us for current availability.
             </p>
           )}
         </div>

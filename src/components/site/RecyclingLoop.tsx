@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Recycle, Play } from "lucide-react";
 
 /**
- * Recycling loop interaction — user triggers a looping animation showing
+ * Recycling loop interaction, user triggers a looping animation showing
  * polypropylene moving from finished product → recycled pellet → back into
  * the moulding process. Tied to the "100% recyclable polypropylene" claim.
  */
@@ -81,7 +81,7 @@ export function RecyclingLoop() {
             {running ? "Pause the loop" : "Run the loop"}
           </button>
           <p className="text-xs text-muted-foreground md:text-right max-w-[14rem]">
-            Every PP product we mould can re-enter our hopper as a pellet — closing the loop on the
+            Every PP product we mould can re-enter our hopper as a pellet, closing the loop on the
             shop floor, not in theory.
           </p>
         </div>

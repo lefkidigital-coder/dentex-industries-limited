@@ -7,7 +7,7 @@ import { COMPANY } from "@/data/company";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Dentex Industries Ltd" },
+      { title: "About Us | Dentex Industries Ltd" },
       { name: "description", content: "A legacy of manufacturing excellence since 1986. Discover Dentex's story, mission, and leadership." },
       { property: "og:title", content: "About Dentex Industries Ltd" },
       { property: "og:description", content: "From a small Kenyan plastic manufacturer to a regional packaging leader." },
@@ -40,7 +40,7 @@ function About() {
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Built on craft, trust, and continuous growth.</h2>
               <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
                 <p>Dentex Industries Limited is a fully registered company in Kenya, established in 1986. Specializing in the production of rigid plastic products for packaging, we have become a leader in plastic packaging in the region.</p>
-                <p>Our journey is one of continuous growth — expanding our manufacturing processes into a fully-fledged class of manufacturing business entity that serves pharmaceutical, food & beverage, and industrial customers across East Africa.</p>
+                <p>Our journey is one of continuous growth, expanding our manufacturing processes into a fully-fledged class of manufacturing business entity that serves pharmaceutical, food & beverage, and industrial customers across East Africa.</p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-4">
                 {[

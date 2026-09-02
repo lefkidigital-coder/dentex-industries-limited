@@ -64,10 +64,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dentex Industries Ltd — Precision Plastic Packaging" },
+      { title: "Dentex Industries Ltd, Precision Plastic Packaging" },
       { name: "description", content: "Kenya's trusted rigid plastic packaging manufacturer since 1986. Pharmaceutical, food & beverage, and industrial solutions." },
       { name: "author", content: "Dentex Industries Ltd" },
-      { property: "og:title", content: "Dentex Industries Ltd — Precision Plastic Packaging" },
+      { property: "og:title", content: "Dentex Industries Ltd, Precision Plastic Packaging" },
       { property: "og:description", content: "Trusted rigid plastic packaging partner for East Africa's leading brands since 1986." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

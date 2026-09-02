@@ -13,9 +13,9 @@ export const Route = createFileRoute("/products/$category/")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Category not found — Dentex Industries Ltd" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Category not found | Dentex Industries Ltd" }, { name: "robots", content: "noindex" }] };
     }
-    const t = `${loaderData.category.title} — Dentex Industries Ltd`;
+    const t = `${loaderData.category.title} | Dentex Industries Ltd`;
     return {
       meta: [
         { title: t },

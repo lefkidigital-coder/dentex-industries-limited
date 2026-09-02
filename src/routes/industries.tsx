@@ -16,9 +16,9 @@ import { PRODUCTS, type CategorySlug } from "@/data/products";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries We Serve — Dentex Industries Ltd" },
+      { title: "Industries We Serve | Dentex Industries Ltd" },
       { name: "description", content: "Rigid plastic packaging for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial customers across East Africa." },
-      { property: "og:title", content: "Industries Served — Dentex Industries Ltd" },
+      { property: "og:title", content: "Industries Served | Dentex Industries Ltd" },
       { property: "og:description", content: "Packaging built for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial applications." },
     ],
   }),
@@ -41,7 +41,7 @@ function Industries() {
       <PageHero
         eyebrow="Industries Served"
         title="Packaging built around the industry it serves."
-        subtitle="Each sector we supply carries its own requirements — from pharmaceutical-grade tolerances to freezer-safe food packaging."
+        subtitle="Each sector we supply carries its own requirements, from pharmaceutical-grade tolerances to freezer-safe food packaging."
       />
 
       <section className="py-20">

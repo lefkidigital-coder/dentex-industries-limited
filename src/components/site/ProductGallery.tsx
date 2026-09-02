@@ -15,17 +15,18 @@ export function ProductGallery({ product }: { product: Product }) {
 
   return (
     <div>
-      <div className="relative aspect-square sm:aspect-[4/3] overflow-hidden rounded-2xl border border-border/60 bg-secondary">
+      <div className="relative aspect-square sm:aspect-[4/3] product-stage overflow-hidden rounded-2xl border border-border/60">
+        <span className="product-stage-shadow" aria-hidden />
         <AnimatePresence mode="wait">
           <motion.img
             key={images[index]}
             src={images[index]}
-            alt={`${product.title} — ${labels[index]}`}
+            alt={`${product.title}, ${labels[index]}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 h-full w-full object-contain object-center p-6 sm:p-10"
+            className="absolute inset-0 h-full w-full object-contain object-center p-8 sm:p-12"
           />
         </AnimatePresence>
 
@@ -60,7 +61,7 @@ export function ProductGallery({ product }: { product: Product }) {
               onClick={() => setIndex(i)}
               aria-label={labels[i]}
               aria-current={i === index}
-              className={`mould-press h-20 w-20 shrink-0 overflow-hidden rounded-xl border-2 bg-secondary p-2 transition-colors ${
+              className={`mould-press h-20 w-20 shrink-0 product-stage overflow-hidden rounded-xl border-2 p-2 transition-colors ${
                 i === index ? "border-accent" : "border-border/60 hover:border-accent/50"
               }`}
             >

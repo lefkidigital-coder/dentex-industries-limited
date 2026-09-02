@@ -7,7 +7,7 @@ const heroArt = heroAsset.url;
 
 /**
 
- * Hero — approved "material to form" art direction. The packaging cluster,
+ * Hero, approved "material to form" art direction. The packaging cluster,
  * pedestal and pellet flow live in the artwork; all copy and CTAs stay as
  * real HTML so they remain selectable, translatable and accessible.
  */
@@ -21,7 +21,7 @@ export function MouldHero() {
   ]);
   return (
     <section ref={ref} className="relative flex overflow-hidden bg-hero-deep text-primary-foreground lg:min-h-[calc(100svh-4rem)] lg:items-center">
-      {/* Desktop studio backdrop — kept exactly as-is for tablet and desktop */}
+      {/* Desktop studio backdrop, kept exactly as-is for tablet and desktop */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
         <div
           className="absolute inset-0"
@@ -40,7 +40,7 @@ export function MouldHero() {
         <div className="absolute bottom-0 inset-x-0 h-px bg-primary-foreground/10" />
       </div>
 
-      {/* Mobile backdrop — clean, centred wash so the portrait artwork feels native */}
+      {/* Mobile backdrop, clean, centred wash so the portrait artwork feels native */}
       <div aria-hidden className="pointer-events-none absolute inset-0 lg:hidden">
         <div
           className="absolute inset-0"
@@ -59,11 +59,11 @@ export function MouldHero() {
         <div className="absolute bottom-0 inset-x-0 h-px bg-primary-foreground/10" />
       </div>
 
-      {/* Artwork — full-bleed right on desktop, stacked below copy on mobile */}
+      {/* Artwork, full-bleed right on desktop, stacked below copy on mobile */}
       <div data-anim="image" className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[56%]">
         <img
           src={heroArt}
-          alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
+          alt="Dentex rigid plastic packaging range, HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
           width={1500}
           height={1000}
           className="relative h-full max-h-[92%] w-full object-contain object-right"
@@ -83,16 +83,16 @@ export function MouldHero() {
             </h1>
             <p data-anim="sub" className="mt-3 sm:mt-3 text-sm sm:text-lg text-primary-foreground/95 max-w-xl leading-[1.45] sm:leading-relaxed">
               For 40 years, Dentex Industries has delivered reliable rigid plastic packaging
-              solutions for businesses across East Africa — combining experience, consistency, and
+              solutions for businesses across East Africa, combining experience, consistency, and
               customer-focused manufacturing.
             </p>
           </div>
 
-          {/* Mobile artwork — as large as the screen width allows */}
+          {/* Mobile artwork, as large as the screen width allows */}
           <div data-anim="image" className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
             <img
               src={heroArt}
-              alt="Dentex rigid plastic packaging range — HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
+              alt="Dentex rigid plastic packaging range, HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
               width={1500}
               height={1000}
               className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center"

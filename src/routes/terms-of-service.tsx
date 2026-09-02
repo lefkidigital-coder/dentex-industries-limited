@@ -5,9 +5,9 @@ import { COMPANY } from "@/data/company";
 export const Route = createFileRoute("/terms-of-service")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — Dentex Industries Ltd" },
+      { title: "Terms of Service | Dentex Industries Ltd" },
       { name: "description", content: "Terms governing use of the Dentex Industries Limited website. Draft content pending review." },
-      { property: "og:title", content: "Terms of Service — Dentex Industries Ltd" },
+      { property: "og:title", content: "Terms of Service | Dentex Industries Ltd" },
       { property: "og:description", content: "Terms governing use of the Dentex Industries Limited website." },
     ],
   }),

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/contact")({
   }),
   head: () => ({
     meta: [
-      { title: "Contact Us — Dentex Industries Ltd" },
+      { title: "Contact Us | Dentex Industries Ltd" },
       { name: "description", content: "Talk to Dentex about your plastic packaging needs. Addis Ababa Road, Off Enterprise Road, Nairobi." },
       { property: "og:title", content: "Contact Dentex Industries Ltd" },
       { property: "og:description", content: "Get a quote or speak with our packaging specialists." },
@@ -65,7 +65,7 @@ function Contact() {
     "w-full rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition";
 
   const waMessage = form.product
-    ? `Hi, I'd like to enquire about Dentex packaging products — specifically ${form.product}.`
+    ? `Hi, I'd like to enquire about Dentex packaging products, specifically ${form.product}.`
     : undefined;
 
   return (
@@ -73,7 +73,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact"
         title="Get in Touch. Let's Discuss Your Packaging Needs."
-        subtitle="Whether you need a sample, a quote, or technical advice — our team is ready to help."
+        subtitle="Whether you need a sample, a quote, or technical advice, our team is ready to help."
       />
 
       <section className="py-20">
@@ -131,7 +131,7 @@ function Contact() {
                   <input
                     id="c-quantity"
                     className={field}
-                    placeholder="e.g. 10,000 units per month — an estimate is fine"
+                    placeholder="e.g. 10,000 units per month, an estimate is fine"
                     value={form.quantity}
                     onChange={(e) => setForm({ ...form, quantity: e.target.value })}
                   />
@@ -161,7 +161,7 @@ function Contact() {
                     className="mt-6 flex items-center gap-3 p-4 rounded-md bg-accent/10 text-accent border border-accent/30"
                   >
                     <CheckCircle2 className="h-5 w-5" />
-                    <p className="text-sm font-medium">Thank you — your message has been received. We'll be in touch shortly.</p>
+                    <p className="text-sm font-medium">Thank you, your message has been received. We'll be in touch shortly.</p>
                   </motion.div>
                 )}
               </AnimatePresence>

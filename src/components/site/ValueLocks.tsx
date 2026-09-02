@@ -5,14 +5,14 @@ import { ShieldCheck, Users, Lightbulb, Scale } from "lucide-react";
 /**
  * The four Dentex values rendered as four mould-press tiles. Each one
  * "presses down and locks" on click/hover and reveals its description; once
- * all four are locked, a central seal completes — reinforcing that the four
+ * all four are locked, a central seal completes, reinforcing that the four
  * values form one integrated standard.
  */
 const VALUES = [
   { key: "customer", title: "Customer Focus", icon: Users, body: "We prioritise our customers' needs, delivering customised solutions and exceptional service." },
   { key: "quality", title: "Quality", icon: ShieldCheck, body: "Uncompromising quality is embedded in every step, from raw material to final inspection." },
   { key: "innovation", title: "Innovation", icon: Lightbulb, body: "Continuous R&D investment keeps Dentex at the leading edge of packaging technology." },
-  { key: "integrity", title: "Integrity", icon: Scale, body: "Honesty and transparency in every interaction — with customers, partners and employees." },
+  { key: "integrity", title: "Integrity", icon: Scale, body: "Honesty and transparency in every interaction, with customers, partners and employees." },
 ] as const;
 
 type Key = (typeof VALUES)[number]["key"];
@@ -39,7 +39,7 @@ export function ValueLocks() {
             Four values. One closed mould.
           </h2>
           <p className="mt-4 text-primary-foreground/90">
-            Press each value to lock it in — when all four close, the seal completes.
+            Press each value to lock it in, when all four close, the seal completes.
           </p>
         </div>
 
