@@ -8,6 +8,9 @@
  */
 
 import jc1lWhiteRatchet from "@/assets/jc-1l-white-jerrycan-with-ratchet-cap-55g.jpg.asset.json";
+import jc1lBlackRatchet from "@/assets/jerrycan-1l-ratchet-black.jpg.asset.json";
+import jc1lGreenRatchet from "@/assets/jerrycan-1l-ratchet-green.jpg.asset.json";
+import jc1lClearBericap from "@/assets/jerrycan-1l-clear-bericap.jpg.asset.json";
 import jc2lRatchet from "@/assets/jc-2l-jerrycan-with-rachet-cap-100g.jpg.asset.json";
 import jc3lBlackBericap from "@/assets/jc-3l-black-jerrycan-with-bericap-130g.jpg.asset.json";
 import jc3lNaturalBericap from "@/assets/jc-3l-jerrycan-bericap-130g.jpg.asset.json";
@@ -123,7 +126,7 @@ export const PRODUCTS: Product[] = [
     slug: "1l-jerrycan-ratchet-cap",
     title: "1L Jerrycan with Ratchet Cap",
     category: "jerrycans",
-    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, photographed in white.",
+    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, available in white, black and green.",
     highlights: [],
     specs: {
       ...baseSpecs,
@@ -132,8 +135,32 @@ export const PRODUCTS: Product[] = [
       neckClosure: "Ratchet cap",
       weight: "55g",
     },
-    images: single(jc1lWhiteRatchet.url),
-    colours: [{ name: "White", hex: "#FFFFFF" }],
+    images: {
+      main: jc1lWhiteRatchet.url,
+      alternates: [jc1lBlackRatchet.url, jc1lGreenRatchet.url],
+      details: [],
+    },
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Black", hex: "#151515" },
+      { name: "Green", hex: "#0B9E57" },
+    ],
+  },
+  {
+    slug: "1l-jerrycan-clear-bericap",
+    title: "1L Clear Jerrycan with Bericap",
+    category: "jerrycans",
+    desc: "Clear 1L HDPE jerrycan fitted with a Bericap closure for easy viewing of contents.",
+    highlights: [],
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "1L",
+      neckClosure: "Bericap",
+      weight: "55g",
+    },
+    images: single(jc1lClearBericap.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
   },
   {
     slug: "2l-jerrycan-ratchet-cap",
