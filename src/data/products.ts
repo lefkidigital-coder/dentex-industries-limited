@@ -7,9 +7,14 @@
  * pages all read from this file, so no layout work is needed.
  */
 
-import jerrycan3l from "@/assets/product-3l-jerrycan.png.asset.json";
-import jerrycan5l from "@/assets/product-5l-jerrycan.png.asset.json";
-import jerrycan1l from "@/assets/product-1l-jerrycan.png.asset.json";
+import jc1lWhiteRatchet from "@/assets/jc-1l-white-jerrycan-with-ratchet-cap-55g.jpg.asset.json";
+import jc2lRatchet from "@/assets/jc-2l-jerrycan-with-rachet-cap-100g.jpg.asset.json";
+import jc3lBlackBericap from "@/assets/jc-3l-black-jerrycan-with-bericap-130g.jpg.asset.json";
+import jc3lNaturalBericap from "@/assets/jc-3l-jerrycan-bericap-130g.jpg.asset.json";
+import jc5lBlackBericap from "@/assets/jc-5l-black-jerrycan-with-bericap-180g.jpg.asset.json";
+import jc5lNewHandleBericap from "@/assets/jc-5l-jerrycan-newhandle-with-bericap-200g.jpg.asset.json";
+import jc5lOldHandleRatchet from "@/assets/jc-5l-jerrycan-oldhandle-with-ratchet-cap-155g.jpg.asset.json";
+import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-jerrycan-old-handle-with-ratchet-cap-200g.jpg.asset.json";
 import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
 import bottle120ml from "@/assets/product-120ml-long-neck-bottle.png.asset.json";
 import bottle500ml from "@/assets/product-500ml-plastic-bottle.png.asset.json";
@@ -115,39 +120,123 @@ const baseSpecs: ProductSpecs = {
 
 export const PRODUCTS: Product[] = [
   {
-    slug: "3l-heavy-duty-hdpe-jerrycan",
-    title: "3L Heavy-Duty HDPE Jerrycan",
+    slug: "1l-jerrycan-ratchet-cap",
+    title: "1L Jerrycan with Ratchet Cap",
     category: "jerrycans",
-    desc: "Heavy-duty HDPE jerrycan for industrial chemicals, automotive fluids, lubricants and cleaning agents.",
+    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, photographed in white.",
     highlights: [],
-    specs: { ...baseSpecs, material: "HDPE", capacityRange: "3L" },
-    images: single(jerrycan3l.url),
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "1L",
+      neckClosure: "Ratchet cap",
+      weight: "55g",
+    },
+    images: single(jc1lWhiteRatchet.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "2l-jerrycan-ratchet-cap",
+    title: "2L Jerrycan with Ratchet Cap",
+    category: "jerrycans",
+    desc: "2L HDPE jerrycan with a ratchet cap closure and moulded carry handle.",
+    highlights: [],
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "2L",
+      neckClosure: "Ratchet cap",
+      weight: "100g",
+    },
+    images: single(jc2lRatchet.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "3l-jerrycan-bericap",
+    title: "3L Jerrycan with Bericap",
+    category: "jerrycans",
+    desc: "3L HDPE jerrycan with a Bericap closure, available in black and natural.",
+    highlights: [],
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "3L",
+      neckClosure: "Bericap",
+      weight: "130g",
+    },
+    images: {
+      main: jc3lNaturalBericap.url,
+      alternates: [jc3lBlackBericap.url],
+      details: [],
+    },
     colours: [
-      { name: "White", hex: "#FFFFFF" },
-      { name: "Clear", hex: "#E8EEF2" },
+      { name: "Natural / Clear", hex: "#E8EEF2" },
       { name: "Black", hex: "#151515" },
     ],
-    colourNote: "Custom colours available on request.",
   },
   {
-    slug: "5l-hdpe-jerrycan",
-    title: "5L HDPE Jerrycan",
+    slug: "5l-black-jerrycan-bericap",
+    title: "5L Black Jerrycan with Bericap",
     category: "jerrycans",
-    desc: "Durable 5L HDPE jerrycan for food, pharmaceutical, chemical, household and industrial liquid products.",
+    desc: "5L black HDPE jerrycan with a Bericap closure for liquids requiring light protection.",
     highlights: [],
-    specs: { ...baseSpecs, material: "HDPE", capacityRange: "5L" },
-    images: single(jerrycan5l.url),
-    colourNote: "Multiple colours available to customer specification.",
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "5L",
+      neckClosure: "Bericap",
+      weight: "180g",
+    },
+    images: single(jc5lBlackBericap.url),
+    colours: [{ name: "Black", hex: "#151515" }],
   },
   {
-    slug: "1l-hdpe-jerrycan",
-    title: "1L HDPE Jerrycan",
+    slug: "5l-jerrycan-new-handle-bericap",
+    title: "5L Jerrycan, New Handle, with Bericap",
     category: "jerrycans",
-    desc: "Compact 1L HDPE jerrycan for food, pharmaceutical, household, chemical and industrial liquids.",
+    desc: "5L HDPE jerrycan with the new handle design and a Bericap closure.",
     highlights: [],
-    specs: { ...baseSpecs, material: "HDPE", capacityRange: "1L" },
-    images: single(jerrycan1l.url),
-    colourNote: "Multiple colours available to customer specification.",
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "5L",
+      neckClosure: "Bericap",
+      weight: "200g",
+    },
+    images: single(jc5lNewHandleBericap.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "5l-jerrycan-old-handle-ratchet-cap",
+    title: "5L Jerrycan, Old Handle, with Ratchet Cap",
+    category: "jerrycans",
+    desc: "5L HDPE jerrycan with the original handle design and a ratchet cap closure.",
+    highlights: [],
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "5L",
+      neckClosure: "Ratchet cap",
+      weight: "155g",
+    },
+    images: single(jc5lOldHandleRatchet.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "5l-white-jerrycan-old-handle-ratchet-cap",
+    title: "5L White Jerrycan, Old Handle, with Ratchet Cap",
+    category: "jerrycans",
+    desc: "5L white HDPE jerrycan with the original handle design and a ratchet cap closure.",
+    highlights: [],
+    specs: {
+      ...baseSpecs,
+      material: "HDPE",
+      capacityRange: "5L",
+      neckClosure: "Ratchet cap",
+      weight: "200g",
+    },
+    images: single(jc5lWhiteOldHandleRatchet.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
   },
   {
     slug: "100ml-hdpe-bottle",
