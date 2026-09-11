@@ -7,17 +7,20 @@
  * pages all read from this file, so no layout work is needed.
  */
 
-import jc1lWhiteRatchet from "@/assets/jc-1l-white-jerrycan-with-ratchet-cap-55g.jpg.asset.json";
-import jc1lBlackRatchet from "@/assets/jerrycan-1l-ratchet-black.jpg.asset.json";
-import jc1lGreenRatchet from "@/assets/jerrycan-1l-ratchet-green.jpg.asset.json";
-import jc1lClearBericap from "@/assets/jerrycan-1l-clear-bericap.jpg.asset.json";
-import jc2lRatchet from "@/assets/jc-2l-jerrycan-with-rachet-cap-100g.jpg.asset.json";
-import jc3lBlackBericap from "@/assets/jc-3l-black-jerrycan-with-bericap-130g.jpg.asset.json";
-import jc3lNaturalBericap from "@/assets/jc-3l-jerrycan-bericap-130g.jpg.asset.json";
-import jc5lBlackBericap from "@/assets/jc-5l-black-jerrycan-with-bericap-180g.jpg.asset.json";
+import jc1lBlackRatchet from "@/assets/jc-1l-black-ratchet.png.asset.json";
+import jc1lGreenRatchet from "@/assets/jc-1l-green-ratchet.png.asset.json";
+import jc1lWhiteRatchet from "@/assets/jc-1l-white-ratchet.png.asset.json";
+import jc1lClearBericap from "@/assets/jc-1l-clear-bericap.png.asset.json";
+import jc1lClearBericapAlt from "@/assets/jc-1l-clear-bericap-alt.png.asset.json";
+import jc2lRatchet from "@/assets/jc-2l-ratchet.png.asset.json";
+import jc35lClear from "@/assets/jc-3-5l-clear.png.asset.json";
+import jc3lBlackBericap from "@/assets/jc-3l-black-bericap.png.asset.json";
+import jc3lNaturalBericap from "@/assets/jc-3l-natural-bericap.png.asset.json";
+import jc5lBlackBericap from "@/assets/jc-5l-black-bericap.png.asset.json";
 import jc5lNewHandleBericap from "@/assets/jc-5l-jerrycan-newhandle-with-bericap-200g.jpg.asset.json";
 import jc5lOldHandleRatchet from "@/assets/jc-5l-jerrycan-oldhandle-with-ratchet-cap-155g.jpg.asset.json";
 import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-jerrycan-old-handle-with-ratchet-cap-200g.jpg.asset.json";
+
 import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
 import bottle120ml from "@/assets/product-120ml-long-neck-bottle.png.asset.json";
 import bottle500ml from "@/assets/product-500ml-plastic-bottle.png.asset.json";
@@ -126,7 +129,7 @@ export const PRODUCTS: Product[] = [
     slug: "1l-jerrycan-ratchet-cap",
     title: "1L Jerrycan with Ratchet Cap",
     category: "jerrycans",
-    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, available in white, black and green.",
+    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, available in black, green and white.",
     highlights: [],
     specs: {
       ...baseSpecs,
@@ -136,14 +139,14 @@ export const PRODUCTS: Product[] = [
       weight: "55g",
     },
     images: {
-      main: jc1lWhiteRatchet.url,
-      alternates: [jc1lBlackRatchet.url, jc1lGreenRatchet.url],
+      main: jc1lBlackRatchet.url,
+      alternates: [jc1lGreenRatchet.url, jc1lWhiteRatchet.url],
       details: [],
     },
     colours: [
-      { name: "White", hex: "#FFFFFF" },
       { name: "Black", hex: "#151515" },
       { name: "Green", hex: "#0B9E57" },
+      { name: "White", hex: "#FFFFFF" },
     ],
   },
   {
@@ -159,7 +162,11 @@ export const PRODUCTS: Product[] = [
       neckClosure: "Bericap",
       weight: "55g",
     },
-    images: single(jc1lClearBericap.url),
+    images: {
+      main: jc1lClearBericap.url,
+      alternates: [jc1lClearBericapAlt.url],
+      details: [],
+    },
     colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
   },
   {
@@ -179,6 +186,16 @@ export const PRODUCTS: Product[] = [
     colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
   },
   {
+    slug: "3-5l-clear-jerrycan",
+    title: "3-5L Clear Jerrycan",
+    category: "jerrycans",
+    desc: "Clear HDPE jerrycan with a side carry handle.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "HDPE" },
+    images: single(jc35lClear.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
     slug: "3l-jerrycan-bericap",
     title: "3L Jerrycan with Bericap",
     category: "jerrycans",
@@ -192,13 +209,13 @@ export const PRODUCTS: Product[] = [
       weight: "130g",
     },
     images: {
-      main: jc3lNaturalBericap.url,
-      alternates: [jc3lBlackBericap.url],
+      main: jc3lBlackBericap.url,
+      alternates: [jc3lNaturalBericap.url],
       details: [],
     },
     colours: [
-      { name: "Natural / Clear", hex: "#E8EEF2" },
       { name: "Black", hex: "#151515" },
+      { name: "Natural / Clear", hex: "#E8EEF2" },
     ],
   },
   {
@@ -220,6 +237,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "5l-jerrycan-new-handle-bericap",
     title: "5L Jerrycan, New Handle, with Bericap",
+
     category: "jerrycans",
     desc: "5L HDPE jerrycan with the new handle design and a Bericap closure.",
     highlights: [],
