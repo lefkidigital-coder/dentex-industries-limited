@@ -129,7 +129,7 @@ export const PRODUCTS: Product[] = [
     slug: "1l-jerrycan-ratchet-cap",
     title: "1L Jerrycan with Ratchet Cap",
     category: "jerrycans",
-    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, available in white, black and green.",
+    desc: "Compact 1L HDPE jerrycan fitted with a ratchet cap, available in black, green and white.",
     highlights: [],
     specs: {
       ...baseSpecs,
@@ -139,14 +139,14 @@ export const PRODUCTS: Product[] = [
       weight: "55g",
     },
     images: {
-      main: jc1lWhiteRatchet.url,
-      alternates: [jc1lBlackRatchet.url, jc1lGreenRatchet.url],
+      main: jc1lBlackRatchet.url,
+      alternates: [jc1lGreenRatchet.url, jc1lWhiteRatchet.url],
       details: [],
     },
     colours: [
-      { name: "White", hex: "#FFFFFF" },
       { name: "Black", hex: "#151515" },
       { name: "Green", hex: "#0B9E57" },
+      { name: "White", hex: "#FFFFFF" },
     ],
   },
   {
@@ -162,7 +162,11 @@ export const PRODUCTS: Product[] = [
       neckClosure: "Bericap",
       weight: "55g",
     },
-    images: single(jc1lClearBericap.url),
+    images: {
+      main: jc1lClearBericap.url,
+      alternates: [jc1lClearBericapAlt.url],
+      details: [],
+    },
     colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
   },
   {
@@ -182,6 +186,16 @@ export const PRODUCTS: Product[] = [
     colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
   },
   {
+    slug: "3-5l-clear-jerrycan",
+    title: "3-5L Clear Jerrycan",
+    category: "jerrycans",
+    desc: "Clear HDPE jerrycan with a side carry handle.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "HDPE" },
+    images: single(jc35lClear.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
     slug: "3l-jerrycan-bericap",
     title: "3L Jerrycan with Bericap",
     category: "jerrycans",
@@ -195,13 +209,13 @@ export const PRODUCTS: Product[] = [
       weight: "130g",
     },
     images: {
-      main: jc3lNaturalBericap.url,
-      alternates: [jc3lBlackBericap.url],
+      main: jc3lBlackBericap.url,
+      alternates: [jc3lNaturalBericap.url],
       details: [],
     },
     colours: [
-      { name: "Natural / Clear", hex: "#E8EEF2" },
       { name: "Black", hex: "#151515" },
+      { name: "Natural / Clear", hex: "#E8EEF2" },
     ],
   },
   {
@@ -223,6 +237,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "5l-jerrycan-new-handle-bericap",
     title: "5L Jerrycan, New Handle, with Bericap",
+
     category: "jerrycans",
     desc: "5L HDPE jerrycan with the new handle design and a Bericap closure.",
     highlights: [],
