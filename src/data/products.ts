@@ -7,17 +7,20 @@
  * pages all read from this file, so no layout work is needed.
  */
 
-import jc1lWhiteRatchet from "@/assets/jc-1l-white-jerrycan-with-ratchet-cap-55g.jpg.asset.json";
-import jc1lBlackRatchet from "@/assets/jerrycan-1l-ratchet-black.jpg.asset.json";
-import jc1lGreenRatchet from "@/assets/jerrycan-1l-ratchet-green.jpg.asset.json";
-import jc1lClearBericap from "@/assets/jerrycan-1l-clear-bericap.jpg.asset.json";
-import jc2lRatchet from "@/assets/jc-2l-jerrycan-with-rachet-cap-100g.jpg.asset.json";
-import jc3lBlackBericap from "@/assets/jc-3l-black-jerrycan-with-bericap-130g.jpg.asset.json";
-import jc3lNaturalBericap from "@/assets/jc-3l-jerrycan-bericap-130g.jpg.asset.json";
-import jc5lBlackBericap from "@/assets/jc-5l-black-jerrycan-with-bericap-180g.jpg.asset.json";
+import jc1lBlackRatchet from "@/assets/jc-1l-black-ratchet.png.asset.json";
+import jc1lGreenRatchet from "@/assets/jc-1l-green-ratchet.png.asset.json";
+import jc1lWhiteRatchet from "@/assets/jc-1l-white-ratchet.png.asset.json";
+import jc1lClearBericap from "@/assets/jc-1l-clear-bericap.png.asset.json";
+import jc1lClearBericapAlt from "@/assets/jc-1l-clear-bericap-alt.png.asset.json";
+import jc2lRatchet from "@/assets/jc-2l-ratchet.png.asset.json";
+import jc35lClear from "@/assets/jc-3-5l-clear.png.asset.json";
+import jc3lBlackBericap from "@/assets/jc-3l-black-bericap.png.asset.json";
+import jc3lNaturalBericap from "@/assets/jc-3l-natural-bericap.png.asset.json";
+import jc5lBlackBericap from "@/assets/jc-5l-black-bericap.png.asset.json";
 import jc5lNewHandleBericap from "@/assets/jc-5l-jerrycan-newhandle-with-bericap-200g.jpg.asset.json";
 import jc5lOldHandleRatchet from "@/assets/jc-5l-jerrycan-oldhandle-with-ratchet-cap-155g.jpg.asset.json";
 import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-jerrycan-old-handle-with-ratchet-cap-200g.jpg.asset.json";
+
 import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
 import bottle120ml from "@/assets/product-120ml-long-neck-bottle.png.asset.json";
 import bottle500ml from "@/assets/product-500ml-plastic-bottle.png.asset.json";
