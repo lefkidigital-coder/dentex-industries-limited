@@ -279,7 +279,7 @@
 
 /*
  * Universal product stage: a soft warm-grey/greige surface with a subtle
- * radial tonal gradient and a very soft contact shadow. Neutral enough to
+ * radial tonal gradient. Neutral enough to
  * keep white, transparent, dark and coloured products true to colour.
  */
 @utility product-stage {
@@ -294,23 +294,3 @@
     );
 }
 
-@utility product-stage-shadow {
-  position: absolute;
-  left: 50%;
-  bottom: 8.5%;
-  z-index: 0;
-  width: 46%;
-  height: 5.5%;
-  transform: translateX(-50%);
-  border-radius: 9999px;
-  background:
-    radial-gradient(
-      ellipse at center,
-      oklch(0.42 0.01 66 / 0.24) 0%,
-      oklch(0.48 0.01 66 / 0.14) 38%,
-      transparent 72%
-    );
-  filter: blur(3px);
-  opacity: 0.72;
-  pointer-events: none;
-}

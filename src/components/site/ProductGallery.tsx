@@ -16,7 +16,6 @@ export function ProductGallery({ product }: { product: Product }) {
   return (
     <div>
       <div className="relative aspect-square sm:aspect-[4/3] product-stage overflow-hidden rounded-2xl border border-border/60">
-        <span className="product-stage-shadow" aria-hidden />
         <AnimatePresence mode="wait">
           <motion.img
             key={images[index]}
