@@ -43,6 +43,8 @@ import bottle500mlPetBlue from "@/assets/bottle-500ml-pet-blue-16g.png.asset.jso
 import jar50gmSpice from "@/assets/jar-50gm-spice-white.png.asset.json";
 import jar100gmSpice from "@/assets/jar-100gm-spice-red-lid.png.asset.json";
 import jar250gmGreen from "@/assets/jar-250gm-screw-green-lid.png.asset.json";
+import jar500gmScrewWhite from "@/assets/jar-500gm-screw-white.png.asset.json";
+import jar500ccWhite45g from "@/assets/jar-500cc-white-45g.png.asset.json";
 import jar600cc from "@/assets/jar-600cc-white.png.asset.json";
 import jar800Green from "@/assets/jar-800-screw-green-lid.png.asset.json";
 import jar1000cc from "@/assets/jar-1000cc-white.png.asset.json";
