@@ -22,10 +22,17 @@ import jc5lOldHandleRatchet from "@/assets/jc-5l-oldhandle-ratchet.png.asset.jso
 import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-oldhandle-ratchet.png.asset.json";
 
 import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
-import bottle120ml from "@/assets/product-120ml-long-neck-bottle.png.asset.json";
-import bottle500ml from "@/assets/product-500ml-plastic-bottle.png.asset.json";
+import bottle120mlLongneck from "@/assets/bottle-120ml-longneck-22g.png.asset.json";
+import bottle120mlLongneckOrange from "@/assets/bottle-120ml-longneck-orange-22g.png.asset.json";
+import bottle200mlRound from "@/assets/bottle-200ml-round-red-bericap.png.asset.json";
+import bottle200mlRoundNatural from "@/assets/bottle-200ml-round-bericap.png.asset.json";
+import bottle200mlRoundBlack from "@/assets/bottle-200ml-round-black-20g.png.asset.json";
+import bottle200mlRoundBrown from "@/assets/bottle-200ml-round-brown-20g.png.asset.json";
+import bottle500mlBericap from "@/assets/bottle-500ml-bericap.png.asset.json";
+import bottle500mlRatchet from "@/assets/bottle-500ml-ratchet-28g.png.asset.json";
+import bottle500mlPetClear from "@/assets/bottle-500ml-pet-clear-16g.png.asset.json";
+import bottle500mlPetBlue from "@/assets/bottle-500ml-pet-blue-16g.png.asset.json";
 import takeawayContainer from "@/assets/product-white-round-takeaway-container.png.asset.json";
-import petWaterBottle from "@/assets/product-pet-water-bottle.png.asset.json";
 
 export type CategorySlug =
   | "bottles"
@@ -295,23 +302,76 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "120ml-long-neck-bottle",
-    title: "120ml Long-Neck Bottle",
+    title: "120ml Longneck Bottle",
     category: "bottles",
-    desc: "Distinctive 120ml long-neck bottle for pharmaceutical, food, beverage, personal care and specialty products.",
+    desc: "120ml longneck bottle available in white and orange variants.",
     highlights: [],
-    specs: { ...baseSpecs, capacityRange: "120ml" },
-    images: single(bottle120ml.url),
-    colourNote: "Multiple bottle colours and cap colours available on request.",
+    specs: { ...baseSpecs, capacityRange: "120ml", neckClosure: "25mm longneck cap", weight: "22g" },
+    images: {
+      main: bottle120mlLongneck.url,
+      alternates: [bottle120mlLongneckOrange.url],
+      details: [],
+    },
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Orange", hex: "#F05A22" },
+    ],
   },
   {
-    slug: "500ml-plastic-bottle",
-    title: "500ml Plastic Bottle",
+    slug: "200ml-round-bottle-bericap",
+    title: "200ml Round Bottle with Bericap",
     category: "bottles",
-    desc: "Versatile 500ml bottle for pharmaceutical, food, personal care, household and specialty products.",
+    desc: "200ml round bottle available in natural, white, black and brown variants.",
     highlights: [],
-    specs: { ...baseSpecs, capacityRange: "500ml" },
-    images: single(bottle500ml.url),
-    colourNote: "Multiple bottle colours and cap colours available on request.",
+    specs: { ...baseSpecs, capacityRange: "200ml", neckClosure: "Bericap", weight: "19–20g" },
+    images: {
+      main: bottle200mlRound.url,
+      alternates: [bottle200mlRoundNatural.url, bottle200mlRoundBlack.url, bottle200mlRoundBrown.url],
+      details: [],
+    },
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Natural / Clear", hex: "#E8EEF2" },
+      { name: "Black", hex: "#151515" },
+      { name: "Brown", hex: "#5A2D21" },
+    ],
+  },
+  {
+    slug: "500ml-bottle-bericap",
+    title: "Dentex 500ml Bottle with Bericap",
+    category: "bottles",
+    desc: "500ml bottle designed for a Bericap closure.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "500ml", neckClosure: "Bericap" },
+    images: single(bottle500mlBericap.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "500ml-bottle-ratchet-cap",
+    title: "500ml Bottle with Ratchet Cap",
+    category: "bottles",
+    desc: "500ml bottle designed for a ratchet cap closure.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "500ml", neckClosure: "Ratchet cap", weight: "28g" },
+    images: single(bottle500mlRatchet.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "500ml-pet-bottle-16g",
+    title: "500ml PET Bottle",
+    category: "bottles",
+    desc: "500ml PET bottle available in clear and blue variants.",
+    highlights: [],
+    specs: { ...baseSpecs, material: "PET", capacityRange: "500ml", weight: "16g" },
+    images: {
+      main: bottle500mlPetClear.url,
+      alternates: [bottle500mlPetBlue.url],
+      details: [],
+    },
+    colours: [
+      { name: "Clear", hex: "#E8EEF2" },
+      { name: "Blue", hex: "#249BD7" },
+    ],
   },
   {
     slug: "white-round-takeaway-container",
@@ -321,15 +381,6 @@ export const PRODUCTS: Product[] = [
     highlights: [],
     specs: { ...baseSpecs, material: "Polypropylene (PP)", neckClosure: "Snap-on lid" },
     images: single(takeawayContainer.url),
-  },
-  {
-    slug: "pet-water-bottle",
-    title: "PET Water Bottle",
-    category: "bottles",
-    desc: "Lightweight PET bottle designed for packaged drinking water, efficient filling, handling and distribution.",
-    highlights: [],
-    specs: { ...baseSpecs, material: "PET" },
-    images: single(petWaterBottle.url),
   },
 ];
 
