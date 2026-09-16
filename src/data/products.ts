@@ -40,6 +40,17 @@ import bottle500mlBericap from "@/assets/bottle-500ml-bericap.png.asset.json";
 import bottle500mlRatchet from "@/assets/bottle-500ml-ratchet-28g.png.asset.json";
 import bottle500mlPetClear from "@/assets/bottle-500ml-pet-clear-16g.png.asset.json";
 import bottle500mlPetBlue from "@/assets/bottle-500ml-pet-blue-16g.png.asset.json";
+import jar50gmSpice from "@/assets/jar-50gm-spice-white.png.asset.json";
+import jar100gmSpice from "@/assets/jar-100gm-spice-red-lid.png.asset.json";
+import jar250gmGreen from "@/assets/jar-250gm-screw-green-lid.png.asset.json";
+import jar600cc from "@/assets/jar-600cc-white.png.asset.json";
+import jar800Green from "@/assets/jar-800-screw-green-lid.png.asset.json";
+import jar1000cc from "@/assets/jar-1000cc-white.png.asset.json";
+import jar1150ccYellow from "@/assets/jar-1150cc-yellow-lid.png.asset.json";
+import jar1kgRed from "@/assets/jar-1kg-screw-red-lid.png.asset.json";
+import jarBlackBlackLid from "@/assets/jar-black-screw-black-lid.png.asset.json";
+import jarBlackRedLid from "@/assets/jar-black-screw-red-lid.png.asset.json";
+
 import takeawayContainer from "@/assets/product-white-round-takeaway-container.png.asset.json";
 
 export type CategorySlug =
