@@ -79,7 +79,7 @@ export function IndustrySelector() {
   const current = INDUSTRIES.find((i) => i.key === active)!;
 
   return (
-    <section className={`tint-shift ${current.tint} py-20 lg:py-24`}>
+    <section className={`tint-shift ${current.tint} py-12 sm:py-20 lg:py-24`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Industries Served</p>
@@ -92,7 +92,7 @@ export function IndustrySelector() {
           </p>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-2" role="tablist" aria-label="Industries served">
+        <div className="mt-7 sm:mt-10 flex flex-wrap gap-2" role="tablist" aria-label="Industries served">
           {INDUSTRIES.map((ind) => (
             <button
               key={ind.key}
@@ -110,8 +110,8 @@ export function IndustrySelector() {
           ))}
         </div>
 
-        <div className="mt-12 grid md:grid-cols-[1fr_1.2fr] gap-8 items-stretch">
-          <div className="rounded-2xl bg-card/85 backdrop-blur border border-border/60 p-8 shadow-sm">
+        <div className="mt-8 sm:mt-12 grid md:grid-cols-[1fr_1.2fr] gap-6 sm:gap-8 items-stretch">
+          <div className="rounded-2xl bg-card/85 backdrop-blur border border-border/60 p-6 sm:p-8 shadow-sm">
             <div className="grid h-14 w-14 place-items-center rounded-xl bg-primary text-primary-foreground">
               <current.icon className="h-7 w-7" />
             </div>
@@ -137,7 +137,7 @@ export function IndustrySelector() {
             </AnimatePresence>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden border border-border/60 min-h-[280px]">
+          <div className="relative h-56 sm:min-h-[280px] rounded-2xl overflow-hidden border border-border/60">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.key}

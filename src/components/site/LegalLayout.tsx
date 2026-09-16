@@ -15,7 +15,7 @@ export function LegalLayout({
   return (
     <Layout>
       <PageHero eyebrow="Legal" title={title} subtitle={subtitle} />
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-accent/30 bg-accent/5 p-5 text-sm text-foreground">
             <p>

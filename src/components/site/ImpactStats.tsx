@@ -92,7 +92,7 @@ function Module({ m, index }: { m: (typeof MODULES)[number]; index: number }) {
 
 export function ImpactStats() {
   return (
-    <section className="bg-tech-grey py-20 lg:py-24">
+    <section className="bg-tech-grey py-12 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Impact</p>
@@ -100,7 +100,7 @@ export function ImpactStats() {
             Measured, controlled, and built over decades.
           </h2>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-3">
           {MODULES.map((m, i) => (
             <Module key={m.title} m={m} index={i} />
           ))}

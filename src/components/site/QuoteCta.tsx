@@ -13,13 +13,13 @@ export function QuoteCta({
   productName?: string;
 }) {
   return (
-    <section className="bg-primary text-primary-foreground py-20">
+    <section className="bg-primary text-primary-foreground py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="max-w-3xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{title}</h2>
             <p className="mt-4 text-primary-foreground/80 leading-relaxed">{subtitle}</p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-4">
               <Link
                 to="/contact"
                 search={productName ? { product: productName } : undefined}

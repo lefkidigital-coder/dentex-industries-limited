@@ -31,7 +31,7 @@ function Quality() {
       />
 
       {/* Quality Assurance */}
-      <section className="py-24">
+      <section className="py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-3xl">
@@ -42,10 +42,10 @@ function Quality() {
               </p>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-3">
             {qa.map((q, i) => (
               <Reveal key={q.t} delay={i * 0.1}>
-                <div className="bg-card border border-border/60 rounded-2xl p-8 h-full hover:shadow-lg transition-all">
+                <div className="bg-card border border-border/60 rounded-2xl p-6 sm:p-8 h-full hover:shadow-lg transition-all">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-primary-foreground">
                     <q.icon className="h-6 w-6" />
                   </div>
@@ -59,9 +59,9 @@ function Quality() {
       </section>
 
       {/* Innovation & R&D */}
-      <section className="bg-primary text-primary-foreground py-24 relative overflow-hidden">
+      <section className="bg-primary text-primary-foreground py-12 sm:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(137,23,40,0.6), transparent 50%)" }} />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <Reveal>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground">Innovation & R&D</p>
@@ -93,7 +93,7 @@ function Quality() {
       </section>
 
       {/* Sustainability */}
-      <section className="py-24">
+      <section className="py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-3xl">
@@ -101,12 +101,12 @@ function Quality() {
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Responsible manufacturing for a better tomorrow.</h2>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-2">
             {[
               { icon: Leaf, t: "Waste Reduction", d: "Our lean manufacturing processes minimize scrap and energy consumption, protecting both margins and the environment." },
             ].map((s, i) => (
               <Reveal key={s.t} delay={i * 0.1}>
-                <div className="flex gap-6 p-8 bg-tech-grey rounded-2xl border border-border/60 hover:shadow-lg transition-all">
+                <div className="flex gap-4 sm:gap-6 p-6 sm:p-8 bg-tech-grey rounded-2xl border border-border/60 hover:shadow-lg transition-all">
                   <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
                     <s.icon className="h-6 w-6" />
                   </div>

@@ -44,7 +44,7 @@ function Industries() {
         subtitle="Each sector we supply carries its own requirements, from pharmaceutical-grade tolerances to freezer-safe food packaging."
       />
 
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -57,13 +57,13 @@ function Industries() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {INDUSTRIES.map((ind, i) => (
               <Reveal key={ind.label} delay={i * 0.08}>
                 <Link
                   to="/products/$category"
                   params={{ category: ind.category }}
-                  className="mould-press group flex h-full flex-col bg-card border border-border/60 rounded-2xl p-8 hover:shadow-xl hover:border-accent/40"
+                   className="mould-press group flex h-full flex-col bg-card border border-border/60 rounded-2xl p-6 sm:p-8 hover:shadow-xl hover:border-accent/40"
                 >
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-primary-foreground group-hover:bg-accent transition-colors">
                     <ind.icon className="h-6 w-6" />
@@ -81,7 +81,7 @@ function Industries() {
       </section>
 
       {/* Related products */}
-      <section className="bg-tech-grey py-20">
+      <section className="bg-tech-grey py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -96,10 +96,10 @@ function Industries() {
       </section>
 
       {/* Manufacturing capability */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="rounded-2xl border border-border/60 bg-card p-8 sm:p-12 shadow-sm">
+            <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-12 shadow-sm">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Our manufacturing capability</h2>
               <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
                 Injection- and blow-moulded rigid plastic packaging produced in Nairobi by a team of 70+, under

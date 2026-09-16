@@ -30,7 +30,7 @@ export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title
             "radial-gradient(circle at 20% 30%, rgba(137,23,40,0.45), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15), transparent 50%)",
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div ref={ref} className="max-w-3xl">
           {eyebrow && <p data-anim="eyebrow" className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground accent-underline mb-4">{eyebrow}</p>}
           <h1 data-anim="title" className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">{title}</h1>
@@ -45,7 +45,7 @@ export function PageHero({ eyebrow, title, subtitle }: { eyebrow?: string; title
 export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const ref = useScrollReveal<HTMLDivElement>(delay);
   return (
-    <div ref={ref} style={{ opacity: 0 }}>
+    <div ref={ref}>
       {children}
     </div>
   );

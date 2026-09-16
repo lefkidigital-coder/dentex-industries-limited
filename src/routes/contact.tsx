@@ -76,8 +76,8 @@ function Contact() {
         subtitle="Whether you need a sample, a quote, or technical advice, our team is ready to help."
       />
 
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-10">
+      <section className="py-12 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-8 sm:gap-10">
           {/* Form */}
           <div className="lg:col-span-3">
           <Reveal>
@@ -196,7 +196,7 @@ function Contact() {
       </section>
 
       {/* Map */}
-      <section className="pb-24">
+       <section className="pb-12 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="rounded-2xl overflow-hidden border border-border/60 shadow-md aspect-[16/9] sm:aspect-[16/7] bg-secondary">

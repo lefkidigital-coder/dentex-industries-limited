@@ -41,7 +41,7 @@ function ProductDetail() {
   return (
     <Layout>
       {/* Product hero */}
-      <section className="bg-tech-grey pt-10 pb-16">
+      <section className="bg-tech-grey pt-8 pb-12 sm:pt-10 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -52,7 +52,7 @@ function ProductDetail() {
             ]}
           />
 
-          <div className="mt-8 grid lg:grid-cols-2 gap-10 items-start">
+          <div className="mt-6 sm:mt-8 grid lg:grid-cols-2 gap-8 sm:gap-10 items-start">
             <Reveal>
               <ProductGallery product={product} />
             </Reveal>
@@ -119,7 +119,7 @@ function ProductDetail() {
       </section>
 
       {/* Specifications */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -135,7 +135,7 @@ function ProductDetail() {
 
       {/* Related products */}
       {related.length > 0 && (
-        <section className="bg-tech-grey py-20">
+        <section className="bg-tech-grey py-12 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="max-w-2xl">

@@ -6,8 +6,8 @@ import { COMPANY } from "@/data/company";
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid gap-10 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <span className="inline-grid place-items-center rounded-md bg-white px-3 py-2">
               <Logo variant="horizontal" className="h-9 w-auto" />
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-primary-foreground/90">
+        <div className="mt-8 sm:mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-primary-foreground/90">
           <p>© {new Date().getFullYear()} Dentex Industries Ltd. All rights reserved.</p>
           <p>Precision Plastic Packaging · Made in Kenya</p>
         </div>
