@@ -378,7 +378,7 @@ export const PRODUCTS: Product[] = [
     specs: { ...baseSpecs, capacityRange: "120ml", neckClosure: "25mm longneck cap", weight: "22g" },
     images: {
       main: bottle120mlLongneck.url,
-      alternates: [bottle120mlLongneckOrange.url],
+      alternates: [bottle120mlLongneckOrange.url, bottle120mlLongneckAlt.url],
       details: [],
     },
     colours: [
