@@ -21,8 +21,16 @@ import jc5lNewHandleBericap from "@/assets/jc-5l-newhandle-bericap.png.asset.jso
 import jc5lOldHandleRatchet from "@/assets/jc-5l-oldhandle-ratchet.png.asset.json";
 import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-oldhandle-ratchet.png.asset.json";
 
-import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
+import bottle100mlOldBericap from "@/assets/bottle-100ml-old-type-bericap-16g.png.asset.json";
+import bottle100mlOldWhite from "@/assets/bottle-100ml-old-type-white-16g.png.asset.json";
+import bottle100mlNewCapped from "@/assets/bottle-100ml-new-type-white-bericap.png.asset.json";
+import bottle100mlNewBericap from "@/assets/bottle-100ml-new-type-bericap-16g.png.asset.json";
+import bottle60mlOldBericap from "@/assets/bottle-60ml-old-type-bericap-12g.png.asset.json";
+import bottle30mlClearBericap from "@/assets/bottle-30ml-clear-bericap-9g.png.asset.json";
+import bottle15mlClearRedBericap from "@/assets/bottle-15ml-clear-red-bericap.png.asset.json";
+import bottle1lBatteryAcid from "@/assets/bottle-1l-white-battery-acid-bericap-50g.png.asset.json";
 import bottle120mlLongneck from "@/assets/bottle-120ml-longneck-22g.png.asset.json";
+import bottle120mlLongneckAlt from "@/assets/bottle-120ml-longneck-22g-alt.png.asset.json";
 import bottle120mlLongneckOrange from "@/assets/bottle-120ml-longneck-orange-22g.png.asset.json";
 import bottle200mlRound from "@/assets/bottle-200ml-round-red-bericap.png.asset.json";
 import bottle200mlRoundNatural from "@/assets/bottle-200ml-round-bericap.png.asset.json";
