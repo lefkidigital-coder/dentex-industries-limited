@@ -21,8 +21,16 @@ import jc5lNewHandleBericap from "@/assets/jc-5l-newhandle-bericap.png.asset.jso
 import jc5lOldHandleRatchet from "@/assets/jc-5l-oldhandle-ratchet.png.asset.json";
 import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-oldhandle-ratchet.png.asset.json";
 
-import bottle100ml from "@/assets/product-100ml-hdpe-bottle.png.asset.json";
+import bottle100mlOldBericap from "@/assets/bottle-100ml-old-type-bericap-16g.png.asset.json";
+import bottle100mlOldWhite from "@/assets/bottle-100ml-old-type-white-16g.png.asset.json";
+import bottle100mlNewCapped from "@/assets/bottle-100ml-new-type-white-bericap.png.asset.json";
+import bottle100mlNewBericap from "@/assets/bottle-100ml-new-type-bericap-16g.png.asset.json";
+import bottle60mlOldBericap from "@/assets/bottle-60ml-old-type-bericap-12g.png.asset.json";
+import bottle30mlClearBericap from "@/assets/bottle-30ml-clear-bericap-9g.png.asset.json";
+import bottle15mlClearRedBericap from "@/assets/bottle-15ml-clear-red-bericap.png.asset.json";
+import bottle1lBatteryAcid from "@/assets/bottle-1l-white-battery-acid-bericap-50g.png.asset.json";
 import bottle120mlLongneck from "@/assets/bottle-120ml-longneck-22g.png.asset.json";
+import bottle120mlLongneckAlt from "@/assets/bottle-120ml-longneck-22g-alt.png.asset.json";
 import bottle120mlLongneckOrange from "@/assets/bottle-120ml-longneck-orange-22g.png.asset.json";
 import bottle200mlRound from "@/assets/bottle-200ml-round-red-bericap.png.asset.json";
 import bottle200mlRoundNatural from "@/assets/bottle-200ml-round-bericap.png.asset.json";
@@ -291,14 +299,75 @@ export const PRODUCTS: Product[] = [
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },
   {
-    slug: "100ml-hdpe-bottle",
-    title: "100ml HDPE Bottle",
+    slug: "15ml-clear-bottle-red-bericap",
+    title: "15ml Clear Bottle with Red Bericap",
     category: "bottles",
-    desc: "Compact HDPE bottle for pharmaceutical, personal care, chemical and household products.",
+    desc: "15ml clear bottle supplied with a red Bericap closure.",
     highlights: [],
-    specs: { ...baseSpecs, material: "HDPE", capacityRange: "100ml" },
-    images: single(bottle100ml.url),
-    colourNote: "Multiple colours available. Additional colours available on request.",
+    specs: { ...baseSpecs, capacityRange: "15ml", neckClosure: "Bericap" },
+    images: single(bottle15mlClearRedBericap.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "30ml-bottle-clear-bericap-9g",
+    title: "30ml Bottle Clear Bericap 9G",
+    category: "bottles",
+    desc: "30ml clear bottle with a Bericap neck finish.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "30ml", neckClosure: "Bericap", weight: "9g" },
+    images: single(bottle30mlClearBericap.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "60ml-old-type-bericap-12g",
+    title: "60ml Old Type Bericap 12G",
+    category: "bottles",
+    desc: "60ml old type bottle with a Bericap neck finish.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "60ml", neckClosure: "Bericap", weight: "12g" },
+    images: single(bottle60mlOldBericap.url),
+    colours: [{ name: "Natural / Clear", hex: "#E8EEF2" }],
+  },
+  {
+    slug: "100ml-old-type-bericap-16g",
+    title: "100ml Old Type Bericap 16G",
+    category: "bottles",
+    desc: "100ml old type bottle with a Bericap neck finish, available in white and natural.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "100ml", neckClosure: "Bericap", weight: "16g" },
+    images: {
+      main: bottle100mlOldBericap.url,
+      alternates: [bottle100mlOldWhite.url],
+      details: [],
+    },
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Natural / Clear", hex: "#E8EEF2" },
+    ],
+  },
+  {
+    slug: "100ml-new-type-bottle-bericap-16g",
+    title: "100ml New Type Bottle with Bericap",
+    category: "bottles",
+    desc: "100ml new type bottle shown with its white Bericap closure, plus an uncapped view.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "100ml", neckClosure: "Bericap", weight: "16g" },
+    images: {
+      main: bottle100mlNewCapped.url,
+      alternates: [bottle100mlNewBericap.url],
+      details: [],
+    },
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "1l-white-battery-acid-bottle-bericap-50g",
+    title: "1L White Battery Acid Bottle Bericap 50G",
+    category: "bottles",
+    desc: "1L white bottle engineered for battery acid and similar chemical filling, with a Bericap neck finish.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "1L", neckClosure: "Bericap", weight: "50g" },
+    images: single(bottle1lBatteryAcid.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
   },
   {
     slug: "120ml-long-neck-bottle",
@@ -309,7 +378,7 @@ export const PRODUCTS: Product[] = [
     specs: { ...baseSpecs, capacityRange: "120ml", neckClosure: "25mm longneck cap", weight: "22g" },
     images: {
       main: bottle120mlLongneck.url,
-      alternates: [bottle120mlLongneckOrange.url],
+      alternates: [bottle120mlLongneckOrange.url, bottle120mlLongneckAlt.url],
       details: [],
     },
     colours: [
