@@ -22,7 +22,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(delay = 
           duration: 0.8,
           delay,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+           scrollTrigger: { trigger: el, start: "top 94%", once: true },
         },
       );
     }, el);

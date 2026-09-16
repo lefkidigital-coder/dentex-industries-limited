@@ -30,7 +30,7 @@ export function ValueLocks() {
     });
 
   return (
-    <section className="bg-primary text-primary-foreground py-24 relative overflow-hidden">
+    <section className="bg-primary text-primary-foreground py-12 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, rgba(137,23,40,0.5), transparent 50%)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
@@ -43,7 +43,7 @@ export function ValueLocks() {
           </p>
         </div>
 
-        <div className="mt-12 grid lg:grid-cols-[1fr_320px] gap-10 items-center">
+        <div className="mt-8 sm:mt-12 grid lg:grid-cols-[1fr_320px] gap-8 sm:gap-10 items-center">
           <div className="grid sm:grid-cols-2 gap-4">
             {VALUES.map((v) => {
               const isLocked = locked.has(v.key);
@@ -51,7 +51,7 @@ export function ValueLocks() {
                 <motion.button
                   key={v.key}
                   onClick={() => toggle(v.key)}
-                  className="text-left rounded-2xl border-2 p-6 relative overflow-hidden"
+                   className="text-left rounded-2xl border-2 p-5 sm:p-6 relative overflow-hidden"
                   animate={
                     reduced
                       ? undefined
@@ -88,7 +88,7 @@ export function ValueLocks() {
           </div>
 
           {/* Central seal */}
-          <div className="relative aspect-square">
+          <div className="relative mx-auto aspect-square w-full max-w-[260px] sm:max-w-[320px]">
             <svg viewBox="0 0 200 200" className="w-full h-full">
               <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2" strokeDasharray="3 5" />
               {VALUES.map((v, i) => {

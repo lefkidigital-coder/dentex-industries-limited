@@ -447,7 +447,7 @@ export function BuildYourProduct() {
   const prev = () => setStep((s) => Math.max(s - 1, 0));
 
   return (
-    <section className="bg-tech-grey py-24">
+    <section className="bg-tech-grey py-12 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Inside Our Process</p>
@@ -461,7 +461,7 @@ export function BuildYourProduct() {
         </div>
 
         {/* Process selection */}
-        <div className="mt-8 flex flex-wrap gap-3" role="tablist" aria-label="Manufacturing process">
+        <div className="mt-6 sm:mt-8 flex flex-wrap gap-3" role="tablist" aria-label="Manufacturing process">
           {(Object.keys(PROCESSES) as ProcessKey[]).map((key) => (
             <button
               key={key}
@@ -482,9 +482,9 @@ export function BuildYourProduct() {
           ))}
         </div>
 
-        <div className="mt-10 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
+        <div className="mt-8 sm:mt-10 grid lg:grid-cols-[1.1fr_1fr] gap-8 sm:gap-10 items-start">
           {/* Stage viewer */}
-          <div className="bg-card rounded-2xl border border-border/60 p-6 shadow-sm">
+          <div className="min-w-0 bg-card rounded-2xl border border-border/60 p-4 sm:p-6 shadow-sm">
             <div className="aspect-[5/4] rounded-xl bg-primary/5 overflow-hidden relative">
               <svg viewBox="0 0 240 200" className="w-full h-full">
                 <AnimatePresence mode="wait">
@@ -508,11 +508,11 @@ export function BuildYourProduct() {
               </span>
             </div>
 
-            <div className="mt-5 flex items-center justify-between gap-3">
+            <div className="mt-5 grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:flex sm:justify-between sm:gap-3">
               <button
                 onClick={prev}
                 disabled={step === 0}
-                className="mould-press inline-flex items-center gap-1 px-4 py-2 rounded-md bg-secondary text-primary font-semibold text-sm disabled:opacity-40"
+                className="mould-press inline-flex items-center justify-center gap-1 px-2 py-2 text-xs rounded-md bg-secondary text-primary font-semibold sm:px-4 sm:text-sm disabled:opacity-40"
               >
                 <ChevronLeft className="h-4 w-4" /> Previous
               </button>
@@ -522,7 +522,7 @@ export function BuildYourProduct() {
               <button
                 onClick={next}
                 disabled={step === stages.length - 1}
-                className="mould-press inline-flex items-center gap-1 px-4 py-2 rounded-md bg-primary text-primary-foreground font-semibold text-sm disabled:opacity-40"
+                className="mould-press inline-flex items-center justify-center gap-1 px-2 py-2 text-xs rounded-md bg-primary text-primary-foreground font-semibold sm:px-4 sm:text-sm disabled:opacity-40"
               >
                 Next <ChevronRight className="h-4 w-4" />
               </button>

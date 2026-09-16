@@ -44,7 +44,7 @@ function Home() {
       <ImpactStats />
 
       {/* Services */}
-      <section className="py-24">
+      <section className="py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -52,10 +52,10 @@ function Home() {
               <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">Packaging built for every industry</h2>
             </div>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 sm:mt-14 grid gap-6 md:grid-cols-3">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.1}>
-                <div className="mould-press group h-full bg-card border border-border/60 rounded-2xl p-8 hover:shadow-xl hover:border-accent/40">
+                <div className="mould-press group h-full bg-card border border-border/60 rounded-2xl p-6 sm:p-8 hover:shadow-xl hover:border-accent/40">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-primary-foreground group-hover:bg-accent transition-colors">
                     <s.icon className="h-6 w-6" />
                   </div>

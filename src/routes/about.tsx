@@ -32,8 +32,8 @@ function About() {
       />
 
       {/* Our Story */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-12 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <Reveal>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Story</p>
@@ -70,7 +70,7 @@ function About() {
             </div>
           </Reveal>
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 sm:mt-16">
           <Reveal>
             <HeritageScrubber />
           </Reveal>
@@ -78,15 +78,15 @@ function About() {
       </section>
 
       {/* MVV */}
-      <section className="bg-tech-grey py-24">
+      <section className="bg-tech-grey py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight max-w-2xl">Mission, Vision & Values</h2>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-3">
             {mvv.map((m, i) => (
               <Reveal key={m.title} delay={i * 0.1}>
-                <div className="h-full bg-card border border-border/60 rounded-2xl p-8 hover:shadow-lg transition-all">
+                <div className="h-full bg-card border border-border/60 rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-all">
                   <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent text-accent-foreground">
                     <m.icon className="h-6 w-6" />
                   </div>
@@ -100,7 +100,7 @@ function About() {
       </section>
 
       {/* Leadership */}
-      <section className="py-24">
+      <section className="py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -109,7 +109,7 @@ function About() {
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="mt-10 rounded-2xl border border-border/60 bg-card p-8 sm:p-12 shadow-sm">
+            <div className="mt-8 sm:mt-10 rounded-2xl border border-border/60 bg-card p-6 sm:p-12 shadow-sm">
               <p className="text-lg font-semibold text-primary">Leadership profiles coming soon.</p>
               <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
                 Dentex Industries Limited is led by a management team overseeing manufacturing, quality and customer
@@ -122,7 +122,7 @@ function About() {
       </section>
 
       {/* Facility Gallery */}
-      <section className="bg-tech-grey py-24">
+      <section className="bg-tech-grey py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -130,7 +130,7 @@ function About() {
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Inside our Nairobi production plant.</h2>
             </div>
           </Reveal>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-8 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <Reveal key={i} delay={i * 0.04}>
                 <img

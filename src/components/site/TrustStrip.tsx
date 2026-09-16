@@ -30,7 +30,7 @@ const LOGOS = [
 
 export function TrustStrip() {
   return (
-    <section className="border-y border-border/60 bg-secondary py-16 sm:py-20">
+    <section className="border-y border-border/60 bg-secondary py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
@@ -42,10 +42,10 @@ export function TrustStrip() {
           <span className="mx-auto mt-5 block h-px w-16 bg-accent/60" />
         </div>
 
-        <ul className="mt-10 sm:mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 xl:grid-cols-5">
+        <ul className="mt-8 sm:mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 xl:grid-cols-5">
           {LOGOS.map((logo) => (
             <li key={logo.name}>
-              <div className="flex h-28 sm:h-32 items-center justify-center rounded-2xl border border-border/60 bg-card px-6 py-7 sm:px-8 sm:py-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-accent/40 hover:shadow-[0_16px_40px_-18px_rgb(10_37_64/0.25)]">
+              <div className="flex h-24 sm:h-32 items-center justify-center rounded-2xl border border-border/60 bg-card px-5 py-6 sm:px-8 sm:py-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-accent/40 hover:shadow-[0_16px_40px_-18px_rgb(10_37_64/0.25)]">
                 <img
                   src={logo.src}
                   alt={logo.name}

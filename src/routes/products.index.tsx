@@ -139,7 +139,7 @@ function Products() {
       </section>
 
       {/* Category shortcuts */}
-      <section className="bg-tech-grey py-20">
+      <section className="bg-tech-grey py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -147,13 +147,13 @@ function Products() {
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Explore by category</h2>
             </div>
           </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-3">
             {CATEGORIES.map((c, i) => (
               <Reveal key={c.slug} delay={i * 0.1}>
                 <Link
                   to="/products/$category"
                   params={{ category: c.slug }}
-                  className="mould-press block h-full bg-card border border-border/60 rounded-2xl p-8 hover:shadow-xl hover:border-accent/40"
+                   className="mould-press block h-full bg-card border border-border/60 rounded-2xl p-6 sm:p-8 hover:shadow-xl hover:border-accent/40"
                 >
                   <h3 className="text-xl font-bold text-primary">{c.title}</h3>
                   <p className="mt-3 text-muted-foreground leading-relaxed">{c.intro}</p>

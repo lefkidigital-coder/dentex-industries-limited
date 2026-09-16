@@ -277,16 +277,6 @@
   box-shadow: inset 0 -0.14em 0 0 var(--accent);
 }
 
-/* GSAP entrance: prevent a flash of un-animated content */
-[data-anim] {
-  opacity: 0;
-}
-@media (prefers-reduced-motion: reduce) {
-  [data-anim] {
-    opacity: 1;
-  }
-}
-
 /*
  * Universal product stage: a soft warm-grey/greige surface with a subtle
  * radial tonal gradient and a very soft contact shadow. Neutral enough to

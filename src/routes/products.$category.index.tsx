@@ -36,7 +36,7 @@ function CategoryPage() {
     <Layout>
       <PageHero eyebrow={category.name} title={category.title} subtitle={category.intro} />
 
-      <section className="pt-10">
+      <section className="pt-8 sm:pt-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -48,7 +48,7 @@ function CategoryPage() {
         </div>
       </section>
 
-      <section className="py-12">
+      <section className="py-10 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-3xl">
@@ -58,7 +58,7 @@ function CategoryPage() {
               <p className="mt-3 text-muted-foreground leading-relaxed">{category.intro}</p>
             </div>
           </Reveal>
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <ProductGrid products={products} />
           </div>
         </div>
