@@ -366,7 +366,7 @@ export const PRODUCTS: Product[] = [
     desc: "1L white bottle engineered for battery acid and similar chemical filling, with a Bericap neck finish.",
     highlights: [],
     specs: { ...baseSpecs, capacityRange: "1L", neckClosure: "Bericap", weight: "50g" },
-    images: single(bottle1lWhiteBatteryAcid.url),
+    images: single(bottle1lBatteryAcid.url),
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },
   {
