@@ -8,7 +8,7 @@ import { useEntrance, useScrollReveal } from "@/hooks/use-gsap";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-background font-sans antialiased">
+    <div className="flex min-h-screen flex-col overflow-x-clip bg-background font-sans antialiased">
       <SmoothScroll />
       <ScrollCap />
       <Header />
