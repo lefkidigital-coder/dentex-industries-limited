@@ -45,12 +45,12 @@ export function TrustStrip() {
         <ul className="mt-10 sm:mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 xl:grid-cols-5">
           {LOGOS.map((logo) => (
             <li key={logo.name}>
-              <div className="flex h-28 sm:h-32 items-center justify-center rounded-2xl border border-border/60 bg-card px-5 py-6 sm:px-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-accent/40 hover:shadow-[0_16px_40px_-18px_rgb(10_37_64/0.25)]">
+              <div className="flex h-28 sm:h-32 items-center justify-center rounded-2xl border border-border/60 bg-card px-6 py-7 sm:px-8 sm:py-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:border-accent/40 hover:shadow-[0_16px_40px_-18px_rgb(10_37_64/0.25)]">
                 <img
                   src={logo.src}
                   alt={logo.name}
                   loading="lazy"
-                  className={`w-auto max-w-full object-contain ${logo.className}`}
+                  className="max-h-full max-w-full w-auto h-auto object-contain object-center"
                 />
               </div>
             </li>
