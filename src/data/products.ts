@@ -40,6 +40,17 @@ import bottle500mlBericap from "@/assets/bottle-500ml-bericap.png.asset.json";
 import bottle500mlRatchet from "@/assets/bottle-500ml-ratchet-28g.png.asset.json";
 import bottle500mlPetClear from "@/assets/bottle-500ml-pet-clear-16g.png.asset.json";
 import bottle500mlPetBlue from "@/assets/bottle-500ml-pet-blue-16g.png.asset.json";
+import jar50gmSpice from "@/assets/jar-50gm-spice-white.png.asset.json";
+import jar100gmSpice from "@/assets/jar-100gm-spice-red-lid.png.asset.json";
+import jar250gmGreen from "@/assets/jar-250gm-screw-green-lid.png.asset.json";
+import jar600cc from "@/assets/jar-600cc-white.png.asset.json";
+import jar800Green from "@/assets/jar-800-screw-green-lid.png.asset.json";
+import jar1000cc from "@/assets/jar-1000cc-white.png.asset.json";
+import jar1150ccYellow from "@/assets/jar-1150cc-yellow-lid.png.asset.json";
+import jar1kgRed from "@/assets/jar-1kg-screw-red-lid.png.asset.json";
+import jarBlackBlackLid from "@/assets/jar-black-screw-black-lid.png.asset.json";
+import jarBlackRedLid from "@/assets/jar-black-screw-red-lid.png.asset.json";
+
 import takeawayContainer from "@/assets/product-white-round-takeaway-container.png.asset.json";
 
 export type CategorySlug =
@@ -440,6 +451,118 @@ export const PRODUCTS: Product[] = [
     colours: [
       { name: "Clear", hex: "#E8EEF2" },
       { name: "Blue", hex: "#249BD7" },
+    ],
+  },
+  {
+    slug: "50gm-spice-jar",
+    title: "50gm Spice Jar",
+    category: "jars-containers",
+    desc: "50gm white spice jar with a ribbed screw lid for herbs, spices and dry blends.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "50gm", neckClosure: "Screw lid" },
+    images: single(jar50gmSpice.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "100gm-spice-jar",
+    title: "100gm Spice Jar",
+    category: "jars-containers",
+    desc: "100gm spice jar with a red screw lid for herbs, spices and dry blends.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "100gm", neckClosure: "Screw lid" },
+    images: single(jar100gmSpice.url),
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Red lid", hex: "#E23B26" },
+    ],
+  },
+  {
+    slug: "250gm-screw-jar",
+    title: "250gm Screw Jar",
+    category: "jars-containers",
+    desc: "250gm jar with a green screw lid for powders, creams and packed dry goods.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "250gm", neckClosure: "Screw lid" },
+    images: single(jar250gmGreen.url),
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Green lid", hex: "#149B4B" },
+    ],
+  },
+  {
+    slug: "600cc-jar",
+    title: "600cc Jar",
+    category: "jars-containers",
+    desc: "600cc white jar with a wide ribbed screw lid for creams, pastes and dry goods.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "600cc", neckClosure: "Screw lid" },
+    images: single(jar600cc.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "800-screw-jar",
+    title: "800 Screw Jar",
+    category: "jars-containers",
+    desc: "800 screw jar with a green lid for powders and packed dry products.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "800cc", neckClosure: "Screw lid" },
+    images: single(jar800Green.url),
+    colours: [
+      { name: "Natural / Clear", hex: "#E8EEF2" },
+      { name: "Green lid", hex: "#149B4B" },
+    ],
+  },
+  {
+    slug: "1000cc-jar",
+    title: "1000cc Jar",
+    category: "jars-containers",
+    desc: "1000cc white jar with a wide ribbed screw neck for bulk dry goods and creams.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "1000cc", neckClosure: "Screw lid" },
+    images: single(jar1000cc.url),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "1150cc-jar",
+    title: "1150cc Jar",
+    category: "jars-containers",
+    desc: "1150cc jar with a yellow screw lid for bulk powders and packed products.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "1150cc", neckClosure: "Screw lid" },
+    images: single(jar1150ccYellow.url),
+    colours: [
+      { name: "Natural / Clear", hex: "#E8EEF2" },
+      { name: "Yellow lid", hex: "#F5C518" },
+    ],
+  },
+  {
+    slug: "1kg-screw-jar",
+    title: "1KG Screw Jar",
+    category: "jars-containers",
+    desc: "1KG screw jar with a red lid for bulk powders, pastes and packed dry goods.",
+    highlights: [],
+    specs: { ...baseSpecs, capacityRange: "1KG", neckClosure: "Screw lid" },
+    images: single(jar1kgRed.url),
+    colours: [
+      { name: "Natural / Clear", hex: "#E8EEF2" },
+      { name: "Red lid", hex: "#E23B26" },
+    ],
+  },
+  {
+    slug: "black-screw-jar",
+    title: "Black Screw Jar",
+    category: "jars-containers",
+    desc: "Black screw jar available with a black or red lid for light-sensitive products.",
+    highlights: [],
+    specs: { ...baseSpecs, neckClosure: "Screw lid" },
+    images: {
+      main: jarBlackBlackLid.url,
+      alternates: [jarBlackRedLid.url],
+      details: [],
+    },
+    colours: [
+      { name: "Black lid", hex: "#151515" },
+      { name: "Red lid", hex: "#E23B26" },
     ],
   },
   {
