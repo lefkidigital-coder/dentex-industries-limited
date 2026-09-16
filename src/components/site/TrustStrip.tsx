@@ -11,19 +11,21 @@ import lakiLaki from "@/assets/logo-laki-laki.png.asset.json";
 
 /**
  * Trusted Across Industries, client logos are used exactly as supplied.
- * Containers balance the logos by visual size; artwork is never cropped.
+ * Every logo sits in an identical container with the same maximum height and
+ * width, object-contain and centred alignment, so nothing is stretched,
+ * cropped or visually oversized relative to the rest.
  */
 const LOGOS = [
-  { name: "Dawa Life Sciences", src: dawa.url, className: "h-14 sm:h-16" },
-  { name: "Laboratory & Allied Ltd", src: laboratoryAllied.url, className: "h-14 sm:h-16" },
-  { name: "VetCare Africa", src: vetcare.url, className: "h-16 sm:h-20" },
-  { name: "Ultravetis", src: ultravetis.url, className: "h-11 sm:h-13" },
-  { name: "Lacheka Animal Health and Nutrition", src: lacheka.url, className: "h-16 sm:h-20" },
-  { name: "BRAVA Food Industries Ltd", src: brava.url, className: "h-11 sm:h-14" },
-  { name: "Laki Laki", src: lakiLaki.url, className: "h-12 sm:h-14" },
-  { name: "Grounded", src: grounded.url, className: "h-10 sm:h-12" },
-  { name: "KEPRO, Kenya Extended Producer Responsibility Organization", src: kepro.url, className: "h-10 sm:h-12" },
-  { name: "ELLYS", src: ellys.url, className: "h-14 sm:h-16" },
+  { name: "Dawa Life Sciences", src: dawa.url },
+  { name: "Laboratory & Allied Ltd", src: laboratoryAllied.url },
+  { name: "VetCare Africa", src: vetcare.url },
+  { name: "Ultravetis", src: ultravetis.url },
+  { name: "Lacheka Animal Health and Nutrition", src: lacheka.url },
+  { name: "BRAVA Food Industries Ltd", src: brava.url },
+  { name: "Laki Laki", src: lakiLaki.url },
+  { name: "Grounded", src: grounded.url },
+  { name: "KEPRO, Kenya Extended Producer Responsibility Organization", src: kepro.url },
+  { name: "ELLYS", src: ellys.url },
 ];
 
 export function TrustStrip() {
