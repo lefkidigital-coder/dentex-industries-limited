@@ -19,7 +19,7 @@ export function RecyclingLoop() {
   const reduced = useReducedMotion();
 
   return (
-    <div className="rounded-2xl bg-card border border-border/60 p-8 shadow-sm">
+    <div className="min-w-0 rounded-2xl bg-card border border-border/60 p-6 sm:p-8 shadow-sm">
       <div className="flex items-start gap-4">
         <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent text-accent-foreground">
           <Recycle className="h-6 w-6" />
@@ -33,7 +33,7 @@ export function RecyclingLoop() {
       </div>
 
       <div className="mt-6 grid md:grid-cols-[1fr_auto] gap-6 items-center">
-        <div className="relative mx-auto w-[280px] h-[280px]">
+        <div className="relative mx-auto aspect-square w-full max-w-[250px] sm:max-w-[280px]">
           {/* Loop ring */}
           <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full">
             <circle cx="100" cy="100" r="78" fill="none" stroke="var(--accent)" strokeWidth="2" strokeDasharray="4 6" opacity="0.45" />

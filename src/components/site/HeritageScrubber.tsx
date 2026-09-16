@@ -26,7 +26,7 @@ export function HeritageScrubber() {
   const products = Math.max(1, Math.round(2 + progress * 30));
 
   return (
-    <div className="rounded-2xl bg-card border border-border/60 p-8 shadow-sm">
+    <div className="overflow-hidden rounded-2xl bg-card border border-border/60 p-6 sm:p-8 shadow-sm">
       <div className="flex items-end justify-between gap-6 flex-wrap">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-accent">Heritage Scrubber</p>
