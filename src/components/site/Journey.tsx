@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import img1986 from "@/assets/journey-1986-concept.png.asset.json";
 import imgLab from "@/assets/staff-lab.png.asset.json";
-import imgTech from "@/assets/staff-technician.png.asset.json";
-import imgWarehouse from "@/assets/staff-warehouse.png.asset.json";
+import imgPet from "@/assets/journey-pet-line.png.asset.json";
+import imgToday from "@/assets/journey-today-engineer.png.asset.json";
 import imgFood from "@/assets/journey-food.jpg";
 import imgNext from "@/assets/journey-next40.jpg";
 
@@ -12,8 +12,8 @@ const CHAPTERS: Chapter[] = [
   { label: "1986", title: "Where it began", text: "Dentex began after acquiring a toothbrush manufacturing plant and started operations with three injection moulding machines.", img: img1986.url, contain: true },
   { label: "1990s", title: "New opportunities", text: "When imported toothbrushes changed the market, Dentex adapted and diversified into pharmaceutical packaging and other plastic products.", img: imgLab.url, pos: "center 25%" },
   { label: "2000s", title: "Expanding the range", text: "Dentex expanded into food packaging, cutlery and a wider range of plastic products.", img: imgFood },
-  { label: "2010s", title: "Industrial capability and PET", text: "Dentex moved into industrial packaging through extrusion blow moulding, and later invested in PET preforms and PET bottles.", img: imgTech.url, pos: "center 25%" },
-  { label: "Today & beyond", title: "A more sustainable future", text: "In 2026 the business continues to invest in technology, automation, recycled materials, solar energy, efficiency and new product development.", img: imgWarehouse.url, pos: "center 22%" },
+  { label: "2000s", title: "Industrial packaging and PET", text: "Dentex moved into industrial packaging through extrusion blow moulding, and later invested in PET preforms and PET bottles.", img: imgPet.url },
+  { label: "Today & beyond", title: "A more sustainable future", text: "In 2026 the business continues to invest in technology, automation, recycled materials, solar energy, efficiency and new product development.", img: imgToday.url, pos: "center 30%" },
 ];
 
 export function JourneyIntro() {
@@ -77,7 +77,7 @@ export function Timeline() {
             const state = i === active ? "active" : i < active ? "past" : "future";
             const flip = i % 2 === 1;
             return (
-              <li key={c.label} data-chapter className="relative grid gap-5 pb-12 pl-10 last:pb-0 sm:pb-16 lg:grid-cols-2 lg:gap-16 lg:pl-0 lg:pb-24">
+              <li key={c.title} data-chapter className="relative grid gap-5 pb-12 pl-10 last:pb-0 sm:pb-16 lg:grid-cols-2 lg:gap-16 lg:pl-0 lg:pb-24">
                 <span
                   aria-hidden
                   className={`absolute left-0 top-2 h-[15px] w-[15px] rounded-full border-2 transition-colors duration-500 lg:left-1/2 lg:-translate-x-1/2 ${
