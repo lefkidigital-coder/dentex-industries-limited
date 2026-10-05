@@ -4,7 +4,7 @@ import { Target, Eye, Heart } from "lucide-react";
 import { JourneyIntro, Timeline, NextForty } from "@/components/site/Journey";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { useEntrance } from "@/hooks/use-gsap";
-import heroImg from "@/assets/staff-operator.png.asset.json";
+import heroImg from "@/assets/about-hero-qc.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -43,7 +43,7 @@ function About() {
             </p>
           </div>
           <div data-anim="image">
-            <img src={heroImg.url} alt="Dentex machine operator on the production floor" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 20%" }} />
+            <img src={heroImg.url} alt="Dentex quality technician inspecting a PET bottle" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 30%" }} />
           </div>
         </div>
       </section>
