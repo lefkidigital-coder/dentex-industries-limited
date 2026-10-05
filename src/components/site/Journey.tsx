@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import img1986 from "@/assets/journey-1986-concept.png.asset.json";
-import imgLab from "@/assets/staff-lab.png.asset.json";
+import imgLab from "@/assets/journey-1990s.png.asset.json";
 import imgPet from "@/assets/journey-pet-line.png.asset.json";
 import imgToday from "@/assets/journey-today-engineer.png.asset.json";
 import imgFood from "@/assets/journey-food.jpg";
@@ -10,7 +10,7 @@ type Chapter = { label: string; title: string; text: string; img: string; pos?: 
 
 const CHAPTERS: Chapter[] = [
   { label: "1986", title: "Where it began", text: "Dentex began after acquiring a toothbrush manufacturing plant and started operations with three injection moulding machines.", img: img1986.url, contain: true },
-  { label: "1990s", title: "New opportunities", text: "When imported toothbrushes changed the market, Dentex adapted and diversified into pharmaceutical packaging and other plastic products.", img: imgLab.url, pos: "center 25%" },
+  { label: "1990s", title: "New opportunities", text: "When imported toothbrushes changed the market, Dentex adapted and diversified into pharmaceutical packaging and other plastic products.", img: imgLab.url },
   { label: "2000s", title: "Expanding the range", text: "Dentex expanded into food packaging, cutlery and a wider range of plastic products.", img: imgFood },
   { label: "2000s", title: "Industrial packaging and PET", text: "Dentex moved into industrial packaging through extrusion blow moulding, and later invested in PET preforms and PET bottles.", img: imgPet.url },
   { label: "Today & beyond", title: "A more sustainable future", text: "In 2026 the business continues to invest in technology, automation, recycled materials, solar energy, efficiency and new product development.", img: imgToday.url, pos: "center 30%" },
