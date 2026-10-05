@@ -61,10 +61,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
-  <url>
-    <loc>https://id-preview--cc5ce016-e448-4118-bca2-00a762cb208d.lovable.app/our-journey</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>
