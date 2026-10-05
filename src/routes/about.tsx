@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHero, Reveal } from "@/components/site/Layout";
-import { Target, Eye, Heart, Award } from "lucide-react";
-import { HeritageScrubber } from "@/components/site/HeritageScrubber";
-import { COMPANY } from "@/data/company";
+import { Layout, Reveal } from "@/components/site/Layout";
+import { Target, Eye, Heart } from "lucide-react";
+import { JourneyIntro, Timeline, NextForty } from "@/components/site/Journey";
+import { QuoteCta } from "@/components/site/QuoteCta";
+import { useEntrance } from "@/hooks/use-gsap";
+import heroImg from "@/assets/staff-operator.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -23,59 +25,50 @@ const mvv = [
 ];
 
 function About() {
+  const heroRef = useEntrance<HTMLDivElement>(["[data-anim='eyebrow']", "[data-anim='title']", "[data-anim='sub']", "[data-anim='image']"]);
   return (
     <Layout>
-      <PageHero
-        eyebrow="About Us"
-        title="A Legacy of Manufacturing Excellence Since 1986"
-        subtitle="From a small plastic manufacturing business to a market leader in the region."
-      />
+      {/* Hero */}
+      <section ref={heroRef} className="relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 pt-10 pb-4 sm:px-6 sm:pt-16 lg:grid-cols-[45fr_55fr] lg:gap-12 lg:px-8 lg:py-16">
+          <div>
+            <p data-anim="eyebrow" className="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+              About Us <span className="h-px w-16 bg-border" />
+            </p>
+            <h1 data-anim="title" className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-primary sm:text-5xl lg:text-6xl">
+              A Legacy of Manufacturing Excellence Since 1986
+            </h1>
+            <p data-anim="sub" className="mt-6 max-w-xl text-lg leading-relaxed text-foreground">
+              From a small plastic manufacturing business to a market leader in the region.
+            </p>
+          </div>
+          <div data-anim="image">
+            <img src={heroImg.url} alt="Dentex machine operator on the production floor" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 20%" }} />
+          </div>
+        </div>
+      </section>
 
       {/* Our Story */}
-      <section className="py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <section className="pt-10 sm:pt-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Story</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Built on craft, trust, and continuous growth.</h2>
-              <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-                <p>Dentex Industries Limited is a fully registered company in Kenya, established in 1986. Specializing in the production of rigid plastic products for packaging, we have become a leader in plastic packaging in the region.</p>
-                <p>Our journey is one of continuous growth, expanding our manufacturing processes into a fully-fledged class of manufacturing business entity that serves pharmaceutical, food & beverage, and industrial customers across East Africa.</p>
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Story</p>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Built on adaptation, investment and trust.</h2>
               </div>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {[
-                  { k: "1986", v: "Founded" },
-                  { k: "500+", v: "Clients" },
-                  { k: "24/7", v: "Production" },
-                ].map((s) => (
-                  <div key={s.k} className="border-l-2 border-accent pl-3">
-                    <p className="text-2xl font-extrabold text-primary">{s.k}</p>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground">{s.v}</p>
-                  </div>
-                ))}
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>Dentex Industries Limited is a Kenyan manufacturer of rigid plastic packaging, established in 1986 when the company acquired a toothbrush manufacturing plant and began production with three injection moulding machines.</p>
+                <p>Forty years on, Dentex serves pharmaceutical, food & beverage, cosmetics, agrochemical and industrial customers, growing step by step as markets changed.</p>
               </div>
             </div>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="relative">
-              <img
-                src="https://picsum.photos/seed/dentex-story/900/700"
-                alt="Dentex manufacturing"
-                className="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-xl shadow-xl max-w-xs hidden sm:block">
-                <Award className="h-8 w-8" />
-                <p className="mt-2 font-bold">40 years of packaging excellence in East Africa.</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 sm:mt-16">
-          <Reveal>
-            <HeritageScrubber />
           </Reveal>
         </div>
       </section>
+
+      <JourneyIntro />
+      <Timeline />
+      <NextForty />
 
       {/* MVV */}
       <section className="bg-tech-grey py-12 sm:py-24">
