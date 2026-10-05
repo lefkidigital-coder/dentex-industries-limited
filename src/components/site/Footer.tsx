@@ -31,7 +31,6 @@ export function Footer() {
               <li><Link to="/about" className="hover:text-primary-foreground">About Us</Link></li>
               <li><Link to="/products" className="hover:text-primary-foreground">Our Products</Link></li>
               <li><Link to="/industries" className="hover:text-primary-foreground">Industries</Link></li>
-              <li><Link to="/our-journey" className="hover:text-primary-foreground">Our Journey</Link></li>
               <li><Link to="/quality" className="hover:text-primary-foreground">Quality & Innovation</Link></li>
               <li><Link to="/contact" className="hover:text-primary-foreground">Contact Us</Link></li>
               <li><Link to="/privacy-policy" className="hover:text-primary-foreground">Privacy Policy</Link></li>

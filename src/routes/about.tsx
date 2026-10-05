@@ -92,50 +92,7 @@ function About() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leadership</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">The team behind Dentex.</h2>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="mt-8 sm:mt-10 rounded-2xl border border-border/60 bg-card p-6 sm:p-12 shadow-sm">
-              <p className="text-lg font-semibold text-primary">Leadership profiles coming soon.</p>
-              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
-                Dentex Industries Limited is led by a management team overseeing manufacturing, quality and customer
-                relationships, supported by a workforce of {COMPANY.employeesLabel} employees. Individual profiles will
-                be published here shortly.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Facility Gallery */}
-      <section className="bg-tech-grey py-12 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Facility</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Inside our Nairobi production plant.</h2>
-            </div>
-          </Reveal>
-          <div className="mt-8 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <Reveal key={i} delay={i * 0.04}>
-                <img
-                  src={`https://picsum.photos/seed/facility-${i}/500/500`}
-                  alt={`Facility ${i}`}
-                  className={`rounded-xl object-cover w-full ${i % 3 === 0 ? "aspect-[3/4]" : "aspect-square"} hover:scale-[1.02] transition-transform`}
-                />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <QuoteCta />
     </Layout>
   );
 }
