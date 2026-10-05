@@ -10,6 +10,7 @@ const nav = [
   { to: "/about", label: "About Us" },
   { to: "/products", label: "Our Products" },
   { to: "/industries", label: "Industries" },
+  { to: "/our-journey", label: "Our Journey" },
   { to: "/quality", label: "Quality & Innovation" },
   { to: "/contact", label: "Contact Us" },
 ] as const;
