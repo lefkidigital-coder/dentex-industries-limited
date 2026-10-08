@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { INDUSTRY_OPTIONS, isIndustryKey, productIndustries } from "@/data/industries";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Container, LayoutGrid, Milk, Package, TestTube, UtensilsCrossed } from "lucide-react";
 import { Layout, Reveal } from "@/components/site/Layout";
@@ -9,9 +10,15 @@ import { CATEGORIES, PRODUCTS, type CategorySlug } from "@/data/products";
 import heroComposition from "@/assets/products-hero-composition.png.asset.json";
 
 export const Route = createFileRoute("/products/")({
+  validateSearch: (search: Record<string, unknown>): { industry?: string; category?: string } => ({
+    industry: typeof search.industry === "string" ? search.industry : "all",
+    category: typeof search.category === "string" ? search.category : "All",
+  }),
   head: () => ({
     meta: [
       { title: "Our Products | Dentex Industries Ltd" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         name: "description",
         content:
@@ -28,10 +35,11 @@ export const Route = createFileRoute("/products/")({
   component: Products,
 });
 
-type Filter = "All" | CategorySlug;
+type Filter = "All" | "closures" | CategorySlug;
 
 const FILTER_ICONS: Record<Filter, typeof LayoutGrid> = {
   All: LayoutGrid,
+  closures: Package,
   bottles: Milk,
   jerrycans: Container,
   "jars-containers": Package,
@@ -39,15 +47,19 @@ const FILTER_ICONS: Record<Filter, typeof LayoutGrid> = {
   "pet-preforms": TestTube,
 };
 
-const FILTERS: Filter[] = ["All", ...CATEGORIES.map((c) => c.slug)];
+const FILTERS: Filter[] = ["All", ...CATEGORIES.map((c) => c.slug), "closures"];
 
 function filterLabel(f: Filter) {
-  return f === "All" ? "All Products" : CATEGORIES.find((c) => c.slug === f)!.name;
+  return f === "All" ? "All Products" : f === "closures" ? "Closures" : CATEGORIES.find((c) => c.slug === f)?.name ?? f;
 }
 
 function Products() {
-  const [filter, setFilter] = useState<Filter>("All");
-  const list = filter === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter);
+  const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const filter = FILTERS.find((value) => value === search.category) ?? "All";
+  const selectedIndustry = search.industry ?? "all";
+  const industry = isIndustryKey(selectedIndustry) ? selectedIndustry : "all";
+  const list = PRODUCTS.filter((p) => (filter === "All" || p.category === filter) && (industry === "all" || productIndustries(p).includes(industry)));
 
   return (
     <Layout>
@@ -97,18 +109,26 @@ function Products() {
       {/* Filters + grid */}
       <section className="py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Industry</p>
+          <div className="mb-5 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]" aria-label="Industry filters">
+            {[{ key: "all", label: "All Industries" }, ...INDUSTRY_OPTIONS].map((option) => (
+              <Button key={option.key} variant="ghost" aria-pressed={industry === option.key} onClick={() => navigate({ search: (prev) => ({ ...prev, industry: option.key }), resetScroll: false })}
+                className={`h-auto shrink-0 rounded-full px-4 py-2.5 font-semibold ${industry === option.key ? "bg-accent text-accent-foreground hover:bg-accent/90" : "bg-card text-primary border border-border"}`}>{option.label}</Button>
+            ))}
+          </div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Product category</p>
           <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <div className="flex min-w-max items-center gap-2 rounded-2xl border border-border/60 bg-card p-2 lg:min-w-0 lg:justify-between">
               {FILTERS.map((f) => {
                 const Icon = FILTER_ICONS[f];
                 const active = filter === f;
                 return (
-                  <button
+                  <Button variant="ghost"
                     key={f}
                     type="button"
-                    onClick={() => setFilter(f)}
+                    onClick={() => navigate({ search: (prev) => ({ ...prev, category: f }), resetScroll: false })}
                     aria-pressed={active}
-                    className={`mould-press inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
+                    className={`mould-press h-auto inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
                       active
                         ? "bg-accent text-accent-foreground shadow-md"
                         : "text-primary hover:bg-secondary hover:text-accent"
@@ -116,7 +136,7 @@ function Products() {
                   >
                     <Icon className="h-4 w-4" />
                     {filterLabel(f)}
-                  </button>
+                  </Button>
                 );
               })}
             </div>

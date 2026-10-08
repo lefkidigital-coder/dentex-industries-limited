@@ -1,12 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Layout, PageHero, Reveal } from "@/components/site/Layout";
+import { Layout, Reveal } from "@/components/site/Layout";
 import { ShieldCheck, FlaskConical, Cog, Leaf, Sparkles } from "lucide-react";
+import { InspectionHero } from "@/components/site/InspectionHero";
+import inspection from "@/assets/quality-inspection.webp.asset.json";
+import engineer from "@/assets/innovation-engineer.webp.asset.json";
 import { RecyclingLoop } from "@/components/site/RecyclingLoop";
 
 export const Route = createFileRoute("/quality")({
   head: () => ({
     meta: [
       { title: "Quality & Innovation | Dentex Industries Ltd" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "description", content: "How Dentex ensures every product meets the highest standards through QA, R&D, and sustainability." },
       { property: "og:title", content: "Quality & Innovation | Dentex Industries Ltd" },
       { property: "og:description", content: "Driven by innovation, defined by quality. Inside our QA, R&D, and sustainability programs." },
@@ -24,7 +29,7 @@ const qa = [
 function Quality() {
   return (
     <Layout>
-      <PageHero
+      <InspectionHero image={inspection.url} alt="Transparent jar inspected under precision lighting"
         eyebrow="Quality & Innovation"
         title="Driven by Innovation, Defined by Quality."
         subtitle="How we ensure every product meets the highest standards."
@@ -69,7 +74,7 @@ function Quality() {
               <p className="mt-5 text-primary-foreground/95 leading-relaxed">
                 We continuously invest in research and development to introduce innovative products and maintain market leadership across East Africa.
               </p>
-              <div className="mt-8 p-6 bg-white/5 backdrop-blur border border-white/10 rounded-2xl">
+              <div className="mt-8 p-6 bg-primary-foreground/5 backdrop-blur border border-primary-foreground/10 rounded-2xl">
                 <div className="flex items-start gap-4">
                   <Sparkles className="h-8 w-8 text-primary-foreground shrink-0" />
                   <div>
@@ -84,8 +89,8 @@ function Quality() {
           </Reveal>
           <Reveal delay={0.15}>
             <img
-              src="https://picsum.photos/seed/dentex-innovation/900/700"
-              alt="R&D laboratory"
+              src={engineer.url}
+              alt="Dentex engineer inspecting a PET preform beside moulding equipment"
               className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
             />
           </Reveal>
