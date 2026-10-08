@@ -221,6 +221,25 @@
   }
 }
 
+/* Stable industry atmospheres: transition colour, not non-interpolable gradients. */
+.industry-section { background: var(--industry-surface); transition: background-color 500ms ease; }
+.tint-pharma { --industry-surface: oklch(0.957 0.024 240); --industry-active: var(--accent); }
+.tint-food { --industry-surface: oklch(0.972 0.021 75); --industry-active: var(--accent); }
+.tint-cosmetics { --industry-surface: oklch(0.966 0.018 15); --industry-active: var(--accent); }
+.tint-automotive { --industry-surface: oklch(0.945 0.014 250); --industry-active: var(--primary); }
+.tint-agrochemical { --industry-surface: oklch(0.965 0.023 125); --industry-active: oklch(0.46 0.07 125); }
+.tint-industrial { --industry-surface: oklch(0.953 0.014 245); --industry-active: var(--hero-deep); }
+.industry-active { background-color: var(--industry-active); }
+.industry-info { min-height: 430px; }
+.inspection-image-edge { background: linear-gradient(to right, var(--hero-deep), transparent 24%); }
+@media (max-width: 767px) {
+  .industry-info { min-height: 460px; }
+  .inspection-image-edge { background: linear-gradient(to bottom, var(--hero-deep), transparent 20%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .industry-section { transition: none; }
+}
+
 /* Reduced-motion: kill our custom transitions/animations */
 @media (prefers-reduced-motion: reduce) {
   .mould-press,
