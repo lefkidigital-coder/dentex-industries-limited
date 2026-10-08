@@ -232,6 +232,9 @@
 .industry-active { background-color: var(--industry-active); }
 .industry-info { min-height: 430px; }
 .inspection-image-edge { background: linear-gradient(to right, var(--hero-deep), transparent 24%); }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .industry-info { min-height: 480px; }
+}
 @media (max-width: 767px) {
   .industry-info { min-height: 480px; }
   .inspection-image-edge { background: linear-gradient(to bottom, var(--hero-deep), transparent 20%); }
