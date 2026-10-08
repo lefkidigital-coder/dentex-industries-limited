@@ -10,7 +10,7 @@ import { CATEGORIES, PRODUCTS, type CategorySlug } from "@/data/products";
 import heroComposition from "@/assets/products-hero-composition.png.asset.json";
 
 export const Route = createFileRoute("/products/")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { industry?: string; category?: string } => ({
     industry: typeof search.industry === "string" ? search.industry : "all",
     category: typeof search.category === "string" ? search.category : "All",
   }),
@@ -57,7 +57,8 @@ function Products() {
   const search = Route.useSearch();
   const navigate = Route.useNavigate();
   const filter = FILTERS.find((value) => value === search.category) ?? "All";
-  const industry = isIndustryKey(search.industry) ? search.industry : "all";
+  const selectedIndustry = search.industry ?? "all";
+  const industry = isIndustryKey(selectedIndustry) ? selectedIndustry : "all";
   const list = PRODUCTS.filter((p) => (filter === "All" || p.category === filter) && (industry === "all" || productIndustries(p).includes(industry)));
 
   return (
