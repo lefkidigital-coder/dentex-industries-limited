@@ -8,7 +8,11 @@ import {
   IconAgrochemical,
   IconIndustrial,
 } from "@/components/site/DentexIcons";
-import { Layout, PageHero, Reveal } from "@/components/site/Layout";
+import { Layout, Reveal } from "@/components/site/Layout";
+import { InspectionHero } from "@/components/site/InspectionHero";
+import { IndustrySelector } from "@/components/site/IndustrySelector";
+import { Button } from "@/components/ui/button";
+import employee from "@/assets/industries-employee.webp.asset.json";
 import { ProductGrid } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { PRODUCTS, type CategorySlug } from "@/data/products";
@@ -17,6 +21,8 @@ export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
       { title: "Industries We Serve | Dentex Industries Ltd" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "description", content: "Rigid plastic packaging for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial customers across East Africa." },
       { property: "og:title", content: "Industries Served | Dentex Industries Ltd" },
       { property: "og:description", content: "Packaging built for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial applications." },
@@ -38,47 +44,18 @@ const INDUSTRIES: { icon: typeof IconPharma; label: string; blurb: string; categ
 function Industries() {
   return (
     <Layout>
-      <PageHero
+      <InspectionHero image={employee.url} alt="Dentex technician inspecting a plastic container on the manufacturing line"
         eyebrow="Industries Served"
         title="Packaging built around the industry it serves."
         subtitle="Each sector we supply carries its own requirements, from pharmaceutical-grade tolerances to freezer-safe food packaging."
-      />
-
-      <section className="py-12 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Who We Supply</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Six sectors, one manufacturing standard.</h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Dentex Industries Limited has manufactured rigid plastic packaging in Nairobi since 1986. Select an
-                industry to view the relevant product range.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="mt-8 sm:mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {INDUSTRIES.map((ind, i) => (
-              <Reveal key={ind.label} delay={i * 0.08}>
-                <Link
-                  to="/products/$category"
-                  params={{ category: ind.category }}
-                   className="mould-press group flex h-full flex-col bg-card border border-border/60 rounded-2xl p-6 sm:p-8 hover:shadow-xl hover:border-accent/40"
-                >
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-primary text-primary-foreground group-hover:bg-accent transition-colors">
-                    <ind.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-6 text-xl font-bold text-primary">{ind.label}</h3>
-                  <p className="mt-3 flex-1 text-muted-foreground leading-relaxed">{ind.blurb}</p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:gap-2 transition-all">
-                    View Products <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+      >
+        <div className="mt-6 grid grid-cols-2 gap-3 text-xs text-primary-foreground/80">
+          {INDUSTRIES.map((ind) => <span key={ind.label} className="flex items-center gap-2"><ind.icon className="h-4 w-4" />{ind.label}</span>)}
         </div>
-      </section>
+        <Button asChild variant="link" className="mt-6 h-auto p-0 text-primary-foreground whitespace-normal text-left"><a href="#industries-served">Explore the industries we serve ↓</a></Button>
+      </InspectionHero>
+
+      <IndustrySelector />
 
       {/* Related products */}
       <section className="bg-tech-grey py-12 sm:py-20">
