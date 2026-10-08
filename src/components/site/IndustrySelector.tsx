@@ -141,14 +141,16 @@ export function IndustrySelector() {
                 <p className="mt-5 inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                   {current.mood}
                 </p>
+                <div>
                 <Button asChild className="mould-press mt-4 h-auto min-h-10 bg-accent text-accent-foreground hover:bg-accent/90 whitespace-normal text-left">
                   <Link to="/products" search={{ industry: current.key }}>View {current.label} Products <ArrowRight className="shrink-0 h-4 w-4" /></Link>
                 </Button>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="relative aspect-[1.72] md:aspect-auto rounded-2xl overflow-hidden border border-border/60 self-start md:self-stretch">
+          <div className="relative w-full aspect-[1.72] rounded-2xl overflow-hidden self-start md:self-center">
             {INDUSTRIES.map((industry) => (
               <img key={industry.key} src={images[industry.key].url} alt={`${industry.label} packaging application showcase`}
                 aria-hidden={active !== industry.key}
