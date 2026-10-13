@@ -164,7 +164,11 @@ function single(url: string) {
 
 /** Preserve uploaded filenames while safely referencing spaces in public asset URLs. */
 function uploadedGallery(views: { file: string; label: string }[]) {
-  const paths = views.map(({ file }) => `/products/${encodeURIComponent(file)}`);
+  const paths = views.map(({ file }) => {
+    // Published asset URLs require percent-encoded parentheses.
+    const filename = encodeURIComponent(file).replace(/\(/g, "%28").replace(/\)/g, "%29");
+    return `/products/${filename}`;
+  });
   return {
     main: paths[0],
     alternates: paths.slice(1),
