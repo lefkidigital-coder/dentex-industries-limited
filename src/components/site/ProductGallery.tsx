@@ -5,11 +5,12 @@ import type { Product } from "@/data/products";
 
 export function ProductGallery({ product }: { product: Product }) {
   const images = [product.images.main, ...product.images.alternates, ...product.images.details];
-  const labels = [
+  const defaultLabels = [
     "Main view",
     ...product.images.alternates.map((_, i) => `Alternative view ${i + 1}`),
     ...product.images.details.map((_, i) => `Detail view ${i + 1}`),
   ];
+  const labels = images.map((_, i) => product.images.labels?.[i] ?? defaultLabels[i]);
   const [index, setIndex] = useState(0);
   const go = (dir: number) => setIndex((i) => (i + dir + images.length) % images.length);
 

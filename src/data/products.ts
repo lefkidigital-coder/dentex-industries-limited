@@ -63,7 +63,9 @@ export type CategorySlug =
   | "jerrycans"
   | "jars-containers"
   | "food-service"
-  | "pet-preforms";
+  | "pet-preforms"
+  | "closures"
+  | "accessories";
 
 export type ProductCategory = {
   slug: CategorySlug;
@@ -89,7 +91,7 @@ export type Product = {
   desc: string;
   highlights: string[];
   specs: ProductSpecs;
-  images: { main: string; alternates: string[]; details: string[] };
+  images: { main: string; alternates: string[]; details: string[]; labels?: string[] };
   /** Confirmed colour options only, never inferred or invented. */
   colours?: { name: string; hex: string }[];
   colourNote?: string;
@@ -140,10 +142,35 @@ export const CATEGORIES: ProductCategory[] = [
     metaDescription:
       "PET preforms from Dentex Industries Ltd, manufactured in Nairobi, Kenya.",
   },
+  {
+    slug: "closures",
+    name: "Closures",
+    title: "Caps & Closures",
+    intro: "Bericap, ratchet, ROPP, PJ and jar caps in the photographed sizes and colours.",
+    metaDescription: "Explore Bericap, ratchet, ROPP, PJ and jar caps from Dentex Industries Ltd.",
+  },
+  {
+    slug: "accessories",
+    name: "Accessories",
+    title: "Packaging Accessories",
+    intro: "Natural plugs and measuring cups to complete your packaging specification.",
+    metaDescription: "Explore natural LLDPE plugs and measuring cups from Dentex Industries Ltd.",
+  },
 ];
 
 function single(url: string) {
   return { main: url, alternates: [] as string[], details: [] as string[] };
+}
+
+/** Preserve uploaded filenames while safely referencing spaces in public asset URLs. */
+function uploadedGallery(views: { file: string; label: string }[]) {
+  const paths = views.map(({ file }) => `/products/${encodeURIComponent(file)}`);
+  return {
+    main: paths[0],
+    alternates: paths.slice(1),
+    details: [] as string[],
+    labels: views.map(({ label }) => label),
+  };
 }
 
 const baseSpecs: ProductSpecs = {
@@ -248,14 +275,15 @@ export const PRODUCTS: Product[] = [
     slug: "3l-jerrycan-bericap",
     title: "3L Jerrycan with Bericap",
     category: "jerrycans",
-    desc: "3L HDPE jerrycan with a Bericap closure, available in black and natural.",
-    highlights: [],
+    desc: "A heavy-duty 3 litre HDPE jerrycan for automotive fluids, lubricants, industrial chemicals and cleaning agents. Its integrated side handle supports comfortable handling and controlled pouring, with a Bericap closure on this model.",
+    highlights: ["3 litre capacity","Durable HDPE construction","Integrated side handle","Bericap closure","Custom colours available"],
     specs: {
       ...baseSpecs,
       material: "HDPE",
       capacityRange: "3L",
       neckClosure: "Bericap",
       weight: "130g",
+      industryFit: "Automotive, chemical and industrial applications",
     },
     images: {
       main: jc3lBlackBericap.url,
@@ -457,7 +485,7 @@ export const PRODUCTS: Product[] = [
       "Caps in a wide range of colour shades",
       "Customisable to customer specifications",
     ],
-    specs: { ...baseSpecs, capacityRange: "120ml", neckClosure: "25mm longneck cap", weight: "22g" },
+    specs: { ...baseSpecs, capacityRange: "120ml", neckClosure: "25mm longneck cap", weight: "22g", material: "HDPE" },
     images: {
       main: bottle120mlLongneck.url,
       alternates: [bottle120mlLongneckOrange.url, bottle120mlLongneckAlt.url],
@@ -598,8 +626,8 @@ export const PRODUCTS: Product[] = [
     slug: "500cc-jar-white-45g",
     title: "500CC Jar White 45G",
     category: "jars-containers",
-    desc: "500cc white jar, 45g, with a wide screw neck for dry goods, powders and creams.",
-    highlights: [],
+    desc: "A durable 500cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is supplied in white with a screw lid.",
+    highlights: ["500cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "500cc", weight: "45g", neckClosure: "Screw lid" },
     images: single(jar500ccWhite45g.url),
     colours: [{ name: "White", hex: "#FFFFFF" }],
@@ -608,8 +636,8 @@ export const PRODUCTS: Product[] = [
     slug: "600cc-jar",
     title: "600cc Jar",
     category: "jars-containers",
-    desc: "600cc white jar with a wide ribbed screw lid for creams, pastes and dry goods.",
-    highlights: [],
+    desc: "A durable 600cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
+    highlights: ["600cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "600cc", neckClosure: "Screw lid" },
     images: single(jar600cc.url),
     colours: [{ name: "White", hex: "#FFFFFF" }],
@@ -618,8 +646,8 @@ export const PRODUCTS: Product[] = [
     slug: "800-screw-jar",
     title: "800 Screw Jar",
     category: "jars-containers",
-    desc: "800 screw jar with a green lid for powders and packed dry products.",
-    highlights: [],
+    desc: "A durable 800cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is shown with a green screw lid.",
+    highlights: ["800cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "800cc", neckClosure: "Screw lid" },
     images: single(jar800Green.url),
     colours: [
@@ -631,8 +659,8 @@ export const PRODUCTS: Product[] = [
     slug: "1000cc-jar",
     title: "1000cc Jar",
     category: "jars-containers",
-    desc: "1000cc white jar with a wide ribbed screw neck for bulk dry goods and creams.",
-    highlights: [],
+    desc: "A durable 1000cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
+    highlights: ["1000cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "1000cc", neckClosure: "Screw lid" },
     images: single(jar1000cc.url),
     colours: [{ name: "White", hex: "#FFFFFF" }],
@@ -641,8 +669,8 @@ export const PRODUCTS: Product[] = [
     slug: "1150cc-jar",
     title: "1150cc Jar",
     category: "jars-containers",
-    desc: "1150cc jar with a yellow screw lid for bulk powders and packed products.",
-    highlights: [],
+    desc: "A durable 1150cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is shown with a yellow screw lid.",
+    highlights: ["1150cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "1150cc", neckClosure: "Screw lid" },
     images: single(jar1150ccYellow.url),
     colours: [
@@ -727,6 +755,244 @@ export const PRODUCTS: Product[] = [
       { name: "Blue", hex: "#249BD7" },
       { name: "Amber", hex: "#B26A16" },
       { name: "Green", hex: "#149B4B" },
+    ],
+  },
+  {
+    slug: "50g-pj-jar-39mm-pj-closure",
+    title: "50g PJ Jar with 39mm PJ Closure",
+    category: "jars-containers",
+    desc: "50g PJ jar fitted with a ribbed 39mm PJ closure, with red and white cap options.",
+    highlights: ["50g jar size","39mm PJ closure"],
+    specs: { ...baseSpecs, capacityRange: "50g", neckClosure: "39mm PJ closure" },
+    images: uploadedGallery([
+      { file: "50G CLEAR PJ JAR WITH RED 39MM PJ CAP.png", label: "Jar with red cap" },
+      { file: "50G CLEAR PJ JAR WITH RED 39MM PJ CAP3.png", label: "Jar with white cap" },
+    ]),
+    colours: [
+      { name: "Red cap", hex: "#E23B26" },
+      { name: "White cap", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "100cc-hdpe-jar-white-cap",
+    title: "100cc HDPE Jar with White Cap",
+    category: "jars-containers",
+    desc: "A durable 100cc HDPE jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. Supplied with a white cap.",
+    highlights: ["100cc capacity","HDPE jar body","White cap","Space for labelling and branding"],
+    specs: { ...baseSpecs, material: "HDPE (jar body)", capacityRange: "100cc", neckClosure: "White cap", industryFit: "Pharmaceutical, food, personal care, chemical and household applications" },
+    images: uploadedGallery([
+      { file: "100CC HDPE JAR WITH WHITE CAP.png", label: "Jar with white cap" },
+    ]),
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "1kg-takeaway-lid",
+    title: "1kg Takeaway Lid",
+    category: "food-service",
+    desc: "Pink lid for the 1kg takeaway container range. Confirm the matching container specification with our team.",
+    highlights: ["1kg takeaway range","Pink finish"],
+    specs: { ...baseSpecs, capacityRange: "For the 1kg takeaway range", neckClosure: "Takeaway lid" },
+    images: uploadedGallery([
+      { file: "1 KG TAKEAWAY LID (PINK).png", label: "Pink takeaway lid, main view" },
+      { file: "1 KG TAKEAWAY LID (PINK) 1.png", label: "Pink takeaway lid, alternative view" },
+    ]),
+    colours: [
+      { name: "Pink", hex: "#F75BAE" },
+    ],
+  },
+  {
+    slug: "28mm-1881-csd-cap",
+    title: "28mm 1881 CSD Cap",
+    category: "closures",
+    desc: "28mm 1881 CSD cap with a ribbed exterior, in blue, sky blue and white.",
+    highlights: ["28mm 1881 CSD closure","Ribbed exterior"],
+    specs: { ...baseSpecs, neckClosure: "28mm 1881 CSD" },
+    images: uploadedGallery([
+      { file: "28MM 1881 CSD CAP.png", label: "Blue cap, main view" },
+      { file: "28MM 1881 CSD CAP (DARK BLUE)L.png", label: "Dark blue cap, alternative view" },
+      { file: "28MM 1881 CSD CAP (SKY BLUE).png", label: "Sky blue cap, main view" },
+      { file: "28MM 1881 CSD CAP (SKY BLUE)2.png", label: "Sky blue cap, alternative view" },
+      { file: "28MM 1881 CSD(WHITE).png", label: "White cap" },
+    ]),
+    colours: [
+      { name: "Blue", hex: "#3550D6" },
+      { name: "Sky blue", hex: "#6CC6ED" },
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "28mm-ropp-cap",
+    title: "28mm ROPP Cap",
+    category: "closures",
+    desc: "Ribbed 28mm ROPP cap shown in dark blue, red, sky blue, yellow and white.",
+    highlights: ["28mm ROPP closure","Ribbed exterior"],
+    specs: { ...baseSpecs, neckClosure: "28mm ROPP" },
+    images: uploadedGallery([
+      { file: "28MM ROPP CAP (RED)H.png", label: "Red cap, exterior view" },
+      { file: "28MM ROPP CAP (RED)G.png", label: "Red cap, interior view" },
+      { file: "28MM ROPP CAP (DARK BLUE)1.png", label: "Dark blue cap" },
+      { file: "28MM ROPP CAP (SKY BLUE)1.png", label: "Sky blue cap" },
+      { file: "28MM ROPP CAP (YELLOW)3.png", label: "Yellow cap, main view" },
+      { file: "28MM ROPP CAP (YELLOW)4.png", label: "Yellow cap, alternative view" },
+      { file: "28MM ROPP(WHITE)5.png", label: "White cap" },
+    ]),
+    colours: [
+      { name: "Dark blue", hex: "#243C9F" },
+      { name: "Red", hex: "#E23B26" },
+      { name: "Sky blue", hex: "#6CC6ED" },
+      { name: "Yellow", hex: "#F5C518" },
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "28mm-bericap",
+    title: "28mm Bericap",
+    category: "closures",
+    desc: "28mm Bericap closure with a ribbed exterior, in black and white.",
+    highlights: ["28mm Bericap closure","Ribbed exterior"],
+    specs: { ...baseSpecs, neckClosure: "28mm Bericap" },
+    images: uploadedGallery([
+      { file: "28MM BERICAP(BLACK).png", label: "Black cap" },
+      { file: "28MM BERICAP (WHITE).png", label: "White cap, open view" },
+    ]),
+    colours: [
+      { name: "Black", hex: "#151515" },
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "28mm-ratchet-cap",
+    title: "28mm Ratchet Cap",
+    category: "closures",
+    desc: "28mm ratchet cap with a ribbed exterior and attached outer ring, in green, dark green, dark blue, red, black and white.",
+    highlights: ["28mm ratchet closure","Ribbed cap with outer ring"],
+    specs: { ...baseSpecs, neckClosure: "28mm ratchet" },
+    images: uploadedGallery([
+      { file: "28MM RATCHET CAP (GREEN).png", label: "Green cap" },
+      { file: "28MM RATCHET CAP (DARK GREEN).png", label: "Dark green cap" },
+      { file: "28MM RATCHET CAP (DARK BLUE).png", label: "Dark blue cap" },
+      { file: "28MM RATCHET CAP (RED).png", label: "Red cap" },
+      { file: "28MM RATCHET(BLACK).png", label: "Black cap" },
+      { file: "28MM RATCHET(WHITE).png", label: "White cap" },
+    ]),
+    colours: [
+      { name: "Green", hex: "#149B4B" },
+      { name: "Dark green", hex: "#145F42" },
+      { name: "Dark blue", hex: "#3550D6" },
+      { name: "Red", hex: "#EF4D32" },
+      { name: "Black", hex: "#151515" },
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "39mm-bericap",
+    title: "39mm Bericap",
+    category: "closures",
+    desc: "White 39mm Bericap closure with broad grip ribs.",
+    highlights: ["39mm Bericap closure","White finish","Broad grip ribs"],
+    specs: { ...baseSpecs, neckClosure: "39mm Bericap" },
+    images: uploadedGallery([
+      { file: "39MM BERICAP (WHITE).png", label: "White cap, exterior view" },
+      { file: "39MM BERICAP (WHITE) 2.png", label: "White caps, paired view" },
+      { file: "39MM BERICAP (WHITE) 1.png", label: "White cap, open view" },
+    ]),
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "39mm-pj-cap",
+    title: "39mm PJ Cap",
+    category: "closures",
+    desc: "Red 39mm PJ cap with broad grip ribs.",
+    highlights: ["39mm PJ closure","Red finish","Broad grip ribs"],
+    specs: { ...baseSpecs, neckClosure: "39mm PJ" },
+    images: uploadedGallery([
+      { file: "39MM PJ CAP (RED).png", label: "Red PJ cap, main view" },
+      { file: "39MM PJ CAP (RED)1.png", label: "Red PJ cap, alternative view" },
+    ]),
+    colours: [
+      { name: "Red", hex: "#E23B26" },
+    ],
+  },
+  {
+    slug: "39mm-ratchet-cap",
+    title: "39mm Ratchet Cap",
+    category: "closures",
+    desc: "39mm ratchet cap with broad grip ribs and an attached outer ring, in pink, coral/orange and white.",
+    highlights: ["39mm ratchet closure","Broad grip ribs","Attached outer ring"],
+    specs: { ...baseSpecs, neckClosure: "39mm ratchet" },
+    images: uploadedGallery([
+      { file: "39MM RATCHET CAP (PINK).png", label: "Pink cap" },
+      { file: "39MM RATCHET CAP (PINK) (2).png", label: "Coral/orange cap" },
+      { file: "39MM RATCHET CAP (White).png", label: "White cap, open view" },
+    ]),
+    colours: [
+      { name: "Pink", hex: "#F44CAF" },
+      { name: "Coral / Orange", hex: "#F65339" },
+      { name: "White", hex: "#FFFFFF" },
+    ],
+  },
+  {
+    slug: "100cc-jar-cap",
+    title: "100cc Jar Cap",
+    category: "closures",
+    desc: "Yellow cap for the 100cc jar range, with a ribbed sidewall and an attached side tab.",
+    highlights: ["100cc jar range","Yellow finish","Attached side tab"],
+    specs: { ...baseSpecs, capacityRange: "For the 100cc jar range", neckClosure: "Jar cap" },
+    images: uploadedGallery([
+      { file: "100CC CAP (YELLOW).png", label: "Yellow cap with side tab" },
+    ]),
+    colours: [
+      { name: "Yellow", hex: "#F5C518" },
+    ],
+  },
+  {
+    slug: "1150cc-jar-cap",
+    title: "1150cc Jar Cap",
+    category: "closures",
+    desc: "Cap for the 1150cc jar range, in green and red.",
+    highlights: ["1150cc jar range","Green and red options"],
+    specs: { ...baseSpecs, capacityRange: "For the 1150cc jar range", neckClosure: "Jar cap" },
+    images: uploadedGallery([
+      { file: "1150CC CAP (GREEN).png", label: "Green jar cap" },
+      { file: "1150CC CAP (RED).png", label: "Red jar cap" },
+    ]),
+    colours: [
+      { name: "Green", hex: "#149B4B" },
+      { name: "Red", hex: "#E23B26" },
+    ],
+  },
+  {
+    slug: "31-5mm-lldpe-natural-plug",
+    title: "31.5mm LLDPE Natural Plug",
+    category: "accessories",
+    desc: "31.5mm natural translucent LLDPE plug with a flanged rim.",
+    highlights: ["31.5mm size","LLDPE material","Natural finish"],
+    specs: { ...baseSpecs, material: "LLDPE", neckClosure: "31.5mm plug" },
+    images: uploadedGallery([
+      { file: "31.5MM LLDPE NATURAL PLUGS.png", label: "Natural plug, side view" },
+      { file: "31.5MM LLDPE NATURAL PLUGS 1.png", label: "Natural plug, open view" },
+    ]),
+    colours: [
+      { name: "Natural", hex: "#E8EEF2" },
+    ],
+  },
+  {
+    slug: "10ml-measuring-cup",
+    title: "10ml Measuring Cup",
+    category: "accessories",
+    desc: "A clear 10ml measuring cup for measuring and dispensing liquid products. Its moulded 2.5ml, 5ml and 10ml graduations support dose measurement for pharmaceutical, healthcare and other liquid applications.",
+    highlights: ["10ml capacity","Moulded 2.5ml, 5ml and 10ml graduations","Clear plastic","For measuring and dispensing liquids"],
+    specs: { ...baseSpecs, capacityRange: "10ml", industryFit: "Pharmaceutical, healthcare and liquid measurement applications", material: "Plastic" },
+    images: uploadedGallery([
+      { file: "10ML MEASURING CUP.png", label: "Single measuring cup" },
+      { file: "10ML MEASURING CUP 1.png", label: "Two measuring cups, paired view" },
+    ]),
+    colours: [
+      { name: "Natural / Clear", hex: "#E8EEF2" },
     ],
   },
 ];
