@@ -35,7 +35,7 @@ export const Route = createFileRoute("/products/")({
   component: Products,
 });
 
-type Filter = "All" | "closures" | CategorySlug;
+type Filter = "All" | CategorySlug;
 
 const FILTER_ICONS: Record<Filter, typeof LayoutGrid> = {
   All: LayoutGrid,
@@ -45,9 +45,10 @@ const FILTER_ICONS: Record<Filter, typeof LayoutGrid> = {
   "jars-containers": Package,
   "food-service": UtensilsCrossed,
   "pet-preforms": TestTube,
+  accessories: Package,
 };
 
-const FILTERS: Filter[] = ["All", ...CATEGORIES.map((c) => c.slug), "closures"];
+const FILTERS: Filter[] = ["All", ...CATEGORIES.map((c) => c.slug)];
 
 function filterLabel(f: Filter) {
   return f === "All" ? "All Products" : f === "closures" ? "Closures" : CATEGORIES.find((c) => c.slug === f)?.name ?? f;
