@@ -38,8 +38,6 @@ import bottle200mlRoundBlack from "@/assets/bottle-200ml-round-black-20g.png.ass
 import bottle200mlRoundBrown from "@/assets/bottle-200ml-round-brown-20g.png.asset.json";
 import bottle500mlBericap from "@/assets/bottle-500ml-bericap.png.asset.json";
 import bottle500mlRatchet from "@/assets/bottle-500ml-ratchet-28g.png.asset.json";
-import bottle500mlPetClear from "@/assets/bottle-500ml-pet-clear-16g.png.asset.json";
-import bottle500mlPetBlue from "@/assets/bottle-500ml-pet-blue-16g.png.asset.json";
 import jar50gmSpice from "@/assets/jar-50gm-spice-white.png.asset.json";
 import jar100gmSpice from "@/assets/jar-100gm-spice-red-lid.png.asset.json";
 import jar250gmGreen from "@/assets/jar-250gm-screw-green-lid.png.asset.json";
@@ -47,16 +45,12 @@ import jar500gmScrewWhite from "@/assets/jar-500gm-screw-white.png.asset.json";
 import jar500ccWhite45g from "@/assets/jar-500cc-white-45g.png.asset.json";
 import jar600cc from "@/assets/jar-600cc-white.png.asset.json";
 import jar800Green from "@/assets/jar-800-screw-green-lid.png.asset.json";
-import jar1000cc from "@/assets/jar-1000cc-white.png.asset.json";
 import jar1150ccYellow from "@/assets/jar-1150cc-yellow-lid.png.asset.json";
 import jar1kgRed from "@/assets/jar-1kg-screw-red-lid.png.asset.json";
 import jarBlackBlackLid from "@/assets/jar-black-screw-black-lid.png.asset.json";
 import jarBlackRedLid from "@/assets/jar-black-screw-red-lid.png.asset.json";
 
 import takeawayContainer from "@/assets/product-white-round-takeaway-container.png.asset.json";
-
-import petPreform1 from "@/assets/pet-preform-clear-1.png.asset.json";
-import petPreform2 from "@/assets/pet-preform-clear-2.png.asset.json";
 
 export type CategorySlug =
   | "bottles"
@@ -560,29 +554,6 @@ export const PRODUCTS: Product[] = [
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },
   {
-    slug: "500ml-pet-bottle-16g",
-    title: "500ml PET Bottle",
-    category: "bottles",
-    desc: "A lightweight, durable 16g PET water bottle designed for bottled water applications. Its ergonomic shape provides comfortable handling, efficient storage and an attractive platform for branding and labelling.",
-    highlights: [
-      "16g PET",
-      "Lightweight design",
-      "Clear and attractive appearance",
-      "Durable construction",
-      "Designed for efficient filling, handling and distribution",
-    ],
-    specs: { ...baseSpecs, material: "PET", capacityRange: "500ml", weight: "16g" },
-    images: {
-      main: bottle500mlPetClear.url,
-      alternates: [bottle500mlPetBlue.url],
-      details: [],
-    },
-    colours: [
-      { name: "Clear", hex: "#E8EEF2" },
-      { name: "Blue", hex: "#249BD7" },
-    ],
-  },
-  {
     slug: "50gm-spice-jar",
     title: "50gm Spice Jar",
     category: "jars-containers",
@@ -674,7 +645,9 @@ export const PRODUCTS: Product[] = [
     desc: "A durable 1000cc plastic jar for food and pharmaceutical products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
     highlights: ["1000cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "1000cc", neckClosure: "Screw lid" },
-    images: single(jar1000cc.url),
+    images: uploadedGallery([
+      { file: "jar-1000cc-white.png", label: "White jar, clean view" },
+    ]),
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },
   {
@@ -757,11 +730,10 @@ export const PRODUCTS: Product[] = [
       weight: "16g | 19g | 21g",
       industryFit: "Bottled water, beverages and other PET packaging applications",
     },
-    images: {
-      main: petPreform1.url,
-      alternates: [petPreform2.url],
-      details: [],
-    },
+    images: uploadedGallery([
+      { file: "pet-preform-clear-1.png", label: "Clear preform, main view" },
+      { file: "pet-preform-clear-2.png", label: "Clear preform, alternative view" },
+    ]),
     colours: [
       { name: "Clear", hex: "#E8EEF2" },
       { name: "Blue", hex: "#249BD7" },
