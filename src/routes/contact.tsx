@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
@@ -142,6 +142,11 @@ function Contact() {
                   <textarea id="c-message" rows={5} className={field} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
                   {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
                 </div>
+                <p className="sm:col-span-2 text-sm text-muted-foreground">
+                  Please share only information relevant to your enquiry. Read our{" "}
+                  <Link to="/privacy-policy" className="font-semibold text-accent underline underline-offset-2">Privacy Policy</Link>
+                  {" "}for details about how personal information is handled.
+                </p>
                 <div className="sm:col-span-2 flex flex-col sm:flex-row flex-wrap gap-3">
                   <button
                     type="submit"
