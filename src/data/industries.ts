@@ -67,7 +67,6 @@ export const PRODUCT_INDUSTRY_ASSIGNMENTS: Record<string, IndustryAssignment> = 
   "200ml-round-bottle-bericap": unconfirmed("Listed in Sheet1 but no use supplied in Sheet2."),
   "500ml-bottle-bericap": workbook(["industrial", "agrochemical"], [22, 24]),
   "500ml-bottle-ratchet-cap": workbook(["industrial", "agrochemical"], [20, 30]),
-  "500ml-pet-bottle-16g": existing(["food"], "Retain established bottled-water use. No PET bottle entry in Sheet2."),
   "50gm-spice-jar": existing(["food"], "Retain established spice use. This is different from the 50g PJ jar."),
   "100gm-spice-jar": workbook(["food"], [46]),
   "250gm-screw-jar": workbook(["food", "pharma"], [38]),
