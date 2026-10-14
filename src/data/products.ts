@@ -130,9 +130,9 @@ export const CATEGORIES: ProductCategory[] = [
     slug: "food-service",
     name: "Food Service",
     title: "Food Service",
-    intro: "Food-grade containers for restaurants, caterers and food processors.",
+    intro: "Containers and plastic cutlery for restaurants, caterers and food manufacturers.",
     metaDescription:
-      "Food service packaging from Dentex Industries Ltd, food-grade containers made in Nairobi, Kenya.",
+      "Explore food service containers, plastic spoons, forks and knives from Dentex Industries Ltd in Nairobi, Kenya.",
   },
   {
     slug: "pet-preforms",
@@ -998,6 +998,77 @@ export const PRODUCTS: Product[] = [
     colours: [
       { name: "Natural / Clear", hex: "#E8EEF2" },
     ],
+  },
+  {
+    slug: "plastic-spoons",
+    title: "Plastic Spoons",
+    category: "food-service",
+    desc: "Durable plastic spoons for food service, packaging and commercial applications. Their smooth finish makes them suitable for ice cream, desserts, yoghurt, sample tasting and catering, with custom colours available to suit your brand.",
+    highlights: [
+      "Smooth finish for comfortable use",
+      "Suitable for ice cream, desserts, yoghurt and sample tasting",
+      "White and papaya red options shown",
+      "Custom colour matching available",
+    ],
+    specs: {
+      ...baseSpecs,
+      material: "Plastic",
+      neckClosure: "Not applicable",
+      industryFit: "Food service, food packaging and catering",
+    },
+    images: uploadedGallery([
+      { file: "DENTEX SPOONS(WHITE).png", label: "White spoons, fan arrangement" },
+      { file: "DENTEX SPOON(PAPAYA RED).png", label: "Papaya red spoon" },
+      { file: "DENTEX CUTLERY.png", label: "White spoon on the right of the cutlery group" },
+    ]),
+    colours: [
+      { name: "White", hex: "#FFFFFF" },
+      { name: "Papaya red", hex: "#D91E18" },
+    ],
+  },
+  {
+    slug: "plastic-forks",
+    title: "Plastic Forks",
+    category: "food-service",
+    desc: "Lightweight, practical plastic forks for food service and packaging applications. Their ergonomic design and sturdy construction suit food manufacturers, catering, hospitality and takeaway service, with colours available to customer requirements.",
+    highlights: [
+      "Lightweight, sturdy construction",
+      "Ergonomic handle for comfortable use",
+      "Suitable for catering, hospitality and takeaway service",
+      "Custom colours available",
+    ],
+    specs: {
+      ...baseSpecs,
+      material: "Plastic",
+      neckClosure: "Not applicable",
+      industryFit: "Food manufacturing, food service, catering, hospitality and takeaway",
+    },
+    images: uploadedGallery([
+      { file: "DENTEX CUTLERY.png", label: "White fork on the left of the cutlery group" },
+    ]),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
+  },
+  {
+    slug: "plastic-knives",
+    title: "Plastic Knives",
+    category: "food-service",
+    desc: "Lightweight, practical plastic knives for food service, catering, takeaway and hospitality applications. A serrated edge supports cutting while the ergonomic handle provides comfortable handling. Colours can be customised to customer requirements.",
+    highlights: [
+      "Serrated cutting edge",
+      "Lightweight, durable construction",
+      "Ergonomic handle for comfortable use",
+      "Custom colours available",
+    ],
+    specs: {
+      ...baseSpecs,
+      material: "Plastic",
+      neckClosure: "Not applicable",
+      industryFit: "Food service, catering, takeaway and hospitality",
+    },
+    images: uploadedGallery([
+      { file: "DENTEX CUTLERY.png", label: "White knife in the centre of the cutlery group" },
+    ]),
+    colours: [{ name: "White", hex: "#FFFFFF" }],
   },
 ];
 
