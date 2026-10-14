@@ -109,7 +109,7 @@ function Products() {
       </section>
 
       {/* Filters + grid */}
-      <section className="py-10 sm:py-14">
+      <section className={`industry-section py-10 sm:py-14 ${industry === "all" ? "" : `tint-${industry}`}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Industry</p>
           <div className="mb-5 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]" aria-label="Industry filters">
