@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { INDUSTRY_OPTIONS, isIndustryKey, productIndustries } from "@/data/industries";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Container, LayoutGrid, Milk, Package, TestTube, UtensilsCrossed } from "lucide-react";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { ProductCard } from "@/components/site/ProductCard";
@@ -144,13 +144,12 @@ function Products() {
             </div>
           </div>
 
-          <motion.div layout className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <AnimatePresence mode="popLayout">
-              {list.map((p) => (
-                <ProductCard key={p.slug} product={p} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          {/* Filter changes must remove non-matching cards immediately. */}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-label="Filtered products">
+            {list.map((p) => (
+              <ProductCard key={p.slug} product={p} animated={false} />
+            ))}
+          </div>
 
           {list.length === 0 && (
             <p className="mt-10 text-center text-muted-foreground">

@@ -5,16 +5,16 @@ import { ArrowRight, Eye } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { categoryName, type Product } from "@/data/products";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product, animated = true }: { product: Product; animated?: boolean }) {
   const [quickView, setQuickView] = useState(false);
 
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
+      layout={animated}
+      initial={animated ? { opacity: 0, y: 20 } : false}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3 }}
+      exit={animated ? { opacity: 0, scale: 0.95 } : undefined}
+      transition={{ duration: animated ? 0.3 : 0 }}
       className="group flex flex-col bg-card border border-border/60 rounded-2xl overflow-hidden hover:shadow-xl hover:border-accent/40 transition-all"
     >
       <Link
