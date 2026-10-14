@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import {
@@ -10,7 +11,7 @@ import {
 } from "@/components/site/DentexIcons";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { InspectionHero } from "@/components/site/InspectionHero";
-import { IndustrySelector } from "@/components/site/IndustrySelector";
+import { IndustrySelector, type IndustrySelectorKey } from "@/components/site/IndustrySelector";
 import { Button } from "@/components/ui/button";
 import employee from "@/assets/industries-employee.webp.asset.json";
 import { ProductGrid } from "@/components/site/ProductCard";
@@ -43,6 +44,7 @@ const INDUSTRIES: { icon: typeof IconPharma; label: string; blurb: string; categ
 ];
 
 function Industries() {
+  const [active, setActive] = useState<IndustrySelectorKey>("pharma");
   return (
     <Layout>
       <InspectionHero image={employee.url} alt="Dentex technician inspecting a plastic container on the manufacturing line"
@@ -56,10 +58,10 @@ function Industries() {
         <Button asChild variant="link" className="mt-6 h-auto p-0 text-primary-foreground whitespace-normal text-left"><a href="#industries-served">Explore the industries we serve ↓</a></Button>
       </InspectionHero>
 
-      <IndustrySelector />
+      <IndustrySelector active={active} onChange={setActive} />
 
       {/* Related products */}
-      <section className="bg-tech-grey py-12 sm:py-20">
+      <section className={`industry-section tint-${active} py-12 sm:py-20`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">

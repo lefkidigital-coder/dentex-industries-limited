@@ -76,10 +76,13 @@ const INDUSTRIES = [
   },
 ] as const;
 
-type Key = (typeof INDUSTRIES)[number]["key"];
+export type IndustrySelectorKey = (typeof INDUSTRIES)[number]["key"];
+type Key = IndustrySelectorKey;
 
-export function IndustrySelector() {
-  const [active, setActive] = useState<Key>("pharma");
+export function IndustrySelector({ active: activeProp, onChange }: { active?: Key; onChange?: (key: Key) => void } = {}) {
+  const [localActive, setLocalActive] = useState<Key>("pharma");
+  const active = activeProp ?? localActive;
+  const setActive = (key: Key) => { setLocalActive(key); onChange?.(key); };
   const current = INDUSTRIES.find((i) => i.key === active) ?? INDUSTRIES[0];
   const images = { pharma, food, cosmetics, automotive, agrochemical, industrial };
   const decorations = { pharma: Plus, food: UtensilsCrossed, cosmetics: Sparkles, automotive: Cog, agrochemical: Leaf, industrial: Factory };
