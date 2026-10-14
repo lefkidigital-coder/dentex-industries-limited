@@ -17,13 +17,7 @@ export function LegalLayout({
       <PageHero eyebrow="Legal" title={title} subtitle={subtitle} />
       <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-accent/30 bg-accent/5 p-5 text-sm text-foreground">
-            <p>
-              <span className="font-semibold text-accent">Draft content.</span> This wording is draft website content
-              pending Dentex Industries Limited review and approval.
-            </p>
-          </div>
-          <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">Last updated: {updated}</p>
+          <p className="text-xs uppercase tracking-wider text-muted-foreground">Last updated: {updated}</p>
           <div className="mt-8 space-y-8">{children}</div>
         </div>
       </section>

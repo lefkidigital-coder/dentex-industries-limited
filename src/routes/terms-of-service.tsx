@@ -1,70 +1,94 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { LegalLayout, LegalSection } from "@/components/site/LegalLayout";
 import { COMPANY } from "@/data/company";
+
+const sections = [
+  {
+    "heading": "About this website",
+    "paragraphs": [
+      "This website is operated by Dentex Industries Limited, Nairobi, Kenya. These terms apply to browsing the website and using its product information and enquiry features. Please read them alongside our Privacy Policy.",
+      "By using the website, you agree to these terms. If you do not agree, please discontinue use."
+    ]
+  },
+  {
+    "heading": "Permitted use",
+    "paragraphs": [
+      "You may use the website to learn about Dentex and make genuine product or business enquiries. Provide accurate information and ensure you have authority to share any information supplied on behalf of a company or another person.",
+      "Do not use the website unlawfully, send spam or harmful material, attempt unauthorised access, or interfere with the website or its security."
+    ]
+  },
+  {
+    "heading": "Product information and images",
+    "paragraphs": [
+      "Our catalogue provides general guidance on product ranges, colours, capacities, weights, closures and applications. Images illustrate products; colours may appear differently on different screens. Not every option is available for every product.",
+      "Confirm the exact specification, material, closure compatibility, availability and suitability for your intended contents and use with Dentex before ordering. Where information is marked \"Available on request\", ask our team for confirmation. An industry label is a guide to an application, not a certification or a guarantee of suitability for every use."
+    ]
+  },
+  {
+    "heading": "Enquiries, quotations and orders",
+    "paragraphs": [
+      "This website is a product catalogue and enquiry service. It does not take online payments or complete purchases. Sending an enquiry, requesting a sample or asking for a quote does not place an order or create a supply contract.",
+      "Prices, taxes, minimum order quantities, customisation, payment arrangements, delivery dates and any product warranties or returns arrangements must be confirmed in the applicable written quotation or separate agreement. Website information does not replace those agreed commercial terms.",
+      "A response time shown on the website is an estimate, not a guaranteed service or delivery commitment."
+    ]
+  },
+  {
+    "heading": "Website content and ownership",
+    "paragraphs": [
+      "The Dentex name, logo and website materials are owned by Dentex Industries Limited or used with the relevant owner's permission. You may view and share links to the website for legitimate purposes. Reproduction, alteration or commercial reuse of protected materials requires the relevant owner's permission, except where permitted by law."
+    ]
+  },
+  {
+    "heading": "External services and privacy",
+    "paragraphs": [
+      "The website uses or links to external services, including Google Maps, Google Fonts and WhatsApp. Those providers control their own services and their terms and privacy policies apply. We do not control their availability or content.",
+      "Our Privacy Policy explains how personal information associated with website use and business enquiries is handled."
+    ]
+  },
+  {
+    "heading": "Availability and responsibility",
+    "paragraphs": [
+      "We aim to keep the website useful and accurate, but access may be interrupted and content may contain errors or become outdated. Please obtain written confirmation of information that is important to a purchasing decision.",
+      "To the extent permitted by law, we are not responsible for losses caused solely by reliance on general website content or an interruption to website access. Nothing in these terms excludes liability or limits a right that cannot lawfully be excluded or limited."
+    ]
+  },
+  {
+    "heading": "Applicable law and updates",
+    "paragraphs": [
+      "These website terms are governed by the laws of Kenya, subject to any mandatory rights that apply. Please contact us first if you have a concern so we can try to resolve it. This does not prevent you from seeking any remedy available under applicable law.",
+      "We may update these terms by publishing a revised version with a new date. An update does not change the terms of an existing written order or agreement."
+    ]
+  }
+];
 
 export const Route = createFileRoute("/terms-of-service")({
   head: () => ({
     meta: [
       { title: "Terms of Service | Dentex Industries Ltd" },
-      { name: "description", content: "Terms governing use of the Dentex Industries Limited website. Draft content pending review." },
+      { name: "description", content: "Terms for using the Dentex Industries Limited website, product catalogue and enquiry services." },
       { property: "og:title", content: "Terms of Service | Dentex Industries Ltd" },
-      { property: "og:description", content: "Terms governing use of the Dentex Industries Limited website." },
+      { property: "og:description", content: "Terms for using the Dentex Industries Limited website, product catalogue and enquiry services." },
     ],
   }),
-  component: Terms,
+  component: LegalPage,
 });
 
-function Terms() {
+function LegalPage() {
   return (
-    <LegalLayout
-      title="Terms of Service"
-      subtitle="The terms that govern your use of this website."
-      updated="Pending review"
-    >
-      <LegalSection heading="About these terms">
+    <LegalLayout title="Terms of Service" subtitle="The terms that apply when you use our website." updated="14 October 2026">
+      {sections.map(({ heading, paragraphs }) => (
+        <LegalSection key={heading} heading={heading}>
+          {paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </LegalSection>
+      ))}
+      <LegalSection heading="Contact us">
         <p>
-          These terms apply to your use of the {COMPANY.name} website. By using the website you agree to them. If you do
-          not agree, please do not use the website.
+          {COMPANY.name}<br />{COMPANY.address}<br />
+          <a className="text-accent font-semibold" href={COMPANY.emailHref}>{COMPANY.email}</a><br />
+          <a className="text-accent font-semibold" href={COMPANY.phonePrimaryHref}>{COMPANY.phonePrimary}</a>
+          {" · "}<a className="text-accent font-semibold" href={COMPANY.phoneSecondaryHref}>{COMPANY.phoneSecondary}</a>
         </p>
-      </LegalSection>
-      <LegalSection heading="Use of the website">
-        <p>
-          You may browse this website and submit enquiries for legitimate business purposes. You agree not to misuse the
-          website or attempt to interfere with its normal operation.
-        </p>
-      </LegalSection>
-      <LegalSection heading="Product information">
-        <p>
-          Product descriptions and specifications shown on this website are provided for general guidance. Where a
-          specification is marked "Available on request", it will be confirmed in writing as part of a quotation.
-        </p>
-      </LegalSection>
-      <LegalSection heading="Quotations and orders">
-        <p>
-          Submitting an enquiry or quote request through this website does not create an order or a contract. Orders are
-          subject to a separate written quotation and confirmation from {COMPANY.name}.
-        </p>
-      </LegalSection>
-      <LegalSection heading="Intellectual property">
-        <p>
-          The {COMPANY.name} name, logo, and the content of this website belong to {COMPANY.name} unless otherwise
-          stated, and may not be reproduced without permission.
-        </p>
-      </LegalSection>
-      <LegalSection heading="Third-party links">
-        <p>
-          This website links to third-party services, including WhatsApp and an embedded map. We are not responsible for
-          the content or availability of those services.
-        </p>
-      </LegalSection>
-      <LegalSection heading="Changes">
-        <p>These terms may be updated. The current version is the one published on this page.</p>
-      </LegalSection>
-      <LegalSection heading="Contact">
-        <p>
-          Questions about these terms can be sent to{" "}
-          <a className="text-accent font-semibold" href={COMPANY.emailHref}>{COMPANY.email}</a>.
-        </p>
+        <p>Read our <Link className="text-accent font-semibold" to="/privacy-policy">Privacy Policy</Link>.</p>
       </LegalSection>
     </LegalLayout>
   );
