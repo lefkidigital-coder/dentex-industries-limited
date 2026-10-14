@@ -9,6 +9,7 @@ import automotive from "@/assets/industry-automotive.webp.asset.json";
 import agrochemical from "@/assets/industry-agrochemical.webp.asset.json";
 import industrial from "@/assets/industry-industrial.webp.asset.json";
 import { motion, AnimatePresence } from "framer-motion";
+import { industryLabel } from "@/data/industries";
 import {
   IconPharma,
   IconFoodBeverage,
@@ -21,7 +22,7 @@ import {
 const INDUSTRIES = [
   {
     key: "pharma",
-    label: "Pharma",
+    label: industryLabel("pharma"),
     tint: "tint-pharma",
     icon: IconPharma,
     example: "Medicine bottles, tablet containers and closures",
@@ -57,11 +58,11 @@ const INDUSTRIES = [
   },
   {
     key: "agrochemical",
-    label: "Agrochemical",
+    label: industryLabel("agrochemical"),
     tint: "tint-agrochemical",
     icon: IconAgrochemical,
-    example: "Agrochemical containers and closures",
-    application: "Containers and closures for agrochemical and crop-protection products.",
+    example: "Agrovet bottles, jerrycans and closures",
+    application: "Containers and closures for agricultural and veterinary products.",
     mood: "Durable, secure, field-ready.",
   },
   {

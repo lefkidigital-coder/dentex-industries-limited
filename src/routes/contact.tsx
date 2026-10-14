@@ -6,6 +6,7 @@ import { Layout, PageHero, Reveal } from "@/components/site/Layout";
 import { WhatsAppButton } from "@/components/site/WhatsApp";
 import { COMPANY } from "@/data/company";
 import { CATEGORIES, PRODUCTS } from "@/data/products";
+import { INDUSTRY_OPTIONS } from "@/data/industries";
 
 type ContactSearch = { product?: string };
 
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const industries = ["Pharmaceutical", "Food & Beverage", "Cosmetics", "Industrial / Chemicals", "Other"];
+const industries = [...INDUSTRY_OPTIONS.map((industry) => industry.label), "Other"];
 
 function Contact() {
   const { product: productParam } = Route.useSearch();

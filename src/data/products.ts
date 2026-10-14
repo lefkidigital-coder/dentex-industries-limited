@@ -63,6 +63,7 @@ export type CategorySlug =
   | "jerrycans"
   | "jars-containers"
   | "food-service"
+  | "cutlery"
   | "pet-preforms"
   | "closures"
   | "accessories";
@@ -127,12 +128,11 @@ export const CATEGORIES: ProductCategory[] = [
       "Plastic jars and rigid containers from Dentex Industries Ltd, manufactured in Nairobi, Kenya.",
   },
   {
-    slug: "food-service",
-    name: "Food Service",
-    title: "Food Service",
-    intro: "Containers and plastic cutlery for restaurants, caterers and food manufacturers.",
-    metaDescription:
-      "Explore food service containers, plastic spoons, forks and knives from Dentex Industries Ltd in Nairobi, Kenya.",
+    slug: "closures",
+    name: "Caps & Closures",
+    title: "Caps & Closures",
+    intro: "Bericap, ratchet, ROPP, PJ and jar caps in the photographed sizes and colours.",
+    metaDescription: "Explore Bericap, ratchet, ROPP, PJ and jar caps from Dentex Industries Ltd.",
   },
   {
     slug: "pet-preforms",
@@ -143,15 +143,23 @@ export const CATEGORIES: ProductCategory[] = [
       "PET preforms from Dentex Industries Ltd, manufactured in Nairobi, Kenya.",
   },
   {
-    slug: "closures",
-    name: "Closures",
-    title: "Caps & Closures",
-    intro: "Bericap, ratchet, ROPP, PJ and jar caps in the photographed sizes and colours.",
-    metaDescription: "Explore Bericap, ratchet, ROPP, PJ and jar caps from Dentex Industries Ltd.",
+    // Preserve existing takeaway URLs. Cutlery now has its own category.
+    slug: "food-service",
+    name: "Takeaway Containers & Lids",
+    title: "Takeaway Containers & Lids",
+    intro: "Takeaway containers and matching lids for restaurants, caterers and food manufacturers.",
+    metaDescription: "Explore Dentex takeaway containers and lids manufactured in Nairobi, Kenya.",
+  },
+  {
+    slug: "cutlery",
+    name: "Cutlery",
+    title: "Cutlery",
+    intro: "Plastic spoons, forks and knives for catering, hospitality and takeaway service.",
+    metaDescription: "Explore Dentex plastic spoons, forks and knives for food service in Nairobi, Kenya.",
   },
   {
     slug: "accessories",
-    name: "Accessories",
+    name: "Packaging Accessories",
     title: "Packaging Accessories",
     intro: "Natural plugs and measuring cups to complete your packaging specification.",
     metaDescription: "Explore natural LLDPE plugs and measuring cups from Dentex Industries Ltd.",
@@ -191,7 +199,7 @@ export const PRODUCTS: Product[] = [
     slug: "1l-jerrycan-ratchet-cap",
     title: "1L Jerrycan with Ratchet Cap",
     category: "jerrycans",
-    desc: "A durable, versatile 1 litre HDPE jerrycan for a wide range of liquid products. Its compact, easy-to-handle design suits food, pharmaceutical, household, chemical and industrial applications.",
+    desc: "A durable, versatile 1 litre HDPE jerrycan for industrial, agrovet and cosmetic liquid products. Its compact, easy-to-handle design supports practical filling, storage and transportation.",
     highlights: [
       "1 litre capacity",
       "Durable HDPE construction",
@@ -221,7 +229,7 @@ export const PRODUCTS: Product[] = [
     slug: "1l-jerrycan-clear-bericap",
     title: "1L Clear Jerrycan with Bericap",
     category: "jerrycans",
-    desc: "A durable, versatile 1 litre HDPE jerrycan for a wide range of liquid products, fitted with a Bericap closure for secure, reliable product protection. Suited to food, pharmaceutical, household, chemical and industrial applications.",
+    desc: "A durable, versatile 1 litre HDPE jerrycan for industrial, agrovet and cosmetic liquid products, fitted with a Bericap closure for secure, reliable product protection.",
     highlights: [
       "1 litre capacity",
       "Durable HDPE construction",
@@ -348,7 +356,7 @@ export const PRODUCTS: Product[] = [
     slug: "5l-jerrycan-old-handle-ratchet-cap",
     title: "5L Jerrycan, Old Handle, with Ratchet Cap",
     category: "jerrycans",
-    desc: "A robust, versatile 5 litre HDPE jerrycan with the original handle design and a ratchet cap closure, suited to food, pharmaceutical, agricultural, chemical, household and industrial applications.",
+    desc: "A practical 5 litre HDPE jerrycan for food and beverage packaging, with the original handle design and a ratchet cap closure. This listing shows the natural/clear 155g model.",
     highlights: [
       "5 litre capacity",
       "Robust, lightweight HDPE construction",
@@ -402,7 +410,7 @@ export const PRODUCTS: Product[] = [
     slug: "30ml-bottle-clear-bericap-9g",
     title: "30ml Bottle Clear Bericap 9G",
     category: "bottles",
-    desc: "A compact, versatile 30 ml clear HDPE bottle for pharmaceutical, cosmetic, personal care and laboratory applications. The clear finish gives product visibility while the durable HDPE construction offers reliable protection and easy handling.",
+    desc: "A compact 30 ml clear HDPE bottle for pharmaceutical packaging. The clear finish gives product visibility while the durable HDPE construction supports easy handling and labelling.",
     highlights: [
       "30 ml capacity",
       "Clear finish",
@@ -428,7 +436,7 @@ export const PRODUCTS: Product[] = [
     slug: "100ml-old-type-bericap-16g",
     title: "100ml Old Type Bericap 16G",
     category: "bottles",
-    desc: "A compact, durable 100 ml HDPE bottle ideal for pharmaceutical, personal care, chemical and household products. Its practical design offers reliable handling, filling and dispensing plus an excellent surface for labelling and branding.",
+    desc: "A compact, durable 100 ml HDPE bottle for pharmaceutical packaging. Its practical design supports handling, filling and dispensing, with space for labelling and branding.",
     highlights: [
       "100 ml capacity",
       "Durable HDPE construction",
@@ -451,7 +459,7 @@ export const PRODUCTS: Product[] = [
     slug: "100ml-new-type-bottle-bericap-16g",
     title: "100ml New Type Bottle with Bericap",
     category: "bottles",
-    desc: "A compact, durable 100 ml HDPE bottle for pharmaceutical, personal care, chemical and household products, shown with its white Bericap closure and as an uncapped view.",
+    desc: "A compact, durable 100 ml HDPE bottle for pharmaceutical packaging, shown with its white Bericap closure and as an uncapped view.",
     highlights: [
       "100 ml capacity",
       "Durable HDPE construction",
@@ -481,7 +489,7 @@ export const PRODUCTS: Product[] = [
     slug: "120ml-long-neck-bottle",
     title: "120ml Longneck Bottle",
     category: "bottles",
-    desc: "The Dentex 120 ml long neck bottle combines a distinctive, elegant profile with practical functionality, making it ideal for pharmaceutical, food, beverage, personal care and specialty products.",
+    desc: "The Dentex 120 ml long neck bottle combines a distinctive profile with practical functionality for agrovet packaging, including agricultural and veterinary products.",
     highlights: [
       "120 ml capacity",
       "Long-neck design for controlled pouring",
@@ -523,7 +531,7 @@ export const PRODUCTS: Product[] = [
     slug: "500ml-bottle-bericap",
     title: "Dentex 500ml Bottle with Bericap",
     category: "bottles",
-    desc: "A durable, versatile 500 ml bottle for pharmaceutical, food, personal care, household and specialty products, designed for a Bericap closure. Its clean, practical design gives excellent space for labelling and branding.",
+    desc: "A durable 500 ml bottle for industrial and agrovet packaging, designed for a Bericap closure. Its clean, practical design provides space for labelling and branding.",
     highlights: [
       "500 ml capacity",
       "Multiple bottle colours",
@@ -539,7 +547,7 @@ export const PRODUCTS: Product[] = [
     slug: "500ml-bottle-ratchet-cap",
     title: "500ml Bottle with Ratchet Cap",
     category: "bottles",
-    desc: "A durable, versatile 500 ml bottle for pharmaceutical, food, personal care, household and specialty products, designed for a ratchet cap closure. Its clean, practical design gives excellent space for labelling and branding.",
+    desc: "A durable 500 ml bottle for industrial and agrovet packaging, designed for a ratchet cap closure. Its clean, practical design provides space for labelling and branding.",
     highlights: [
       "500 ml capacity",
       "Multiple bottle colours",
@@ -601,7 +609,7 @@ export const PRODUCTS: Product[] = [
     slug: "250gm-screw-jar",
     title: "250gm Screw Jar",
     category: "jars-containers",
-    desc: "250gm jar with a green screw lid for powders, creams and packed dry goods.",
+    desc: "250gm jar with a green screw lid for food and pharmaceutical powders and packed dry goods.",
     highlights: [],
     specs: { ...baseSpecs, capacityRange: "250gm", neckClosure: "Screw lid" },
     images: single(jar250gmGreen.url),
@@ -630,7 +638,7 @@ export const PRODUCTS: Product[] = [
     slug: "500cc-jar-white-45g",
     title: "500CC Jar White 45G",
     category: "jars-containers",
-    desc: "A durable 500cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is supplied in white with a screw lid.",
+    desc: "A durable 500cc plastic jar for food and pharmaceutical products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is supplied in white with a screw lid.",
     highlights: ["500cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "500cc", weight: "45g", neckClosure: "Screw lid" },
     images: single(jar500ccWhite45g.url),
@@ -640,7 +648,7 @@ export const PRODUCTS: Product[] = [
     slug: "600cc-jar",
     title: "600cc Jar",
     category: "jars-containers",
-    desc: "A durable 600cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
+    desc: "A durable 600cc plastic jar for food and pharmaceutical products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
     highlights: ["600cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "600cc", neckClosure: "Screw lid" },
     images: single(jar600cc.url),
@@ -663,7 +671,7 @@ export const PRODUCTS: Product[] = [
     slug: "1000cc-jar",
     title: "1000cc Jar",
     category: "jars-containers",
-    desc: "A durable 1000cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
+    desc: "A durable 1000cc plastic jar for food and pharmaceutical products. Its cylindrical design supports convenient filling and provides space for labelling and branding, with a ribbed screw lid.",
     highlights: ["1000cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "1000cc", neckClosure: "Screw lid" },
     images: single(jar1000cc.url),
@@ -673,7 +681,7 @@ export const PRODUCTS: Product[] = [
     slug: "1150cc-jar",
     title: "1150cc Jar",
     category: "jars-containers",
-    desc: "A durable 1150cc plastic jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is shown with a yellow screw lid.",
+    desc: "A durable 1150cc plastic jar for food and pharmaceutical products. Its cylindrical design supports convenient filling and provides space for labelling and branding. This model is shown with a yellow screw lid.",
     highlights: ["1150cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "1150cc", neckClosure: "Screw lid" },
     images: single(jar1150ccYellow.url),
@@ -781,7 +789,7 @@ export const PRODUCTS: Product[] = [
     slug: "100cc-hdpe-jar-white-cap",
     title: "100cc HDPE Jar with White Cap",
     category: "jars-containers",
-    desc: "A durable 100cc HDPE jar for pharmaceutical, food, personal care, chemical and household products. Its cylindrical design supports convenient filling and provides space for labelling and branding. Supplied with a white cap.",
+    desc: "A durable 100cc HDPE jar for food and pharmaceutical products. Its cylindrical design supports convenient filling and provides space for labelling and branding. Supplied with a white cap.",
     highlights: ["100cc capacity","HDPE jar body","White cap","Space for labelling and branding"],
     specs: { ...baseSpecs, material: "HDPE (jar body)", capacityRange: "100cc", neckClosure: "White cap", industryFit: "Pharmaceutical, food, personal care, chemical and household applications" },
     images: uploadedGallery([
@@ -988,7 +996,7 @@ export const PRODUCTS: Product[] = [
     slug: "10ml-measuring-cup",
     title: "10ml Measuring Cup",
     category: "accessories",
-    desc: "A clear 10ml measuring cup for measuring and dispensing liquid products. Its moulded 2.5ml, 5ml and 10ml graduations support dose measurement for pharmaceutical, healthcare and other liquid applications.",
+    desc: "A clear 10ml measuring cup for measuring and dispensing liquids in food and beverage applications. Its moulded 2.5ml, 5ml and 10ml graduations support liquid measurement.",
     highlights: ["10ml capacity","Moulded 2.5ml, 5ml and 10ml graduations","Clear plastic","For measuring and dispensing liquids"],
     specs: { ...baseSpecs, capacityRange: "10ml", industryFit: "Pharmaceutical, healthcare and liquid measurement applications", material: "Plastic" },
     images: uploadedGallery([
@@ -1002,7 +1010,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "plastic-spoons",
     title: "Plastic Spoons",
-    category: "food-service",
+    category: "cutlery",
     desc: "Durable plastic spoons for food service, packaging and commercial applications. Their smooth finish makes them suitable for ice cream, desserts, yoghurt, sample tasting and catering, with custom colours available to suit your brand.",
     highlights: [
       "Smooth finish for comfortable use",
@@ -1029,7 +1037,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "plastic-forks",
     title: "Plastic Forks",
-    category: "food-service",
+    category: "cutlery",
     desc: "Lightweight, practical plastic forks for food service and packaging applications. Their ergonomic design and sturdy construction suit food manufacturers, catering, hospitality and takeaway service, with colours available to customer requirements.",
     highlights: [
       "Lightweight, sturdy construction",
@@ -1051,7 +1059,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "plastic-knives",
     title: "Plastic Knives",
-    category: "food-service",
+    category: "cutlery",
     desc: "Lightweight, practical plastic knives for food service, catering, takeaway and hospitality applications. A serrated edge supports cutting while the ergonomic handle provides comfortable handling. Colours can be customised to customer requirements.",
     highlights: [
       "Serrated cutting edge",
@@ -1076,7 +1084,9 @@ export const getCategory = (slug: string) => CATEGORIES.find((c) => c.slug === s
 export const productsByCategory = (slug: CategorySlug) =>
   PRODUCTS.filter((p) => p.category === slug);
 export const getProduct = (category: string, slug: string) =>
-  PRODUCTS.find((p) => p.category === category && p.slug === slug);
+  PRODUCTS.find((p) => p.slug === slug && (p.category === category ||
+    // Resolve old cutlery links so the product route can redirect them.
+    (category === "food-service" && p.category === "cutlery")));
 export const relatedProducts = (product: Product, limit = 3) =>
   PRODUCTS.filter((p) => p.category === product.category && p.slug !== product.slug).slice(0, limit);
 export const categoryName = (slug: CategorySlug) =>

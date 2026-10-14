@@ -11,8 +11,8 @@ import heroComposition from "@/assets/products-hero-composition.png.asset.json";
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (search: Record<string, unknown>): { industry?: string; category?: string } => ({
-    industry: typeof search.industry === "string" ? search.industry : "all",
-    category: typeof search.category === "string" ? search.category : "All",
+    industry: typeof search.industry === "string" && isIndustryKey(search.industry) ? search.industry : "all",
+    category: typeof search.category === "string" && CATEGORIES.some((category) => category.slug === search.category) ? search.category : "All",
   }),
   head: () => ({
     meta: [
@@ -44,6 +44,7 @@ const FILTER_ICONS: Record<Filter, typeof LayoutGrid> = {
   jerrycans: Container,
   "jars-containers": Package,
   "food-service": UtensilsCrossed,
+  cutlery: UtensilsCrossed,
   "pet-preforms": TestTube,
   accessories: Package,
 };
@@ -51,7 +52,7 @@ const FILTER_ICONS: Record<Filter, typeof LayoutGrid> = {
 const FILTERS: Filter[] = ["All", ...CATEGORIES.map((c) => c.slug)];
 
 function filterLabel(f: Filter) {
-  return f === "All" ? "All Products" : f === "closures" ? "Closures" : CATEGORIES.find((c) => c.slug === f)?.name ?? f;
+  return f === "All" ? "All Products" : CATEGORIES.find((c) => c.slug === f)?.name ?? f;
 }
 
 function Products() {
@@ -119,7 +120,7 @@ function Products() {
           </div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Product category</p>
           <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex min-w-max items-center gap-2 rounded-2xl border border-border/60 bg-card p-2 lg:min-w-0 lg:justify-between">
+            <div className="flex min-w-max items-center gap-2 rounded-2xl border border-border/60 bg-card p-2 lg:min-w-0 lg:flex-wrap">
               {FILTERS.map((f) => {
                 const Icon = FILTER_ICONS[f];
                 const active = filter === f;
@@ -153,7 +154,7 @@ function Products() {
 
           {list.length === 0 && (
             <p className="mt-10 text-center text-muted-foreground">
-              More products in this category are coming soon, contact us for current availability.
+              No products match these filters. Try All Industries or All Products, or contact us to confirm the application.
             </p>
           )}
         </div>

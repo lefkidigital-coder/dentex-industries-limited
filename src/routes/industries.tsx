@@ -16,6 +16,7 @@ import employee from "@/assets/industries-employee.webp.asset.json";
 import { ProductGrid } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { PRODUCTS, type CategorySlug } from "@/data/products";
+import { industryLabel } from "@/data/industries";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
@@ -23,20 +24,20 @@ export const Route = createFileRoute("/industries")({
       { title: "Industries We Serve | Dentex Industries Ltd" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "description", content: "Rigid plastic packaging for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial customers across East Africa." },
+      { name: "description", content: "Rigid plastic packaging for pharmaceutical, food & beverage, cosmetics, automotive, agrovet and industrial customers across East Africa." },
       { property: "og:title", content: "Industries Served | Dentex Industries Ltd" },
-      { property: "og:description", content: "Packaging built for pharma, food & beverage, cosmetics, automotive, agrochemical and industrial applications." },
+      { property: "og:description", content: "Packaging built for pharmaceutical, food & beverage, cosmetics, automotive, agrovet and industrial applications." },
     ],
   }),
   component: Industries,
 });
 
 const INDUSTRIES: { icon: typeof IconPharma; label: string; blurb: string; category: CategorySlug }[] = [
-  { icon: IconPharma, label: "Pharma", blurb: "Rigid containers and closures for pharmaceutical manufacturers and packers.", category: "bottles" },
+  { icon: IconPharma, label: industryLabel("pharma"), blurb: "Rigid containers and closures for pharmaceutical manufacturers and packers.", category: "bottles" },
   { icon: IconFoodBeverage, label: "Food & Beverage", blurb: "Packaging for food processors, beverage bottlers and food service customers.", category: "food-service" },
   { icon: IconCosmetics, label: "Cosmetics", blurb: "Containers and closures for personal care and cosmetic products.", category: "jars-containers" },
   { icon: IconAutomotive, label: "Automotive", blurb: "Packaging for lubricants, additives and automotive care products.", category: "jerrycans" },
-  { icon: IconAgrochemical, label: "Agrochemical", blurb: "Containers and closures for agrochemical and crop-protection products.", category: "jerrycans" },
+  { icon: IconAgrochemical, label: industryLabel("agrochemical"), blurb: "Containers and closures for agricultural and veterinary products.", category: "jerrycans" },
   { icon: IconIndustrial, label: "Industrial & Allied", blurb: "Heavy-duty containers and bespoke mouldings for industrial and allied sectors.", category: "jerrycans" },
 
 ];
