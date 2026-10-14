@@ -59,7 +59,7 @@ function About() {
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>Dentex Industries Limited is a Kenyan manufacturer of rigid plastic packaging, established in 1986 when the company acquired a toothbrush manufacturing plant and began production with three injection moulding machines.</p>
-                <p>Forty years on, Dentex serves pharmaceutical, food & beverage, cosmetics, agrochemical and industrial customers, growing step by step as markets changed.</p>
+                <p>Forty years on, Dentex serves pharmaceutical, food & beverage, cosmetics, agrovet and industrial customers, growing step by step as markets changed.</p>
               </div>
             </div>
           </Reveal>

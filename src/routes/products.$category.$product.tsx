@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -8,12 +8,16 @@ import { ProductGrid } from "@/components/site/ProductCard";
 import { WhatsAppButton } from "@/components/site/WhatsApp";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { getCategory, getProduct, relatedProducts } from "@/data/products";
+import { productIndustryFit } from "@/data/industries";
 
 export const Route = createFileRoute("/products/$category/$product")({
   loader: ({ params }) => {
-    const category = getCategory(params.category);
     const product = getProduct(params.category, params.product);
+    const category = product && getCategory(product.category);
     if (!category || !product) throw notFound();
+    if (params.category !== product.category) {
+      throw redirect({ to: "/products/$category/$product", params: { category: product.category, product: product.slug }, statusCode: 301 });
+    }
     return { category, product };
   },
   head: ({ loaderData }) => {
@@ -128,7 +132,7 @@ function ProductDetail() {
             </div>
           </Reveal>
           <div className="mt-8 max-w-3xl">
-            <SpecTable specs={product.specs} />
+            <SpecTable specs={{ ...product.specs, industryFit: productIndustryFit(product) }} />
           </div>
         </div>
       </section>
