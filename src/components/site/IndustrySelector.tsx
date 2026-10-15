@@ -84,7 +84,7 @@ export function IndustrySelector({ active: activeProp, onChange }: { active?: Ke
   const active = activeProp ?? localActive;
   const setActive = (key: Key) => { setLocalActive(key); onChange?.(key); };
   const current = INDUSTRIES.find((i) => i.key === active) ?? INDUSTRIES[0];
-  const images = { pharma, food, cosmetics, automotive, agrochemical, industrial };
+  const images: Record<Key, { url: string }> = { pharma, food, cosmetics, automotive, agrochemical, industrial } as Record<Key, { url: string }>;
   const decorations = { pharma: Plus, food: UtensilsCrossed, cosmetics: Sparkles, automotive: Cog, agrochemical: Leaf, industrial: Factory };
   const Decoration = decorations[active];
 
