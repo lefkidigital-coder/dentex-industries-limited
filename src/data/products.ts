@@ -7,30 +7,30 @@
  * pages all read from this file, so no layout work is needed.
  */
 
-import jc1lBlackRatchet from "@/assets/jc-1l-black-ratchet.png.asset.json";
-import jc1lGreenRatchet from "@/assets/jc-1l-green-ratchet.png.asset.json";
-import jc1lWhiteRatchet from "@/assets/jc-1l-white-ratchet.png.asset.json";
-import jc1lClearBericap from "@/assets/jc-1l-clear-bericap.png.asset.json";
-import jc1lClearBericapAlt from "@/assets/jc-1l-clear-bericap-alt.png.asset.json";
-import jc2lRatchet from "@/assets/jc-2l-ratchet.png.asset.json";
-import jc35lClear from "@/assets/jc-3-5l-clear.png.asset.json";
-import jc3lBlackBericap from "@/assets/jc-3l-black-bericap.png.asset.json";
-import jc3lNaturalBericap from "@/assets/jc-3l-natural-bericap.png.asset.json";
-import jc5lBlackBericap from "@/assets/jc-5l-black-bericap.png.asset.json";
-import jc5lNewHandleBericap from "@/assets/jc-5l-newhandle-bericap.png.asset.json";
-import jc5lOldHandleRatchet from "@/assets/jc-5l-oldhandle-ratchet.png.asset.json";
-import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-oldhandle-ratchet.png.asset.json";
+import jc1lBlackRatchet from "@/assets/jc-1l-black-ratchet.webp.asset.json";
+import jc1lGreenRatchet from "@/assets/jc-1l-green-ratchet.webp.asset.json";
+import jc1lWhiteRatchet from "@/assets/jc-1l-white-ratchet.webp.asset.json";
+import jc1lClearBericap from "@/assets/jc-1l-clear-bericap.webp.asset.json";
+import jc1lClearBericapAlt from "@/assets/jc-1l-clear-bericap-alt.webp.asset.json";
+import jc2lRatchet from "@/assets/jc-2l-ratchet.webp.asset.json";
+import jc35lClear from "@/assets/jc-3-5l-clear.webp.asset.json";
+import jc3lBlackBericap from "@/assets/jc-3l-black-bericap.webp.asset.json";
+import jc3lNaturalBericap from "@/assets/jc-3l-natural-bericap.webp.asset.json";
+import jc5lBlackBericap from "@/assets/jc-5l-black-bericap.webp.asset.json";
+import jc5lNewHandleBericap from "@/assets/jc-5l-newhandle-bericap.webp.asset.json";
+import jc5lOldHandleRatchet from "@/assets/jc-5l-oldhandle-ratchet.webp.asset.json";
+import jc5lWhiteOldHandleRatchet from "@/assets/jc-5l-white-oldhandle-ratchet.webp.asset.json";
 
-import bottle100mlOldBericap from "@/assets/bottle-100ml-old-type-bericap-16g.png.asset.json";
-import bottle100mlOldWhite from "@/assets/bottle-100ml-old-type-white-16g.png.asset.json";
-import bottle100mlNewCapped from "@/assets/bottle-100ml-new-type-white-bericap.png.asset.json";
-import bottle100mlNewBericap from "@/assets/bottle-100ml-new-type-bericap-16g.png.asset.json";
-import bottle60mlOldBericap from "@/assets/bottle-60ml-old-type-bericap-12g.png.asset.json";
-import bottle30mlClearBericap from "@/assets/bottle-30ml-clear-bericap-9g.png.asset.json";
-import bottle15mlClearRedBericap from "@/assets/bottle-15ml-clear-red-bericap.png.asset.json";
-import bottle1lBatteryAcid from "@/assets/bottle-1l-white-battery-acid-bericap-50g.png.asset.json";
+import bottle100mlOldBericap from "@/assets/bottle-100ml-old-type-bericap-16g.webp.asset.json";
+import bottle100mlOldWhite from "@/assets/bottle-100ml-old-type-white-16g.webp.asset.json";
+import bottle100mlNewCapped from "@/assets/bottle-100ml-new-type-white-bericap.webp.asset.json";
+import bottle100mlNewBericap from "@/assets/bottle-100ml-new-type-bericap-16g.webp.asset.json";
+import bottle60mlOldBericap from "@/assets/bottle-60ml-old-type-bericap-12g.webp.asset.json";
+import bottle30mlClearBericap from "@/assets/bottle-30ml-clear-bericap-9g.webp.asset.json";
+import bottle15mlClearRedBericap from "@/assets/bottle-15ml-clear-red-bericap.webp.asset.json";
+import bottle1lBatteryAcid from "@/assets/bottle-1l-white-battery-acid-bericap-50g.webp.asset.json";
 import bottle120mlLongneck from "@/assets/bottle-120ml-longneck-22g.png.asset.json";
-import bottle120mlLongneckAlt from "@/assets/bottle-120ml-longneck-22g-alt.png.asset.json";
+import bottle120mlLongneckAlt from "@/assets/bottle-120ml-longneck-22g-alt.webp.asset.json";
 import bottle120mlLongneckOrange from "@/assets/bottle-120ml-longneck-orange-22g.png.asset.json";
 import bottle200mlRound from "@/assets/bottle-200ml-round-red-bericap.png.asset.json";
 import bottle200mlRoundNatural from "@/assets/bottle-200ml-round-bericap.png.asset.json";
@@ -38,17 +38,17 @@ import bottle200mlRoundBlack from "@/assets/bottle-200ml-round-black-20g.png.ass
 import bottle200mlRoundBrown from "@/assets/bottle-200ml-round-brown-20g.png.asset.json";
 import bottle500mlBericap from "@/assets/bottle-500ml-bericap.png.asset.json";
 import bottle500mlRatchet from "@/assets/bottle-500ml-ratchet-28g.png.asset.json";
-import jar50gmSpice from "@/assets/jar-50gm-spice-white.png.asset.json";
-import jar100gmSpice from "@/assets/jar-100gm-spice-red-lid.png.asset.json";
-import jar250gmGreen from "@/assets/jar-250gm-screw-green-lid.png.asset.json";
-import jar500gmScrewWhite from "@/assets/jar-500gm-screw-white.png.asset.json";
-import jar500ccWhite45g from "@/assets/jar-500cc-white-45g.png.asset.json";
-import jar600cc from "@/assets/jar-600cc-white.png.asset.json";
-import jar800Green from "@/assets/jar-800-screw-green-lid.png.asset.json";
-import jar1150ccYellow from "@/assets/jar-1150cc-yellow-lid.png.asset.json";
-import jar1kgRed from "@/assets/jar-1kg-screw-red-lid.png.asset.json";
-import jarBlackBlackLid from "@/assets/jar-black-screw-black-lid.png.asset.json";
-import jarBlackRedLid from "@/assets/jar-black-screw-red-lid.png.asset.json";
+import jar50gmSpice from "@/assets/jar-50gm-spice-white.webp.asset.json";
+import jar100gmSpice from "@/assets/jar-100gm-spice-red-lid.webp.asset.json";
+import jar250gmGreen from "@/assets/jar-250gm-screw-green-lid.webp.asset.json";
+import jar500gmScrewWhite from "@/assets/jar-500gm-screw-white.webp.asset.json";
+import jar500ccWhite45g from "@/assets/jar-500cc-white-45g.webp.asset.json";
+import jar600cc from "@/assets/jar-600cc-white.webp.asset.json";
+import jar800Green from "@/assets/jar-800-screw-green-lid.webp.asset.json";
+import jar1150ccYellow from "@/assets/jar-1150cc-yellow-lid.webp.asset.json";
+import jar1kgRed from "@/assets/jar-1kg-screw-red-lid.webp.asset.json";
+import jarBlackBlackLid from "@/assets/jar-black-screw-black-lid.webp.asset.json";
+import jarBlackRedLid from "@/assets/jar-black-screw-red-lid.webp.asset.json";
 
 import takeawayContainer from "@/assets/product-white-round-takeaway-container.png.asset.json";
 
@@ -646,7 +646,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["1000cc capacity","Cylindrical design for convenient filling","Space for labelling and branding","Custom colours available"],
     specs: { ...baseSpecs, capacityRange: "1000cc", neckClosure: "Screw lid" },
     images: uploadedGallery([
-      { file: "jar-1000cc-white.png", label: "White jar, clean view" },
+      { file: "jar-1000cc-white.webp", label: "White jar, clean view" },
     ]),
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },
@@ -731,8 +731,8 @@ export const PRODUCTS: Product[] = [
       industryFit: "Bottled water, beverages and other PET packaging applications",
     },
     images: uploadedGallery([
-      { file: "pet-preform-clear-1.png", label: "Clear preform, main view" },
-      { file: "pet-preform-clear-2.png", label: "Clear preform, alternative view" },
+      { file: "pet-preform-clear-1.webp", label: "Clear preform, main view" },
+      { file: "pet-preform-clear-2.webp", label: "Clear preform, alternative view" },
     ]),
     colours: [
       { name: "Clear", hex: "#E8EEF2" },
@@ -749,8 +749,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["50g jar size","39mm PJ closure"],
     specs: { ...baseSpecs, capacityRange: "50g", neckClosure: "39mm PJ closure" },
     images: uploadedGallery([
-      { file: "50G CLEAR PJ JAR WITH RED 39MM PJ CAP.png", label: "Jar with red cap" },
-      { file: "50G CLEAR PJ JAR WITH RED 39MM PJ CAP3.png", label: "Jar with white cap" },
+      { file: "50G CLEAR PJ JAR WITH RED 39MM PJ CAP.webp", label: "Jar with red cap" },
+      { file: "50G CLEAR PJ JAR WITH RED 39MM PJ CAP3.webp", label: "Jar with white cap" },
     ]),
     colours: [
       { name: "Red cap", hex: "#E23B26" },
@@ -765,7 +765,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["100cc capacity","HDPE jar body","White cap","Space for labelling and branding"],
     specs: { ...baseSpecs, material: "HDPE (jar body)", capacityRange: "100cc", neckClosure: "White cap", industryFit: "Pharmaceutical, food, personal care, chemical and household applications" },
     images: uploadedGallery([
-      { file: "100CC HDPE JAR WITH WHITE CAP.png", label: "Jar with white cap" },
+      { file: "100CC HDPE JAR WITH WHITE CAP.webp", label: "Jar with white cap" },
     ]),
     colours: [
       { name: "White", hex: "#FFFFFF" },
@@ -779,8 +779,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["1kg takeaway range","Pink finish"],
     specs: { ...baseSpecs, capacityRange: "For the 1kg takeaway range", neckClosure: "Takeaway lid" },
     images: uploadedGallery([
-      { file: "1 KG TAKEAWAY LID (PINK).png", label: "Pink takeaway lid, main view" },
-      { file: "1 KG TAKEAWAY LID (PINK) 1.png", label: "Pink takeaway lid, alternative view" },
+      { file: "1 KG TAKEAWAY LID (PINK).webp", label: "Pink takeaway lid, main view" },
+      { file: "1 KG TAKEAWAY LID (PINK) 1.webp", label: "Pink takeaway lid, alternative view" },
     ]),
     colours: [
       { name: "Pink", hex: "#F75BAE" },
@@ -794,11 +794,11 @@ export const PRODUCTS: Product[] = [
     highlights: ["28mm 1881 CSD closure","Ribbed exterior"],
     specs: { ...baseSpecs, neckClosure: "28mm 1881 CSD" },
     images: uploadedGallery([
-      { file: "28MM 1881 CSD CAP.png", label: "Blue cap, main view" },
-      { file: "28MM 1881 CSD CAP (DARK BLUE)L.png", label: "Dark blue cap, alternative view" },
-      { file: "28MM 1881 CSD CAP (SKY BLUE).png", label: "Sky blue cap, main view" },
-      { file: "28MM 1881 CSD CAP (SKY BLUE)2.png", label: "Sky blue cap, alternative view" },
-      { file: "28MM 1881 CSD(WHITE).png", label: "White cap" },
+      { file: "28MM 1881 CSD CAP.webp", label: "Blue cap, main view" },
+      { file: "28MM 1881 CSD CAP (DARK BLUE)L.webp", label: "Dark blue cap, alternative view" },
+      { file: "28MM 1881 CSD CAP (SKY BLUE).webp", label: "Sky blue cap, main view" },
+      { file: "28MM 1881 CSD CAP (SKY BLUE)2.webp", label: "Sky blue cap, alternative view" },
+      { file: "28MM 1881 CSD(WHITE).webp", label: "White cap" },
     ]),
     colours: [
       { name: "Blue", hex: "#3550D6" },
@@ -814,13 +814,13 @@ export const PRODUCTS: Product[] = [
     highlights: ["28mm ROPP closure","Ribbed exterior"],
     specs: { ...baseSpecs, neckClosure: "28mm ROPP" },
     images: uploadedGallery([
-      { file: "28MM ROPP CAP (RED)H.png", label: "Red cap, exterior view" },
-      { file: "28MM ROPP CAP (RED)G.png", label: "Red cap, interior view" },
-      { file: "28MM ROPP CAP (DARK BLUE)1.png", label: "Dark blue cap" },
-      { file: "28MM ROPP CAP (SKY BLUE)1.png", label: "Sky blue cap" },
-      { file: "28MM ROPP CAP (YELLOW)3.png", label: "Yellow cap, main view" },
-      { file: "28MM ROPP CAP (YELLOW)4.png", label: "Yellow cap, alternative view" },
-      { file: "28MM ROPP(WHITE)5.png", label: "White cap" },
+      { file: "28MM ROPP CAP (RED)H.webp", label: "Red cap, exterior view" },
+      { file: "28MM ROPP CAP (RED)G.webp", label: "Red cap, interior view" },
+      { file: "28MM ROPP CAP (DARK BLUE)1.webp", label: "Dark blue cap" },
+      { file: "28MM ROPP CAP (SKY BLUE)1.webp", label: "Sky blue cap" },
+      { file: "28MM ROPP CAP (YELLOW)3.webp", label: "Yellow cap, main view" },
+      { file: "28MM ROPP CAP (YELLOW)4.webp", label: "Yellow cap, alternative view" },
+      { file: "28MM ROPP(WHITE)5.webp", label: "White cap" },
     ]),
     colours: [
       { name: "Dark blue", hex: "#243C9F" },
@@ -838,8 +838,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["28mm Bericap closure","Ribbed exterior"],
     specs: { ...baseSpecs, neckClosure: "28mm Bericap" },
     images: uploadedGallery([
-      { file: "28MM BERICAP(BLACK).png", label: "Black cap" },
-      { file: "28MM BERICAP (WHITE).png", label: "White cap, open view" },
+      { file: "28MM BERICAP(BLACK).webp", label: "Black cap" },
+      { file: "28MM BERICAP (WHITE).webp", label: "White cap, open view" },
     ]),
     colours: [
       { name: "Black", hex: "#151515" },
@@ -854,12 +854,12 @@ export const PRODUCTS: Product[] = [
     highlights: ["28mm ratchet closure","Ribbed cap with outer ring"],
     specs: { ...baseSpecs, neckClosure: "28mm ratchet" },
     images: uploadedGallery([
-      { file: "28MM RATCHET CAP (GREEN).png", label: "Green cap" },
-      { file: "28MM RATCHET CAP (DARK GREEN).png", label: "Dark green cap" },
-      { file: "28MM RATCHET CAP (DARK BLUE).png", label: "Dark blue cap" },
-      { file: "28MM RATCHET CAP (RED).png", label: "Red cap" },
-      { file: "28MM RATCHET(BLACK).png", label: "Black cap" },
-      { file: "28MM RATCHET(WHITE).png", label: "White cap" },
+      { file: "28MM RATCHET CAP (GREEN).webp", label: "Green cap" },
+      { file: "28MM RATCHET CAP (DARK GREEN).webp", label: "Dark green cap" },
+      { file: "28MM RATCHET CAP (DARK BLUE).webp", label: "Dark blue cap" },
+      { file: "28MM RATCHET CAP (RED).webp", label: "Red cap" },
+      { file: "28MM RATCHET(BLACK).webp", label: "Black cap" },
+      { file: "28MM RATCHET(WHITE).webp", label: "White cap" },
     ]),
     colours: [
       { name: "Green", hex: "#149B4B" },
@@ -878,9 +878,9 @@ export const PRODUCTS: Product[] = [
     highlights: ["39mm Bericap closure","White finish","Broad grip ribs"],
     specs: { ...baseSpecs, neckClosure: "39mm Bericap" },
     images: uploadedGallery([
-      { file: "39MM BERICAP (WHITE).png", label: "White cap, exterior view" },
-      { file: "39MM BERICAP (WHITE) 2.png", label: "White caps, paired view" },
-      { file: "39MM BERICAP (WHITE) 1.png", label: "White cap, open view" },
+      { file: "39MM BERICAP (WHITE).webp", label: "White cap, exterior view" },
+      { file: "39MM BERICAP (WHITE) 2.webp", label: "White caps, paired view" },
+      { file: "39MM BERICAP (WHITE) 1.webp", label: "White cap, open view" },
     ]),
     colours: [
       { name: "White", hex: "#FFFFFF" },
@@ -894,8 +894,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["39mm PJ closure","Red finish","Broad grip ribs"],
     specs: { ...baseSpecs, neckClosure: "39mm PJ" },
     images: uploadedGallery([
-      { file: "39MM PJ CAP (RED).png", label: "Red PJ cap, main view" },
-      { file: "39MM PJ CAP (RED)1.png", label: "Red PJ cap, alternative view" },
+      { file: "39MM PJ CAP (RED).webp", label: "Red PJ cap, main view" },
+      { file: "39MM PJ CAP (RED)1.webp", label: "Red PJ cap, alternative view" },
     ]),
     colours: [
       { name: "Red", hex: "#E23B26" },
@@ -909,9 +909,9 @@ export const PRODUCTS: Product[] = [
     highlights: ["39mm ratchet closure","Broad grip ribs","Attached outer ring"],
     specs: { ...baseSpecs, neckClosure: "39mm ratchet" },
     images: uploadedGallery([
-      { file: "39MM RATCHET CAP (PINK).png", label: "Pink cap" },
-      { file: "39MM RATCHET CAP (PINK) (2).png", label: "Coral/orange cap" },
-      { file: "39MM RATCHET CAP (White).png", label: "White cap, open view" },
+      { file: "39MM RATCHET CAP (PINK).webp", label: "Pink cap" },
+      { file: "39MM RATCHET CAP (PINK) (2).webp", label: "Coral/orange cap" },
+      { file: "39MM RATCHET CAP (White).webp", label: "White cap, open view" },
     ]),
     colours: [
       { name: "Pink", hex: "#F44CAF" },
@@ -927,7 +927,7 @@ export const PRODUCTS: Product[] = [
     highlights: ["100cc jar range","Yellow finish","Attached side tab"],
     specs: { ...baseSpecs, capacityRange: "For the 100cc jar range", neckClosure: "Jar cap" },
     images: uploadedGallery([
-      { file: "100CC CAP (YELLOW).png", label: "Yellow cap with side tab" },
+      { file: "100CC CAP (YELLOW).webp", label: "Yellow cap with side tab" },
     ]),
     colours: [
       { name: "Yellow", hex: "#F5C518" },
@@ -941,8 +941,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["1150cc jar range","Green and red options"],
     specs: { ...baseSpecs, capacityRange: "For the 1150cc jar range", neckClosure: "Jar cap" },
     images: uploadedGallery([
-      { file: "1150CC CAP (GREEN).png", label: "Green jar cap" },
-      { file: "1150CC CAP (RED).png", label: "Red jar cap" },
+      { file: "1150CC CAP (GREEN).webp", label: "Green jar cap" },
+      { file: "1150CC CAP (RED).webp", label: "Red jar cap" },
     ]),
     colours: [
       { name: "Green", hex: "#149B4B" },
@@ -957,8 +957,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["31.5mm size","LLDPE material","Natural finish"],
     specs: { ...baseSpecs, material: "LLDPE", neckClosure: "31.5mm plug" },
     images: uploadedGallery([
-      { file: "31.5MM LLDPE NATURAL PLUGS.png", label: "Natural plug, side view" },
-      { file: "31.5MM LLDPE NATURAL PLUGS 1.png", label: "Natural plug, open view" },
+      { file: "31.5MM LLDPE NATURAL PLUGS.webp", label: "Natural plug, side view" },
+      { file: "31.5MM LLDPE NATURAL PLUGS 1.webp", label: "Natural plug, open view" },
     ]),
     colours: [
       { name: "Natural", hex: "#E8EEF2" },
@@ -972,8 +972,8 @@ export const PRODUCTS: Product[] = [
     highlights: ["10ml capacity","Moulded 2.5ml, 5ml and 10ml graduations","Clear plastic","For measuring and dispensing liquids"],
     specs: { ...baseSpecs, capacityRange: "10ml", industryFit: "Pharmaceutical, healthcare and liquid measurement applications", material: "Plastic" },
     images: uploadedGallery([
-      { file: "10ML MEASURING CUP.png", label: "Single measuring cup" },
-      { file: "10ML MEASURING CUP 1.png", label: "Two measuring cups, paired view" },
+      { file: "10ML MEASURING CUP.webp", label: "Single measuring cup" },
+      { file: "10ML MEASURING CUP 1.webp", label: "Two measuring cups, paired view" },
     ]),
     colours: [
       { name: "Natural / Clear", hex: "#E8EEF2" },
@@ -997,9 +997,9 @@ export const PRODUCTS: Product[] = [
       industryFit: "Food service, food packaging and catering",
     },
     images: uploadedGallery([
-      { file: "DENTEX SPOONS(WHITE).png", label: "White spoons, fan arrangement" },
-      { file: "DENTEX SPOON(PAPAYA RED).png", label: "Papaya red spoon" },
-      { file: "DENTEX CUTLERY.png", label: "White spoon on the right of the cutlery group" },
+      { file: "DENTEX SPOONS(WHITE).webp", label: "White spoons, fan arrangement" },
+      { file: "DENTEX SPOON(PAPAYA RED).webp", label: "Papaya red spoon" },
+      { file: "DENTEX CUTLERY.webp", label: "White spoon on the right of the cutlery group" },
     ]),
     colours: [
       { name: "White", hex: "#FFFFFF" },
@@ -1024,7 +1024,7 @@ export const PRODUCTS: Product[] = [
       industryFit: "Food manufacturing, food service, catering, hospitality and takeaway",
     },
     images: uploadedGallery([
-      { file: "DENTEX CUTLERY.png", label: "White fork on the left of the cutlery group" },
+      { file: "DENTEX CUTLERY.webp", label: "White fork on the left of the cutlery group" },
     ]),
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },
@@ -1046,7 +1046,7 @@ export const PRODUCTS: Product[] = [
       industryFit: "Food service, catering, takeaway and hospitality",
     },
     images: uploadedGallery([
-      { file: "DENTEX CUTLERY.png", label: "White knife in the centre of the cutlery group" },
+      { file: "DENTEX CUTLERY.webp", label: "White knife in the centre of the cutlery group" },
     ]),
     colours: [{ name: "White", hex: "#FFFFFF" }],
   },

@@ -2,12 +2,12 @@ import dawa from "@/assets/logo-dawa-life-sciences.png.asset.json";
 import brava from "@/assets/logo-brava.png.asset.json";
 import kepro from "@/assets/logo-kepro.png.asset.json";
 import ellys from "@/assets/logo-ellys.png.asset.json";
-import laboratoryAllied from "@/assets/logo-laboratory-allied.png.asset.json";
-import vetcare from "@/assets/logo-vetcare-africa.png.asset.json";
-import ultravetis from "@/assets/logo-ultravetis.png.asset.json";
-import lacheka from "@/assets/logo-lacheka.png.asset.json";
-import grounded from "@/assets/logo-grounded.png.asset.json";
-import lakiLaki from "@/assets/logo-laki-laki.png.asset.json";
+import laboratoryAllied from "@/assets/logo-laboratory-allied.webp.asset.json";
+import vetcare from "@/assets/logo-vetcare-africa.webp.asset.json";
+import ultravetis from "@/assets/logo-ultravetis.webp.asset.json";
+import lacheka from "@/assets/logo-lacheka.webp.asset.json";
+import grounded from "@/assets/logo-grounded.webp.asset.json";
+import lakiLaki from "@/assets/logo-laki-laki.webp.asset.json";
 
 /**
  * Trusted Across Industries, client logos are used exactly as supplied.

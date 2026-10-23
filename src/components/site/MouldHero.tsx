@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useEntrance } from "@/hooks/use-gsap";
-import heroAsset from "@/assets/hero-products-v3.png.asset.json";
+import heroAsset from "@/assets/hero-products-v3.webp.asset.json";
 
 const heroArt = heroAsset.url;
 

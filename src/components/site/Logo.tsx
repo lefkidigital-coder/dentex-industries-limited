@@ -1,6 +1,6 @@
-import horizontal from "@/assets/dentex-logo-horizontal.png.asset.json";
-import icon from "@/assets/dentex-icon.png.asset.json";
-import stacked from "@/assets/dentex-logo-stacked.png.asset.json";
+import horizontal from "@/assets/dentex-logo-horizontal.webp.asset.json";
+import icon from "@/assets/dentex-icon.webp.asset.json";
+import stacked from "@/assets/dentex-logo-stacked.webp.asset.json";
 
 export const LOGO_HORIZONTAL = horizontal.url;
 export const LOGO_ICON = icon.url;

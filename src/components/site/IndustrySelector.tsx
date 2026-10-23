@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Dna, Cog, Leaf, Factory, Plus, UtensilsCrossed, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import pharma from "@/assets/showcase-pharma.png.asset.json";
-import food from "@/assets/showcase-food.png.asset.json";
-import cosmetics from "@/assets/showcase-cosmetics.png.asset.json";
-import automotive from "@/assets/showcase-automotive.png.asset.json";
-import agrochemical from "@/assets/showcase-agrovet.png.asset.json";
-import industrial from "@/assets/showcase-industrial.png.asset.json";
+import pharma from "@/assets/showcase-pharma.webp.asset.json";
+import food from "@/assets/showcase-food.webp.asset.json";
+import cosmetics from "@/assets/showcase-cosmetics.webp.asset.json";
+import automotive from "@/assets/showcase-automotive.webp.asset.json";
+import agrochemical from "@/assets/showcase-agrovet.webp.asset.json";
+import industrial from "@/assets/showcase-industrial.webp.asset.json";
 import { motion, AnimatePresence } from "framer-motion";
 import { industryLabel } from "@/data/industries";
 import {
