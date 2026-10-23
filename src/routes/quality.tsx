@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { ShieldCheck, FlaskConical, Cog, Leaf, Sparkles } from "lucide-react";
 import { InspectionHero } from "@/components/site/InspectionHero";
-import inspection from "@/assets/quality-inspection.webp.asset.json";
+import inspection from "@/assets/quality-inspection.png.asset.json";
 import engineer from "@/assets/innovation-engineer.webp.asset.json";
 import { RecyclingLoop } from "@/components/site/RecyclingLoop";
 
@@ -29,7 +29,7 @@ const qa = [
 function Quality() {
   return (
     <Layout>
-      <InspectionHero image={inspection.url} alt="Transparent jar inspected under precision lighting"
+      <InspectionHero image={inspection.url} alt="Gloved hand inspecting a white jar with a green lid under precision lighting"
         eyebrow="Quality & Innovation"
         title="Driven by Innovation, Defined by Quality."
         subtitle="How we ensure every product meets the highest standards."
