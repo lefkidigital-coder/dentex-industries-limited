@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import img1986 from "@/assets/journey-1986-concept.png.asset.json";
-import imgLab from "@/assets/journey-1990s.png.asset.json";
-import imgPet from "@/assets/journey-pet-line.png.asset.json";
-import imgToday from "@/assets/journey-today-engineer.png.asset.json";
+import img1986 from "@/assets/journey-1986-concept.webp.asset.json";
+import imgLab from "@/assets/journey-1990s.webp.asset.json";
+import imgPet from "@/assets/journey-pet-line.webp.asset.json";
+import imgToday from "@/assets/journey-today-engineer.webp.asset.json";
 import imgFood from "@/assets/journey-food.jpg";
 import imgNext from "@/assets/journey-next40.jpg";
 

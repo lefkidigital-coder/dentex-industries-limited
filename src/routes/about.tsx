@@ -4,7 +4,7 @@ import { Target, Eye, Heart } from "lucide-react";
 import { JourneyIntro, Timeline, NextForty } from "@/components/site/Journey";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { useEntrance } from "@/hooks/use-gsap";
-import heroImg from "@/assets/about-hero-qc.png.asset.json";
+import heroImg from "@/assets/about-hero-qc.webp.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

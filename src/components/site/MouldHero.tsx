@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useEntrance } from "@/hooks/use-gsap";
-import heroAsset from "@/assets/hero-products-v3.png.asset.json";
+import heroAsset from "@/assets/hero-products-v3.webp.asset.json";
 
 const heroArt = heroAsset.url;
+const heroArtMobile = "/assets/hero-products-v3-900w.webp";
 
 /**
 
@@ -66,6 +67,7 @@ export function MouldHero() {
           alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
           width={1500}
           height={1000}
+          fetchPriority="high"
           className="relative h-full max-h-[92%] w-full object-contain object-right"
         />
       </div>
@@ -91,10 +93,11 @@ export function MouldHero() {
           {/* Mobile artwork, as large as the screen width allows */}
           <div data-anim="image" className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
             <img
-              src={heroArt}
+              src={heroArtMobile}
               alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
-              width={1500}
-              height={1000}
+              width={900}
+              height={600}
+              fetchPriority="high"
               className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center"
             />
           </div>

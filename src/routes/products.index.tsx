@@ -7,7 +7,7 @@ import { Layout, Reveal } from "@/components/site/Layout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { CATEGORIES, PRODUCTS, type CategorySlug } from "@/data/products";
-import heroComposition from "@/assets/products-hero-composition.png.asset.json";
+import heroComposition from "@/assets/products-hero-composition.webp.asset.json";
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (search: Record<string, unknown>): { industry?: string; category?: string } => ({
