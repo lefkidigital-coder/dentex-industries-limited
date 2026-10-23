@@ -43,7 +43,7 @@ function About() {
             </p>
           </div>
           <div data-anim="image">
-            <img src={heroImg.url} alt="Dentex quality technician inspecting a PET bottle" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 30%" }} />
+            <img src={heroImg.url} alt="Dentex quality technician in a hairnet and safety glasses inspecting a white bottle on the production line" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 30%" }} />
           </div>
         </div>
       </section>

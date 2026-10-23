@@ -63,7 +63,7 @@ export function MouldHero() {
       <div data-anim="image" className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[56%]">
         <img
           src={heroArt}
-          alt="Dentex rigid plastic packaging range, HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
+          alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
           width={1500}
           height={1000}
           className="relative h-full max-h-[92%] w-full object-contain object-right"
@@ -92,7 +92,7 @@ export function MouldHero() {
           <div data-anim="image" className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
             <img
               src={heroArt}
-              alt="Dentex rigid plastic packaging range, HDPE bottle, jerrycan, PET jar, closures and a PET water bottle"
+              alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
               width={1500}
               height={1000}
               className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center"
