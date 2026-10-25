@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-gsap";
 
 /**
  * "Build Your Product", the user picks a manufacturing process (injection or
@@ -439,9 +440,17 @@ export function BuildYourProduct() {
   const [step, setStep] = useState(0);
   const reduced = useReducedMotion();
   const animate = !reduced;
+  const headRef = useScrollReveal<HTMLDivElement>();
 
   const stages = PROCESSES[process].stages;
   const current = stages[step];
+
+  // Stage copy slides in from the direction of travel.
+  const prevStep = useRef(step);
+  const direction = step >= prevStep.current ? 1 : -1;
+  useEffect(() => {
+    prevStep.current = step;
+  }, [step]);
 
   const next = () => setStep((s) => Math.min(s + 1, stages.length - 1));
   const prev = () => setStep((s) => Math.max(s - 1, 0));
@@ -449,9 +458,9 @@ export function BuildYourProduct() {
   return (
     <section className="bg-tech-grey py-12 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <div ref={headRef} className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Inside Our Process</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
+          <h2 data-lines className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">
             Build a product, stage by stage.
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -534,10 +543,10 @@ export function BuildYourProduct() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${process}-${step}-copy`}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: reduced ? 0 : 0.25 }}
+                initial={{ opacity: 0, x: direction * 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduced ? 0 : 0.45, ease: [0.16, 1, 0.3, 1] }}
               >
                 <p className="text-xs font-semibold uppercase tracking-widest text-accent">
                   {STAGE_CODES[step]} · {STAGE_LABELS[step]}

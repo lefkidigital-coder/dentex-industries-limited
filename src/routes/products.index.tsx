@@ -1,9 +1,11 @@
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { INDUSTRY_OPTIONS, isIndustryKey, productIndustries } from "@/data/industries";
-import { motion } from "framer-motion";
 import { ArrowRight, Container, LayoutGrid, Milk, Package, TestTube, UtensilsCrossed } from "lucide-react";
 import { Layout, Reveal } from "@/components/site/Layout";
+import { useEntrance } from "@/hooks/use-gsap";
+import { captureGrid, flipGrid, reducedMotion, riseIn, whenPageVisible } from "@/motion/core";
 import { ProductCard } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { CATEGORIES, PRODUCTS, type CategorySlug } from "@/data/products";
@@ -63,6 +65,32 @@ function Products() {
   const industry = isIndustryKey(selectedIndustry) ? selectedIndustry : "all";
   const list = PRODUCTS.filter((p) => (filter === "All" || p.category === filter) && (industry === "all" || productIndustries(p).includes(industry)));
 
+  const heroRef = useEntrance<HTMLDivElement>(["[data-anim='eyebrow']", "[data-anim='title']", "[data-anim='sub']", "[data-anim='image']"]);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+  const flipState = useRef<ReturnType<typeof captureGrid>>(null);
+
+  // Remember card positions just before a filter changes the grid.
+  const setFilter = (search: { industry?: string; category?: string }) => {
+    flipState.current = captureGrid(gridRef.current);
+    navigate({ search: (prev) => ({ ...prev, ...search }), resetScroll: false });
+  };
+
+  // After the grid re-renders, cards glide from where they were.
+  useLayoutEffect(() => {
+    flipGrid(gridRef.current, flipState.current);
+    flipState.current = null;
+  }, [filter, industry]);
+
+  // Cards already on screen rise in once when the page opens.
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid || reducedMotion()) return;
+    return whenPageVisible(() => {
+      const onScreen = Array.from(grid.children).filter((c) => c.getBoundingClientRect().top < window.innerHeight);
+      riseIn(onScreen, { delay: 0.25 });
+    });
+  }, []);
+
   return (
     <Layout>
       {/* Hero */}
@@ -75,34 +103,25 @@ function Products() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] accent-underline">Our Products</p>
-              <h1 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]">
+          <div ref={heroRef} className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
+            <div>
+              <p data-anim="eyebrow" className="text-sm font-semibold uppercase tracking-[0.2em] accent-underline">Our Products</p>
+              <h1 data-anim="title" className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.06]">
                 Rigid Plastic Packaging Built for Your Business.
               </h1>
-              <p className="mt-5 text-base sm:text-lg text-primary-foreground/85 max-w-xl leading-relaxed">
+              <p data-anim="sub" className="mt-5 text-base sm:text-lg text-primary-foreground/85 max-w-xl leading-relaxed">
                 Explore Dentex bottles, jerrycans, jars, closures and other packaging solutions manufactured for a wide
                 range of applications.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="-mx-2 sm:mx-0"
-            >
+            <div data-anim="image" className="-mx-2 sm:mx-0">
               <img
                 src={heroComposition.url}
                 alt="Dentex rigid plastic packaging range, jerrycans, bottles and jars"
                 className="mx-auto w-full max-w-[560px] h-[min(52svh,380px)] sm:h-[400px] lg:h-[440px] object-contain"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
@@ -114,7 +133,7 @@ function Products() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Industry</p>
           <div className="mb-5 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]" aria-label="Industry filters">
             {[{ key: "all", label: "All Industries" }, ...INDUSTRY_OPTIONS].map((option) => (
-              <Button key={option.key} variant="ghost" aria-pressed={industry === option.key} onClick={() => navigate({ search: (prev) => ({ ...prev, industry: option.key }), resetScroll: false })}
+              <Button key={option.key} variant="ghost" aria-pressed={industry === option.key} onClick={() => setFilter({ industry: option.key })}
                 className={`h-auto shrink-0 rounded-full px-4 py-2.5 font-semibold ${industry === option.key ? "bg-accent text-accent-foreground hover:bg-accent/90" : "bg-card text-primary border border-border"}`}>{option.label}</Button>
             ))}
           </div>
@@ -128,7 +147,7 @@ function Products() {
                   <Button variant="ghost"
                     key={f}
                     type="button"
-                    onClick={() => navigate({ search: (prev) => ({ ...prev, category: f }), resetScroll: false })}
+                    onClick={() => setFilter({ category: f })}
                     aria-pressed={active}
                     className={`mould-press h-auto inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
                       active
@@ -144,8 +163,8 @@ function Products() {
             </div>
           </div>
 
-          {/* Filter changes must remove non-matching cards immediately. */}
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-label="Filtered products">
+          {/* Filter changes must remove non-matching cards immediately; the remaining cards glide into place. */}
+          <div ref={gridRef} className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-label="Filtered products">
             {list.map((p) => (
               <ProductCard key={p.slug} product={p} animated={false} />
             ))}
@@ -165,7 +184,7 @@ function Products() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Categories</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Explore by category</h2>
+              <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Explore by category</h2>
             </div>
           </Reveal>
           <div className="mt-8 sm:mt-10 grid gap-6 md:grid-cols-3">

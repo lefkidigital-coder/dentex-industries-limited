@@ -41,7 +41,7 @@ function Quality() {
           <Reveal>
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Quality Assurance</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Honesty and transparency, embedded in every step.</h2>
+              <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Honesty and transparency, embedded in every step.</h2>
               <p className="mt-5 text-muted-foreground leading-relaxed">
                 We conduct our business with honesty and transparency, building trust with our customers, partners, and employees. From raw material selection to final inspection, quality is embedded in every step of our process.
               </p>
@@ -70,7 +70,7 @@ function Quality() {
           <Reveal>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground">Innovation & R&D</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Investing in tomorrow's packaging today.</h2>
+              <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Investing in tomorrow's packaging today.</h2>
               <p className="mt-5 text-primary-foreground/95 leading-relaxed">
                 We continuously invest in research and development to introduce innovative products and maintain market leadership across East Africa.
               </p>
@@ -103,7 +103,7 @@ function Quality() {
           <Reveal>
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Sustainability</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Responsible manufacturing for a better tomorrow.</h2>
+              <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Responsible manufacturing for a better tomorrow.</h2>
             </div>
           </Reveal>
           <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-2">

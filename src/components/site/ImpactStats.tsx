@@ -1,7 +1,9 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { CalendarClock, Users, ShieldCheck } from "lucide-react";
 import { COMPANY } from "@/data/company";
+import { countUp, reducedMotion } from "@/motion/core";
+import { useScrollReveal } from "@/hooks/use-gsap";
 
 /**
  * Credibility modules. Only verified Dentex figures are shown. Unverified
@@ -35,6 +37,13 @@ const MODULES = [
 function Module({ m, index }: { m: (typeof MODULES)[number]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const valueRef = useRef<HTMLSpanElement>(null);
+
+  // Figures count up once, ending on the exact verified value.
+  useEffect(() => {
+    if (!inView || !valueRef.current || reducedMotion()) return;
+    return countUp(valueRef.current, { delay: 0.35 + index * 0.12 });
+  }, [inView, index]);
 
   return (
     <div ref={ref} className="relative">
@@ -68,7 +77,7 @@ function Module({ m, index }: { m: (typeof MODULES)[number]; index: number }) {
           transition={{ duration: 0.5, delay: 0.35 + index * 0.12 }}
         >
           <div className="mt-6 flex items-baseline gap-2">
-            <span className="text-5xl lg:text-6xl font-extrabold tracking-tight text-primary">
+            <span ref={valueRef} className="text-5xl lg:text-6xl font-extrabold tracking-tight text-primary tabular-nums">
               {m.value}
             </span>
             <span className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -91,12 +100,13 @@ function Module({ m, index }: { m: (typeof MODULES)[number]; index: number }) {
 }
 
 export function ImpactStats() {
+  const headRef = useScrollReveal<HTMLDivElement>();
   return (
     <section className="bg-tech-grey py-12 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <div ref={headRef} className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Impact</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">
+          <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">
             Measured, controlled, and built over decades.
           </h2>
         </div>

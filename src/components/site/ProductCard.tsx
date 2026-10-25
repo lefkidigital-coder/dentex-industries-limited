@@ -15,6 +15,7 @@ export function ProductCard({ product, animated = true }: { product: Product; an
       animate={{ opacity: 1, y: 0 }}
       exit={animated ? { opacity: 0, scale: 0.95 } : undefined}
       transition={{ duration: animated ? 0.3 : 0 }}
+      data-flip-id={product.slug}
       className="group flex flex-col bg-card border border-border/60 rounded-2xl overflow-hidden hover:shadow-xl hover:border-accent/40 transition-all"
     >
       <Link
@@ -64,13 +65,13 @@ export function ProductCard({ product, animated = true }: { product: Product; an
       </div>
 
       <Dialog open={quickView} onOpenChange={setQuickView}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="dtx-quickview max-w-3xl">
           <DialogHeader>
             <DialogTitle className="text-primary">{product.title}</DialogTitle>
             <DialogDescription className="sr-only">Quick view of {product.title}</DialogDescription>
           </DialogHeader>
           <div className="grid gap-6 sm:grid-cols-2 items-center">
-            <div className="product-stage overflow-hidden rounded-xl p-7">
+            <div className="dtx-qv-media product-stage overflow-hidden rounded-xl p-7">
               <img src={product.images.main} alt={product.title} className="relative w-full h-56 object-contain object-center" />
             </div>
             <div>

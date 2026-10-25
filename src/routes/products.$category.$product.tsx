@@ -128,7 +128,7 @@ function ProductDetail() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Specifications</p>
-              <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Technical details</h2>
+              <h2 data-lines className="mt-3 text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Technical details</h2>
             </div>
           </Reveal>
           <div className="mt-8 max-w-3xl">

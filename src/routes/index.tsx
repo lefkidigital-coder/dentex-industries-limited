@@ -49,7 +49,7 @@ function Home() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Core Services</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">Packaging built for every industry</h2>
+              <h2 data-lines className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight">Packaging built for every industry</h2>
             </div>
           </Reveal>
           <div className="mt-8 sm:mt-14 grid gap-6 md:grid-cols-3">

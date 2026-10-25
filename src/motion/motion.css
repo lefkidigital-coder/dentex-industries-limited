@@ -1,0 +1,142 @@
+/*
+ * Dentex motion system, styles.
+ * Plain CSS (no Tailwind syntax) so it can be copied into a WordPress theme
+ * unchanged. Pairs with src/motion/core.ts and src/motion/page-transition.ts.
+ */
+
+:root {
+  --dtx-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dtx-ease-std: cubic-bezier(0.2, 0, 0, 1);
+  /* Darker step of Dentex Red, the end stop of --gradient-accent */
+  --dtx-accent-deep: oklch(0.3533 0.1245 18.87);
+}
+
+/* ---------- Mould-close page transition ---------- */
+.dtx-mould {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+}
+.dtx-mould.is-active,
+html[data-mould="closed"] .dtx-mould {
+  visibility: visible;
+  pointer-events: auto; /* swallow clicks while the page changes */
+}
+/* Halves rest closed in CSS; the script moves them. The layer stays hidden
+   unless a transition is running, so a closed resting state is never seen. */
+.dtx-mould__half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  will-change: transform;
+}
+.dtx-mould__half--top {
+  top: 0;
+  background: linear-gradient(180deg, oklch(0.3 0.045 256), var(--hero-deep, oklch(0.3482 0.0483 255.85)));
+  border-bottom: 1px solid oklch(1 0 0 / 0.12);
+}
+.dtx-mould__half--bottom {
+  bottom: 0;
+  background: linear-gradient(0deg, oklch(0.3 0.045 256), var(--hero-deep, oklch(0.3482 0.0483 255.85)));
+}
+.dtx-mould__seam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: oklch(0.6 0.19 22);
+  opacity: 0;
+}
+.dtx-mould__label {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: calc(50% - 34px);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: oklch(0.99 0 0);
+  opacity: 0;
+}
+
+/* ---------- Primary buttons: darker red sweeps in from the left ---------- */
+.mould-press.bg-accent {
+  background-image: linear-gradient(var(--dtx-accent-deep), var(--dtx-accent-deep));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition:
+    transform 180ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    filter 180ms ease,
+    box-shadow 180ms ease,
+    background-size 300ms var(--dtx-ease-std);
+}
+.mould-press.bg-accent:hover {
+  background-size: 100% 100%;
+}
+
+/* ---------- Header gains a soft shadow once the page scrolls ---------- */
+.dtx-header {
+  transition: box-shadow 300ms var(--dtx-ease-std);
+}
+.dtx-header.is-scrolled {
+  box-shadow: 0 8px 24px -16px oklch(0.464 0.0574 248.3 / 0.35);
+}
+
+/* ---------- Quick View dialog ---------- */
+.dtx-quickview[data-state="open"] {
+  animation: dtx-qv-in 600ms var(--dtx-ease) both;
+}
+.dtx-quickview[data-state="closed"] {
+  animation: dtx-qv-out 200ms var(--dtx-ease-std) both;
+}
+.dtx-quickview[data-state="open"] .dtx-qv-media img {
+  animation: dtx-qv-media 800ms var(--dtx-ease) 100ms both;
+}
+@keyframes dtx-qv-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dtx-qv-out {
+  to { opacity: 0; transform: translateY(12px) scale(0.98); }
+}
+@keyframes dtx-qv-media {
+  from { opacity: 0; transform: translateY(30px) scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Form feedback ---------- */
+.dtx-fade-up {
+  animation: dtx-fade-up 400ms var(--dtx-ease) both;
+}
+@keyframes dtx-fade-up {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+/* Success tick draws itself (works with Lucide's circle + check icon) */
+.dtx-draw :is(path, circle) {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: dtx-draw 700ms var(--dtx-ease) 100ms forwards;
+}
+.dtx-draw path {
+  animation-delay: 380ms;
+}
+@keyframes dtx-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---------- Reduced motion: keep everything still and visible ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .dtx-mould { display: none; }
+  .mould-press.bg-accent { transition: none; }
+  .dtx-quickview[data-state],
+  .dtx-quickview[data-state="open"] .dtx-qv-media img,
+  .dtx-fade-up { animation: none; }
+  .dtx-draw :is(path, circle) { animation: none; stroke-dashoffset: 0; }
+}

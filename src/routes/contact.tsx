@@ -83,19 +83,19 @@ function Contact() {
           <div className="lg:col-span-3">
           <Reveal>
             <div className="bg-card border border-border/60 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <h2 className="text-2xl font-extrabold text-primary">Send us a message</h2>
+              <h2 data-lines className="text-2xl font-extrabold text-primary">Send us a message</h2>
               <p className="mt-1 text-sm text-muted-foreground">We typically respond within one business day.</p>
 
               <form onSubmit={submit} className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="c-name" className="block text-xs font-semibold uppercase tracking-wider text-primary mb-2">Name *</label>
                   <input id="c-name" className={field} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-                  {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+                  {errors.name && <p className="dtx-fade-up mt-1 text-xs text-destructive">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="c-email" className="block text-xs font-semibold uppercase tracking-wider text-primary mb-2">Email *</label>
                   <input id="c-email" type="email" className={field} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-                  {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+                  {errors.email && <p className="dtx-fade-up mt-1 text-xs text-destructive">{errors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="c-phone" className="block text-xs font-semibold uppercase tracking-wider text-primary mb-2">Phone</label>
@@ -140,7 +140,7 @@ function Contact() {
                 <div className="sm:col-span-2">
                   <label htmlFor="c-message" className="block text-xs font-semibold uppercase tracking-wider text-primary mb-2">Message *</label>
                   <textarea id="c-message" rows={5} className={field} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
-                  {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+                  {errors.message && <p className="dtx-fade-up mt-1 text-xs text-destructive">{errors.message}</p>}
                 </div>
                 <p className="sm:col-span-2 text-sm text-muted-foreground">
                   Please share only information relevant to your enquiry. Read our{" "}
@@ -166,7 +166,7 @@ function Contact() {
                     exit={{ opacity: 0 }}
                     className="mt-6 flex items-center gap-3 p-4 rounded-md bg-accent/10 text-accent border border-accent/30"
                   >
-                    <CheckCircle2 className="h-5 w-5" />
+                    <CheckCircle2 className="dtx-draw h-5 w-5" />
                     <p className="text-sm font-medium">Thank you, your message has been received. We'll be in touch shortly.</p>
                   </motion.div>
                 )}
