@@ -34,6 +34,35 @@ export function reducedMotion() {
 }
 
 /* ------------------------------------------------------------------ */
+/* First load on phones                                                */
+/* The server-rendered page is already on screen before scripts run.   */
+/* On phones, where scripts arrive late, re-hiding that content to     */
+/* play an entrance would blank the hero for seconds. So on the first  */
+/* load of a phone-sized screen, content already on screen stays as    */
+/* it is. Page changes (behind the mould) and desktop keep the full    */
+/* entrance.                                                           */
+/* ------------------------------------------------------------------ */
+
+const MOBILE_QUERY = "(max-width: 1023.98px)";
+let navigated = false;
+
+/** Called when a page change starts, so later pages play their entrances. */
+export function markNavigated() {
+  navigated = true;
+}
+
+export function isInitialMobileLoad() {
+  if (typeof window === "undefined" || navigated) return false;
+  return window.matchMedia(MOBILE_QUERY).matches;
+}
+
+/** True when the element is at least partly inside the viewport now. */
+export function onScreen(el: Element) {
+  const r = el.getBoundingClientRect();
+  return r.top < window.innerHeight && r.bottom > 0;
+}
+
+/* ------------------------------------------------------------------ */
 /* Page visibility gate                                                */
 /* While the mould transition covers the screen, entrance and reveal   */
 /* animations wait, so they play when the visitor can actually see.    */

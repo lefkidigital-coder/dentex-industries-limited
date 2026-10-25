@@ -1,10 +1,20 @@
 import type { ReactNode } from "react";
 import { useEntrance } from "@/hooks/use-gsap";
 
+export type HeroImage = {
+  src: string;
+  /** Optional responsive sources: a `srcSet` plus the matching `sizes`. */
+  srcSet?: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
+};
+
 export function InspectionHero({ eyebrow, title, subtitle, image, alt, children }: {
-  eyebrow: string; title: string; subtitle: string; image: string; alt: string; children?: ReactNode;
+  eyebrow: string; title: string; subtitle: string; image: string | HeroImage; alt: string; children?: ReactNode;
 }) {
   const ref = useEntrance<HTMLDivElement>(["[data-anim='eyebrow']", "[data-anim='title']", "[data-anim='sub']", "[data-anim='extra']"]);
+  const img = typeof image === "string" ? { src: image } : image;
   return (
     <section className="bg-hero-deep text-primary-foreground overflow-hidden">
       <div className="mx-auto max-w-7xl grid lg:grid-cols-[1.1fr_1fr] items-center">
@@ -17,7 +27,16 @@ export function InspectionHero({ eyebrow, title, subtitle, image, alt, children 
           </div>
         </div>
         <div className="relative w-full aspect-[4/3] lg:aspect-[4/5] lg:max-h-[600px] overflow-hidden">
-          <img src={image} alt={alt} className="h-full w-full object-cover" fetchPriority="high" />
+          <img
+            src={img.src}
+            srcSet={img.srcSet}
+            sizes={img.sizes}
+            width={img.width}
+            height={img.height}
+            alt={alt}
+            className="h-full w-full object-cover"
+            fetchPriority="high"
+          />
           <div className="inspection-image-edge absolute inset-0 pointer-events-none" />
         </div>
       </div>

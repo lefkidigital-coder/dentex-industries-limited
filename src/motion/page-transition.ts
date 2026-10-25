@@ -13,7 +13,7 @@
  *
  * Visitors who prefer reduced motion get normal, instant navigation.
  */
-import { gsap, MOTION, PAGE_VISIBLE_EVENT, reducedMotion } from "./core";
+import { gsap, markNavigated, MOTION, PAGE_VISIBLE_EVENT, reducedMotion } from "./core";
 
 const STORAGE_KEY = "dtx-mould";
 const MAX_WAIT_MS = 4000;
@@ -87,6 +87,7 @@ export function initMouldTransition(opts: MouldTransitionOptions = {}) {
 
   function close(url: URL) {
     busy = true;
+    markNavigated();
     markClosed();
     placeBelowHeader();
     label.textContent = opts.labelFor?.(url) ?? "";

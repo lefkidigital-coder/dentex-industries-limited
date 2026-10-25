@@ -5,11 +5,21 @@ import { INDUSTRY_OPTIONS, isIndustryKey, productIndustries } from "@/data/indus
 import { ArrowRight, Container, LayoutGrid, Milk, Package, TestTube, UtensilsCrossed } from "lucide-react";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { useEntrance } from "@/hooks/use-gsap";
-import { captureGrid, flipGrid, reducedMotion, riseIn, whenPageVisible } from "@/motion/core";
+import { captureGrid, flipGrid, isInitialMobileLoad, reducedMotion, riseIn, whenPageVisible } from "@/motion/core";
 import { ProductCard } from "@/components/site/ProductCard";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { CATEGORIES, PRODUCTS, type CategorySlug } from "@/data/products";
 import heroComposition from "@/assets/products-hero-composition.webp.asset.json";
+
+// Phones and tablets use the existing 900px composition; only 3x screens, where
+// 900px would be upscaled, step up to the 1447px original. Desktops pick by density.
+const HERO_MOBILE = "/assets/products-hero-composition-900w.webp";
+const HERO_MOBILE_MEDIA = "(max-width: 1023.98px)";
+const HERO_DESKTOP_MEDIA = "(min-width: 1024px)";
+const HERO_SRCSET = `${HERO_MOBILE} 900w, ${heroComposition.url} 1447w`;
+const HERO_SIZES = "560px";
+// The image is full width but capped at 380px tall; at 4:3 that is at most ~505px wide.
+const HERO_MOBILE_SIZES = "min(calc(100vw - 16px), 505px)";
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (search: Record<string, unknown>): { industry?: string; category?: string } => ({
@@ -17,6 +27,10 @@ export const Route = createFileRoute("/products/")({
     category: typeof search.category === "string" && CATEGORIES.some((category) => category.slug === search.category) ? search.category : "All",
   }),
   head: () => ({
+    links: [
+      { rel: "preload", as: "image", imageSrcSet: HERO_SRCSET, imageSizes: HERO_MOBILE_SIZES, media: HERO_MOBILE_MEDIA, fetchPriority: "high" },
+      { rel: "preload", as: "image", imageSrcSet: HERO_SRCSET, imageSizes: HERO_SIZES, media: HERO_DESKTOP_MEDIA, fetchPriority: "high" },
+    ],
     meta: [
       { title: "Our Products | Dentex Industries Ltd" },
       { property: "og:type", content: "website" },
@@ -84,7 +98,7 @@ function Products() {
   // Cards already on screen rise in once when the page opens.
   useEffect(() => {
     const grid = gridRef.current;
-    if (!grid || reducedMotion()) return;
+    if (!grid || reducedMotion() || isInitialMobileLoad()) return;
     return whenPageVisible(() => {
       const onScreen = Array.from(grid.children).filter((c) => c.getBoundingClientRect().top < window.innerHeight);
       riseIn(onScreen, { delay: 0.25 });
@@ -116,11 +130,19 @@ function Products() {
             </div>
 
             <div data-anim="image" className="-mx-2 sm:mx-0">
-              <img
-                src={heroComposition.url}
-                alt="Dentex rigid plastic packaging range, jerrycans, bottles and jars"
-                className="mx-auto w-full max-w-[560px] h-[min(52svh,380px)] sm:h-[400px] lg:h-[440px] object-contain"
-              />
+              <picture className="contents">
+                <source media={HERO_MOBILE_MEDIA} srcSet={HERO_SRCSET} sizes={HERO_MOBILE_SIZES} />
+                <img
+                  src={heroComposition.url}
+                  srcSet={HERO_SRCSET}
+                  sizes={HERO_SIZES}
+                  width={1447}
+                  height={1087}
+                  fetchPriority="high"
+                  alt="Dentex rigid plastic packaging range, jerrycans, bottles and jars"
+                  className="mx-auto w-full max-w-[560px] h-[min(52svh,380px)] sm:h-[400px] lg:h-[440px] object-contain"
+                />
+              </picture>
             </div>
           </div>
         </div>

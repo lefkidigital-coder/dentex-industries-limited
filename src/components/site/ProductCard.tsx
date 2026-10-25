@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, Eye } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { categoryName, type Product } from "@/data/products";
+import { productSrcSet } from "@/lib/images";
+
+/**
+ * Rendered width of the card photo: grid column minus page gutters, gaps and
+ * the stage padding (p-7 on phones, p-9 from sm), per grid breakpoint.
+ */
+const CARD_SIZES =
+  "(min-width: 1280px) 214px, (min-width: 1024px) calc(33vw - 110px), (min-width: 640px) calc(50vw - 108px), calc(100vw - 88px)";
 
 export function ProductCard({ product, animated = true }: { product: Product; animated?: boolean }) {
   const [quickView, setQuickView] = useState(false);
@@ -26,8 +34,11 @@ export function ProductCard({ product, animated = true }: { product: Product; an
         <div className="product-stage aspect-square overflow-hidden p-7 sm:p-9">
           <img
             src={product.images.main}
+            srcSet={productSrcSet(product.images.main)}
+            sizes={CARD_SIZES}
             alt={product.title}
             loading="lazy"
+            decoding="async"
             className="relative w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
@@ -72,7 +83,7 @@ export function ProductCard({ product, animated = true }: { product: Product; an
           </DialogHeader>
           <div className="grid gap-6 sm:grid-cols-2 items-center">
             <div className="dtx-qv-media product-stage overflow-hidden rounded-xl p-7">
-              <img src={product.images.main} alt={product.title} className="relative w-full h-56 object-contain object-center" />
+              <img src={product.images.main} srcSet={productSrcSet(product.images.main)} sizes="(min-width: 640px) 330px, 85vw" alt={product.title} className="relative w-full h-56 object-contain object-center" />
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-accent">

@@ -5,9 +5,14 @@ import { JourneyIntro, Timeline, NextForty } from "@/components/site/Journey";
 import { QuoteCta } from "@/components/site/QuoteCta";
 import { useEntrance } from "@/hooks/use-gsap";
 import heroImg from "@/assets/about-hero-qc.webp.asset.json";
+import { srcSet } from "@/lib/images";
+
+const HERO_SRCSET = srcSet(heroImg.url, 800, 1448);
+const HERO_SIZES = "(min-width: 1024px) 55vw, 100vw";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
+    links: [{ rel: "preload", as: "image", imageSrcSet: HERO_SRCSET, imageSizes: HERO_SIZES, fetchPriority: "high" }],
     meta: [
       { title: "About Us | Dentex Industries Ltd" },
       { name: "description", content: "A legacy of manufacturing excellence since 1986. Discover Dentex's story, mission, and leadership." },
@@ -43,7 +48,7 @@ function About() {
             </p>
           </div>
           <div data-anim="image">
-            <img src={heroImg.url} alt="Dentex quality technician in a hairnet and safety glasses inspecting a white bottle on the production line" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 30%" }} />
+            <img src={heroImg.url} srcSet={HERO_SRCSET} sizes={HERO_SIZES} width={1448} height={1086} fetchPriority="high" alt="Dentex quality technician in a hairnet and safety glasses inspecting a white bottle on the production line" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-xl" style={{ objectPosition: "center 30%" }} />
           </div>
         </div>
       </section>

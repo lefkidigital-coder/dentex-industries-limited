@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Product } from "@/data/products";
+import { productSrcSet, sized, PRODUCT_IMAGE_WIDTH } from "@/lib/images";
 
 export function ProductGallery({ product }: { product: Product }) {
   const images = [product.images.main, ...product.images.alternates, ...product.images.details];
@@ -17,10 +18,14 @@ export function ProductGallery({ product }: { product: Product }) {
   return (
     <div>
       <div className="relative aspect-square sm:aspect-[4/3] product-stage overflow-hidden rounded-2xl border border-border/60">
-        <AnimatePresence mode="wait">
+        {/* initial={false}: the first photo is visible straight from the server-rendered page. */}
+        <AnimatePresence mode="wait" initial={false}>
           <motion.img
             key={images[index]}
             src={images[index]}
+            srcSet={productSrcSet(images[index])}
+            sizes="(min-width: 1024px) 500px, (min-width: 640px) calc(100vw - 144px), calc(100vw - 96px)"
+            fetchPriority={index === 0 ? "high" : undefined}
             alt={`${product.title}, ${labels[index]}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -65,7 +70,8 @@ export function ProductGallery({ product }: { product: Product }) {
                 i === index ? "border-accent" : "border-border/60 hover:border-accent/50"
               }`}
             >
-              <img src={src} alt="" loading="lazy" className="h-full w-full object-contain object-center" />
+              {/* 80px thumbnails use the small copy, the same file cards and phones use. */}
+              <img src={sized(src, PRODUCT_IMAGE_WIDTH)} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain object-center" />
             </button>
           ))}
         </div>
