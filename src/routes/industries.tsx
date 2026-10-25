@@ -66,7 +66,7 @@ function Industries() {
           <Reveal>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Related Products</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">A selection from our range</h2>
+              <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">A selection from our range</h2>
             </div>
           </Reveal>
           <div className="mt-10">
@@ -80,7 +80,7 @@ function Industries() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="rounded-2xl border border-border/60 bg-card p-6 sm:p-12 shadow-sm">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Our manufacturing capability</h2>
+              <h2 data-lines className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">Our manufacturing capability</h2>
               <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
                 Injection- and blow-moulded rigid plastic packaging produced in Nairobi by a team of 70+, under
                 controlled production processes with material preparation and product inspection on every run.

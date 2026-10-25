@@ -55,7 +55,7 @@ function About() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Our Story</p>
-                <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Built on adaptation, investment and trust.</h2>
+                <h2 data-lines className="mt-3 text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Built on adaptation, investment and trust.</h2>
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>Dentex Industries Limited is a Kenyan manufacturer of rigid plastic packaging, established in 1986 when the company acquired a toothbrush manufacturing plant and began production with three injection moulding machines.</p>
@@ -74,7 +74,7 @@ function About() {
       <section className="bg-tech-grey py-12 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight max-w-2xl">Mission, Vision & Values</h2>
+            <h2 data-lines className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight max-w-2xl">Mission, Vision & Values</h2>
           </Reveal>
           <div className="mt-8 sm:mt-12 grid gap-6 md:grid-cols-3">
             {mvv.map((m, i) => (

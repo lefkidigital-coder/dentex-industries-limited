@@ -1,13 +1,2 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-export function prefersReducedMotion() {
-  if (typeof window === "undefined") return true;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-export { gsap, ScrollTrigger };
+// GSAP and its plugins are registered once in the shared motion system.
+export { gsap, ScrollTrigger, reducedMotion as prefersReducedMotion } from "@/motion/core";

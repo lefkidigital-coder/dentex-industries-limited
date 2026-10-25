@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Layout } from "../components/site/Layout";
 import { NotFoundContent } from "../components/site/NotFoundContent";
+import { PageTransition } from "../components/site/PageTransition";
 
 function NotFoundComponent() {
   return (
@@ -112,6 +113,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <PageTransition />
     </QueryClientProvider>
   );
 }
