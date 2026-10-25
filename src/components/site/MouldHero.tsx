@@ -1,10 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useEntrance } from "@/hooks/use-gsap";
-import heroAsset from "@/assets/hero-products-v3.webp.asset.json";
-
-const heroArt = heroAsset.url;
-const heroArtMobile = "/assets/hero-products-v3-900w.webp";
+import { EMPTY_IMAGE } from "@/lib/images";
+import { HERO_ART, HERO_ART_MOBILE, HERO_DESKTOP_MEDIA, HERO_MOBILE_MEDIA } from "./hero-art";
 
 /**
 
@@ -61,15 +59,20 @@ export function MouldHero() {
       </div>
 
       {/* Artwork, full-bleed right on desktop, stacked below copy on mobile */}
+      {/* Each artwork sits in a <picture> whose other-size source is an empty
+          image, so a phone never downloads the desktop artwork and vice versa. */}
       <div data-anim="image" className="pointer-events-none absolute inset-y-0 right-0 hidden lg:flex lg:items-center w-[56%]">
-        <img
-          src={heroArt}
-          alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
-          width={1500}
-          height={1000}
-          fetchPriority="high"
-          className="relative h-full max-h-[92%] w-full object-contain object-right"
-        />
+        <picture className="contents">
+          <source media={HERO_MOBILE_MEDIA} srcSet={EMPTY_IMAGE} />
+          <img
+            src={HERO_ART}
+            alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
+            width={1500}
+            height={1000}
+            fetchPriority="high"
+            className="relative h-full max-h-[92%] w-full object-contain object-right"
+          />
+        </picture>
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-12 lg:py-16">
@@ -92,14 +95,17 @@ export function MouldHero() {
 
           {/* Mobile artwork, as large as the screen width allows */}
           <div data-anim="image" className="lg:hidden -mx-4 sm:-mx-6 mt-3 sm:mt-6 flex justify-center">
-            <img
-              src={heroArtMobile}
-              alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
-              width={900}
-              height={600}
-              fetchPriority="high"
-              className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center"
-            />
+            <picture className="contents">
+              <source media={HERO_DESKTOP_MEDIA} srcSet={EMPTY_IMAGE} />
+              <img
+                src={HERO_ART_MOBILE}
+                alt="Dentex rigid plastic packaging range: HDPE jerrycan with red cap, round bottles, wide-mouth jar with green lid and closure caps"
+                width={900}
+                height={600}
+                fetchPriority="high"
+                className="w-full max-w-none h-[min(34svh,300px)] sm:h-[min(46svh,420px)] object-contain object-center"
+              />
+            </picture>
           </div>
 
           <div data-anim="cta" className="mt-2 sm:mt-5 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-2.5 sm:gap-4">

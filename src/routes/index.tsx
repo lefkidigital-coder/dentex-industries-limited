@@ -9,9 +9,15 @@ import { TrustStrip } from "@/components/site/TrustStrip";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { ValueLocks } from "@/components/site/ValueLocks";
 import { RibbedDivider } from "@/components/site/RibbedDivider";
+import { HERO_ART, HERO_ART_MOBILE, HERO_DESKTOP_MEDIA, HERO_MOBILE_MEDIA } from "@/components/site/hero-art";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    // Start the hero artwork for this screen size before scripts and styles finish.
+    links: [
+      { rel: "preload", as: "image", href: HERO_ART_MOBILE, media: HERO_MOBILE_MEDIA, fetchPriority: "high" },
+      { rel: "preload", as: "image", href: HERO_ART, media: HERO_DESKTOP_MEDIA, fetchPriority: "high" },
+    ],
     meta: [
       { title: "Dentex Industries Ltd, Precision Plastic Packaging" },
       { name: "description", content: "For 40 years, Dentex Industries has delivered reliable rigid plastic packaging for businesses across East Africa, pharma, food & beverage, industrial." },

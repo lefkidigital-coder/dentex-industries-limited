@@ -8,6 +8,10 @@ import ultravetis from "@/assets/logo-ultravetis.webp.asset.json";
 import lacheka from "@/assets/logo-lacheka.webp.asset.json";
 import grounded from "@/assets/logo-grounded.webp.asset.json";
 import lakiLaki from "@/assets/logo-laki-laki.webp.asset.json";
+import { sized } from "@/lib/images";
+
+/** Logos display at most ~160px wide, so 480px copies cover 3x screens. ELLYS is already small. */
+const small = (url: string) => sized(url, 480);
 
 /**
  * Trusted Across Industries, client logos are used exactly as supplied.
@@ -16,15 +20,15 @@ import lakiLaki from "@/assets/logo-laki-laki.webp.asset.json";
  * cropped or visually oversized relative to the rest.
  */
 const LOGOS = [
-  { name: "Dawa Life Sciences", src: dawa.url },
-  { name: "Laboratory & Allied Ltd", src: laboratoryAllied.url },
-  { name: "VetCare Africa", src: vetcare.url },
-  { name: "Ultravetis", src: ultravetis.url },
-  { name: "Lacheka Animal Health and Nutrition", src: lacheka.url },
-  { name: "BRAVA Food Industries Ltd", src: brava.url },
-  { name: "Laki Laki", src: lakiLaki.url },
-  { name: "Grounded", src: grounded.url },
-  { name: "KEPRO, Kenya Extended Producer Responsibility Organization", src: kepro.url },
+  { name: "Dawa Life Sciences", src: small(dawa.url) },
+  { name: "Laboratory & Allied Ltd", src: small(laboratoryAllied.url) },
+  { name: "VetCare Africa", src: small(vetcare.url) },
+  { name: "Ultravetis", src: small(ultravetis.url) },
+  { name: "Lacheka Animal Health and Nutrition", src: small(lacheka.url) },
+  { name: "BRAVA Food Industries Ltd", src: small(brava.url) },
+  { name: "Laki Laki", src: small(lakiLaki.url) },
+  { name: "Grounded", src: small(grounded.url) },
+  { name: "KEPRO, Kenya Extended Producer Responsibility Organization", src: small(kepro.url) },
   { name: "ELLYS", src: ellys.url },
 ];
 
@@ -50,6 +54,7 @@ export function TrustStrip() {
                   src={logo.src}
                   alt={logo.name}
                   loading="lazy"
+                  decoding="async"
                   className="max-h-full max-w-full w-auto h-auto object-contain object-center"
                 />
               </div>

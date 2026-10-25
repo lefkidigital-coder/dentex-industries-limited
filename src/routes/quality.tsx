@@ -2,12 +2,25 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout, Reveal } from "@/components/site/Layout";
 import { ShieldCheck, FlaskConical, Cog, Leaf, Sparkles } from "lucide-react";
 import { InspectionHero } from "@/components/site/InspectionHero";
-import inspection from "@/assets/quality-inspection.png.asset.json";
 import engineer from "@/assets/innovation-engineer.webp.asset.json";
 import { RecyclingLoop } from "@/components/site/RecyclingLoop";
 
+/**
+ * Approved inspection photo (public/assets/quality-inspection.png, kept as the
+ * master) compressed to WebP at full size plus an 828px copy for phones.
+ * The older quality-inspection.webp is a different image and must not be used.
+ */
+const INSPECTION = {
+  src: "/assets/quality-inspection-approved.webp",
+  srcSet: "/assets/quality-inspection-approved-828w.webp 828w, /assets/quality-inspection-approved.webp 1083w",
+  sizes: "(min-width: 1024px) 48vw, 100vw",
+  width: 1083,
+  height: 1453,
+};
+
 export const Route = createFileRoute("/quality")({
   head: () => ({
+    links: [{ rel: "preload", as: "image", imageSrcSet: INSPECTION.srcSet, imageSizes: INSPECTION.sizes, fetchPriority: "high" }],
     meta: [
       { title: "Quality & Innovation | Dentex Industries Ltd" },
       { property: "og:type", content: "website" },
@@ -29,7 +42,7 @@ const qa = [
 function Quality() {
   return (
     <Layout>
-      <InspectionHero image={inspection.url} alt="Gloved hand inspecting a white jar with a green lid under precision lighting"
+      <InspectionHero image={INSPECTION} alt="Gloved hand inspecting a white jar with a green lid under precision lighting"
         eyebrow="Quality & Innovation"
         title="Driven by Innovation, Defined by Quality."
         subtitle="How we ensure every product meets the highest standards."
@@ -91,6 +104,10 @@ function Quality() {
             <img
               src={engineer.url}
               alt="Dentex engineer inspecting a PET preform beside moulding equipment"
+              loading="lazy"
+              decoding="async"
+              width={713}
+              height={542}
               className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
             />
           </Reveal>

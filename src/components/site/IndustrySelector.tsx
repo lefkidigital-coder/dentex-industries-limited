@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { sized } from "@/lib/images";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Dna, Cog, Leaf, Factory, Plus, UtensilsCrossed, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -88,6 +89,26 @@ export function IndustrySelector({ active: activeProp, onChange }: { active?: Ke
   const decorations = { pharma: Plus, food: UtensilsCrossed, cosmetics: Sparkles, automotive: Cog, agrochemical: Leaf, industrial: Factory };
   const Decoration = decorations[active];
 
+  // Only the active showcase loads at first. Others load when their tab is
+  // chosen and stay mounted afterwards, so returning to a tab never refetches.
+  const [mounted, setMounted] = useState<Key[]>([active]);
+  const [ready, setReady] = useState<Key[]>([]);
+  // The image on show: the active one once it has loaded, otherwise the last
+  // one that had, so the crossfade never passes through an empty frame.
+  const [shown, setShown] = useState<Key>(active);
+  const activeRef = useRef(active);
+  activeRef.current = active;
+
+  useEffect(() => {
+    setMounted((m) => (m.includes(active) ? m : [...m, active]));
+    if (ready.includes(active)) setShown(active);
+  }, [active, ready]);
+
+  const onImageReady = (key: Key) => {
+    setReady((r) => (r.includes(key) ? r : [...r, key]));
+    if (key === activeRef.current) setShown(key);
+  };
+
   return (
     <section id="industries-served" className={`industry-section tint-shift ${current.tint} relative overflow-hidden py-12 sm:py-20 lg:py-24`}>
       <Decoration aria-hidden="true" className="pointer-events-none absolute right-6 top-12 h-40 w-40 sm:h-56 sm:w-56 opacity-[0.06] text-primary" strokeWidth={1} />
@@ -155,11 +176,18 @@ export function IndustrySelector({ active: activeProp, onChange }: { active?: Ke
           </div>
 
           <div className="relative w-full aspect-[1.72] rounded-2xl overflow-hidden self-start md:self-center">
-            {INDUSTRIES.map((industry) => (
-              <img key={industry.key} src={images[industry.key].url} alt={`${industry.label} packaging application showcase`}
-                aria-hidden={active !== industry.key}
-                className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 motion-reduce:transition-none ${active === industry.key ? "opacity-100" : "opacity-0"}`} />
-            ))}
+            {INDUSTRIES.filter((industry) => mounted.includes(industry.key)).map((industry) => {
+              const url = images[industry.key].url;
+              return (
+                <img key={industry.key} src={url} srcSet={`${sized(url, 820)} 820w, ${url} 1641w`} sizes="(min-width: 768px) 55vw, 100vw"
+                  alt={`${industry.label} packaging application showcase`}
+                  aria-hidden={shown !== industry.key}
+                  decoding="async"
+                  ref={(el) => { if (el?.complete && el.naturalWidth) onImageReady(industry.key); }}
+                  onLoad={() => onImageReady(industry.key)}
+                  className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 motion-reduce:transition-none ${shown === industry.key ? "opacity-100" : "opacity-0"}`} />
+              );
+            })}
           </div>
         </div>
       </div>
